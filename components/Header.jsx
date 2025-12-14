@@ -4,7 +4,7 @@ import BrasilFlag from "../public/images/languages/Brasil.png";
 
 export default function Header() {
   return (
-    <div className="flex items-center justify-between p-10 bg-[#0F224A] text-white font-bold">
+    <div className="h-[15dvh] flex items-center justify-between p-10 bg-[#0F224A] text-white font-bold">
         <nav className="flex items-center gap-x-6">
         <Image src={TextLogo} width={170} height={60} alt="" />
             <ul className="flex items-center gap-x-10">

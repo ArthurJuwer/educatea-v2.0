@@ -12,6 +12,7 @@ const desenvolvedores = [
     linkedin: "https://www.linkedin.com/in/arthurjuwer/",
   },
   
+  
 ];
 
 const orientadores = [

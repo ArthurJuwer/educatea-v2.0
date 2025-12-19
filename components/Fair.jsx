@@ -5,6 +5,9 @@ import Image from "next/image";
 import Feira1 from "../public/images/feiras/Feira1.png";
 import Feira2 from "../public/images/feiras/Feira2.png";
 import Feira3 from "../public/images/feiras/Feira3.png";
+import Feira4 from "../public/images/feiras/Feira4.png";
+import Feira5 from "../public/images/feiras/Feira5.png";
+import Feira6 from "../public/images/feiras/Feira6.png";
 
 import FeiraLogo1 from "../public/images/feiras/logo/FeiraLogo1.png";
 import FeiraLogo2 from "../public/images/feiras/logo/FeiraLogo2.png";
@@ -18,9 +21,9 @@ export default function Fair() {
     { id: 1, image: Feira1, logo: FeiraLogo1, title: "Feira de Projetos SENAC RS" },
     { id: 2, image: Feira2, logo: FeiraLogo2, title: "MostraPoa IFRS" },
     { id: 3, image: Feira3, logo: FeiraLogo3, title: "Mostra Científica SENAC SL" },
-    { id: 4, image: Feira1, logo: FeiraLogo4, title: "Feevale Inovamundi" },
-    { id: 5, image: Feira2, logo: FeiraLogo5, title: "MOCITEC IFSUL Charqueadas" },
-    { id: 6, image: Feira3, logo: FeiraLogo6, title: "Desafio Liga Jovem" },
+    { id: 4, image: Feira4, logo: FeiraLogo4, title: "Feevale Inovamundi" },
+    { id: 5, image: Feira5, logo: FeiraLogo5, title: "MOCITEC IFSUL Charqueadas" },
+    { id: 6, image: Feira6, logo: FeiraLogo6, title: "Desafio Liga Jovem" },
   ];
 
   const [index, setIndex] = useState(0);

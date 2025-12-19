@@ -1,4 +1,5 @@
 import Fair from "@/components/Fair";
+import FairLogos from "@/components/FairLogos";
 import Footer from "@/components/Footer";
 import GameCard from "@/components/GameCard";
 import Header from "@/components/Header";
@@ -14,6 +15,7 @@ export default function Home() {
       <section className="bg-[#0b1320] flex flex-col gap-20 items-center justify-center py-15">
         <GameCard />
         <Fair />
+        <FairLogos />
       </section>
       <Team />
       <Footer />

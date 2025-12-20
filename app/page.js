@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import GameCard from "@/components/GameCard";
 import Header from "@/components/Header";
 import MainContent from "@/components/MainContent";
+import Searches from "@/components/Searches";
 import Team from "@/components/Team";
 import Image from "next/image";
 
@@ -12,10 +13,11 @@ export default function Home() {
     <div>
       <Header />
       <MainContent />
-      <section className="bg-[#0b1320] flex flex-col gap-20 items-center justify-center py-15">
+      <section className="bg-gradient-to-br from-[#0B1623] to-[#050B14] flex flex-col gap-20 items-center justify-center py-15">
         <GameCard />
         <Fair />
         <FairLogos />
+        <Searches />
       </section>
       <Team />
       <Footer />

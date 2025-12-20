@@ -60,7 +60,7 @@ export default function Searches() {
   const content = contentMap[active];
 
   return (
-    <section className="w-full min-h-screen flex items-center justify-center">
+    <section className="w-full flex items-center justify-center">
       <div className="w-full max-w-7xl flex flex-col items-center gap-16 px-6">
 
         {/* Main Content */}

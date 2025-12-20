@@ -18,7 +18,7 @@ export default function Slider() {
     
     <div className="w-full max-w-5xl mx-auto text-center">
       {/* Title */}
-      <h1 className="text-white text-3xl font-bold mb-6">
+      <h1 className="text-white text-3xl mb-20 font-bold mb-6">
         EXPERIMENTE E APRENDA!
       </h1>
 
@@ -27,7 +27,7 @@ export default function Slider() {
         <Image
           src={slides[currentSlide]}
           alt={`Slide ${currentSlide + 1}`}
-          className="w-[1900px] h-auto"
+          className="w-[1900px] h-[600px]"
           priority
         />
 
@@ -38,7 +38,7 @@ export default function Slider() {
               prev === 0 ? slides.length - 1 : prev - 1
             )
           }
-          className="absolute left-4 top-1/2 -translate-y-1/2 text-white text-3xl"
+          className="absolute left-0 top-1/2 -translate-y-1/2 p-3 py-6 rounded-br-2xl rounded-tr-2xl bg-[#0033FF]  text-white text-3xl"
         >
           ‹
         </button>
@@ -49,7 +49,7 @@ export default function Slider() {
               prev === slides.length - 1 ? 0 : prev + 1
             )
           }
-          className="absolute right-4 top-1/2 -translate-y-1/2 text-white text-3xl"
+          className="absolute right-0 p-3 py-6 rounded-bl-2xl rounded-tl-2xl bg-[#0033FF] top-1/2 -translate-y-1/2 text-white  text-3xl"
         >
           ›
         </button>

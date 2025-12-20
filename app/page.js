@@ -1,6 +1,7 @@
 import Fair from "@/components/Fair";
 import FairLogos from "@/components/FairLogos";
 import Footer from "@/components/Footer";
+import Forum from "@/components/Forum";
 import GameCard from "@/components/GameCard";
 import Header from "@/components/Header";
 import MainContent from "@/components/MainContent";
@@ -22,6 +23,7 @@ export default function Home() {
         <Slider />
         <div className="absolute w-full h-[300px] bottom-0 bg-white z-0"></div>
       </section>
+      <Forum />
       <Team />
       <Footer />
     </div>

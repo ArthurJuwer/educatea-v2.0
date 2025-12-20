@@ -4,12 +4,12 @@ import BrasilFlag from "../public/images/languages/Brasil.png";
 
 export default function Header() {
   return (
-    <div className="h-[15dvh] flex items-center justify-between p-10 bg-[#0F224A] text-white font-bold">
+    <div className="h-[13dvh] flex items-center justify-between p-10 bg-white text-black font-bold">
         <nav className="flex items-center gap-x-6">
         <Image src={TextLogo} width={170} height={60} alt="" />
             <ul className="flex items-center gap-x-10">
                 <li>
-                    <button className="bg-[#1A3879] cursor-pointer  px-10 -mr-4 py-3 rounded-full">JOGAR</button>
+                    <button className="bg-[#1A3879] cursor-pointer text-white px-10 -mr-4 py-3 rounded-full">JOGAR</button>
                 </li>
                 <li>APRESENTAÇÃO</li>
                 <li>FEIRAS</li>
@@ -19,7 +19,7 @@ export default function Header() {
             </ul>
         </nav>
         <div className="flex items-center justify-center gap-x-4">
-            <button className="bg-[#F9A318] cursor-pointer px-12 py-3 rounded-full" >DISPONÍVEL AGORA</button>
+            <button className="bg-[#F9A318] text-white cursor-pointer px-12 py-3 rounded-full" >DISPONÍVEL AGORA</button>
             <button>
                 <Image src={BrasilFlag} width={35} height={25} alt="" />
             </button>

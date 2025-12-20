@@ -45,7 +45,7 @@ export default function Fair() {
   ];
 
   return (
-    <section className="w-full py-16 overflow-hidden">
+    <section className="w-full py-8 overflow-hidden">
       <h1 className="text-center text-white xl:text-3xl 2xl:mb-25 font-bold xl:mb-20">
         NOSSAS PARTICIPAÇÕES EM FEIRAS
       </h1>

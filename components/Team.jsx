@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Linkedin from "../public/images/icons/Linkedin.png"
 
 const desenvolvedores = [
   {
@@ -73,10 +74,9 @@ export default function Team() {
                   rel="noopener noreferrer"
                 >
                   <Image
-                    src="/images/icons/Linkedin.png"
+                    src={Linkedin}
                     alt="LinkedIn"
-                    width={24}
-                    height={24}
+                    className="w-full"
                   />
                 </a>
 
@@ -115,10 +115,9 @@ export default function Team() {
                   rel="noopener noreferrer"
                 >
                   <Image
-                    src="/images/icons/Linkedin.png"
+                    src={Linkedin}
                     alt="LinkedIn"
-                    width={24}
-                    height={24}
+                    className="w-full"
                   />
                 </a>
 

@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
-import Linkedin from "../public/images/icons/Linkedin.png"
+import { motion } from "framer-motion";
+import Linkedin from "../public/images/icons/Linkedin.png";
 
 const desenvolvedores = [
   {
@@ -12,8 +15,6 @@ const desenvolvedores = [
     imagem: "/images/team/ArthurJuwer.png",
     linkedin: "https://www.linkedin.com/in/arthurjuwer/",
   },
-  
-  
 ];
 
 const orientadores = [
@@ -32,8 +33,37 @@ const orientadores = [
     imagem: "/images/team/Gabriele.jpg",
     linkedin: "https://www.linkedin.com/in/arthurjuwer/",
   },
-
 ];
+
+/* ================= VARIANTS ================= */
+
+const sectionVariant = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
+
+const gridVariant = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.12,
+    },
+  },
+};
+
+const cardVariant = {
+  hidden: { opacity: 0, y: 30, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.45, ease: "easeOut" },
+  },
+};
 
 export default function Team() {
   return (
@@ -41,93 +71,133 @@ export default function Team() {
       id="equipe"
       className="flex flex-col gap-6 items-center justify-center"
     >
-      <h1 className="bg-[#0033FF] text-center text-white uppercase font-bold p-3 px-6 w-full text-2xl lg:mb-10">
+      {/* TÍTULO */}
+      <motion.h1
+        variants={sectionVariant}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="bg-[#0033FF] text-center text-white uppercase font-bold p-3 px-6 w-full text-2xl lg:mb-10"
+      >
         Equipe
-      </h1>
+      </motion.h1>
 
-      <div className="lg:flex lg:flex-col lg:items-center lg:gap-10">
-        
-        {/* DESENVOLVEDORES */}
-        <div className="flex flex-col gap-12">
-          <h1 className="uppercase text-center font-bold text-3xl">
+      <div className="lg:flex lg:flex-col lg:items-center lg:gap-14 w-full">
+
+        {/* ================= DESENVOLVEDORES ================= */}
+        <motion.div
+          variants={sectionVariant}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="flex flex-col gap-12"
+        >
+          <h2 className="uppercase text-center font-bold text-3xl">
             Desenvolvedores
-          </h1>
+          </h2>
 
-          <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
+          <motion.div
+            variants={gridVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="flex flex-col lg:flex-row gap-6 lg:gap-8"
+          >
             {desenvolvedores.map((dev, index) => (
-              <article
+              <motion.article
                 key={index}
-                className="flex flex-col items-center justify-center relative"
+                variants={cardVariant}
+                whileHover={{ y: -8 }}
+                className="flex flex-col items-center justify-center relative cursor-pointer"
               >
-                <Image
-                  src={dev.imagem}
-                  alt={dev.nome}
-                  width={288}
-                  height={288}
-                  className="bg-[#D9D9D9] rounded-xl"
-                />
+                {/* IMAGEM */}
+                  <Image
+                    src={dev.imagem}
+                    alt={dev.nome}
+                    width={288}
+                    height={288}
+                    className="bg-[#D9D9D9] rounded-xl"
+                  />
 
-                <a
+                {/* LINKEDIN */}
+                <motion.a
                   href={dev.linkedin}
-                  className="absolute top-4 right-4"
                   target="_blank"
                   rel="noopener noreferrer"
+                  initial={{ opacity: 0, scale: 0.6 }}
+                  whileHover={{ scale: 1.15, rotate: 5 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.3 }}
+                  className="absolute top-4 right-4"
                 >
-                  <Image
-                    src={Linkedin}
-                    alt="LinkedIn"
-                    className="w-full"
-                  />
-                </a>
+                  <Image src={Linkedin} alt="LinkedIn" className="h-6 w-6" />
+                </motion.a>
 
+                {/* NOME */}
                 <label className="bg-[#242424] text-white p-3 text-center font-bold w-full -mt-3 rounded-bl-xl rounded-br-xl">
                   {dev.nome}
                 </label>
-              </article>
+              </motion.article>
             ))}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
-        {/* ORIENTADORES */}
-        <div className="flex flex-col gap-12 lg:mb-0 mb-12">
-          <h1 className="uppercase text-center font-bold text-3xl mt-6 lg:mt-0">
+        {/* ================= ORIENTADORES ================= */}
+        <motion.div
+          variants={sectionVariant}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="flex flex-col gap-12 mb-12"
+        >
+          <h2 className="uppercase text-center font-bold text-3xl mt-6 lg:mt-0">
             Orientadores
-          </h1>
+          </h2>
 
-          <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
+          <motion.div
+            variants={gridVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="flex flex-col lg:flex-row gap-6 lg:gap-8"
+          >
             {orientadores.map((ori, index) => (
-              <article
+              <motion.article
                 key={index}
-                className="flex flex-col items-center justify-center relative"
+                variants={cardVariant}
+                whileHover={{ y: -8 }}
+                className="flex flex-col items-center justify-center relative cursor-pointer"
               >
-                <Image
-                  src={ori.imagem}
-                  alt={ori.nome}
-                  width={288}
-                  height={288}
-                  className="bg-[#D9D9D9] rounded-xl"
-                />
+                
+                  <Image
+                    src={ori.imagem}
+                    alt={ori.nome}
+                    width={288}
+                    height={288}
+                    className="bg-[#D9D9D9] rounded-xl"
+                  />
+                
 
-                <a
+                <motion.a
                   href={ori.linkedin}
-                  className="absolute top-4 right-4"
                   target="_blank"
                   rel="noopener noreferrer"
+                  initial={{ opacity: 0, scale: 0.6 }}
+                  whileHover={{ scale: 1.15, rotate: 5 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.3 }}
+                  className="absolute top-4 right-4"
                 >
-                  <Image
-                    src={Linkedin}
-                    alt="LinkedIn"
-                    className="w-full"
-                  />
-                </a>
+                  <Image src={Linkedin} alt="LinkedIn" className="h-6 w-6" />
+                </motion.a>
 
                 <label className="bg-[#242424] text-white p-3 text-center font-bold w-full -mt-3 rounded-bl-xl rounded-br-xl">
                   {ori.nome}
                 </label>
-              </article>
+              </motion.article>
             ))}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

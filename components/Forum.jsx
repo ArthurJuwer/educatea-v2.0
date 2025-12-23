@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 import avatar01 from "../public/images/avatars/avatar01.png";
 import avatar02 from "../public/images/avatars/avatar02.png";
@@ -73,17 +74,59 @@ export default function Forum() {
 
   const visibleComments = isMobile ? comments.slice(0, 3) : comments;
 
+  /* ================= ANIMATION VARIANTS ================= */
+
+  const sectionVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
+
+  const gridVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.12,
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 30, scale: 0.95 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: { duration: 0.4, ease: "easeOut" },
+    },
+  };
+
   return (
-    <section
+    <motion.section
       id="forum"
       className="py-10 lg:py-15 flex flex-col items-center w-full"
+      variants={sectionVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.3 }}
     >
-      <h1 className="font-bold text-2xl lg:text-3xl mb-10">
+      {/* Title */}
+      <motion.h1
+        className="font-bold text-2xl lg:text-3xl mb-10"
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
+      >
         CONFIRA O FÓRUM
-      </h1>
+      </motion.h1>
 
+      {/* Comments grid */}
       <div className="w-full px-6">
-        <div
+        <motion.div
           className="
             grid 
             grid-cols-1 
@@ -92,27 +135,56 @@ export default function Forum() {
             gap-6
             place-items-center
           "
+          variants={gridVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
         >
           {visibleComments.map((comment, index) => (
-            <CommentCard
+            <motion.div
               key={index}
-              text={comment.text}
-              author={comment.author}
-              image={comment.image.src}
-            />
+              variants={cardVariants}
+              whileHover={{
+                y: -6,
+                scale: 1.02,
+                transition: { duration: 0.2 },
+              }}
+            >
+              <CommentCard
+                text={comment.text}
+                author={comment.author}
+                image={comment.image.src}
+              />
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
 
-      <div className="flex flex-col gap-6 items-center w-full mt-12">
-        <a
+      {/* CTA */}
+      <motion.div
+        className="flex flex-col gap-6 items-center w-full mt-12"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
+      >
+        <motion.a
           href="/forum"
-          className="bg-[#0033FF] text-white px-8 py-2 rounded-full font-bold uppercase hover:opacity-90"
+          className="bg-[#0033FF] text-white px-8 py-2 rounded-full font-bold uppercase"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
         >
           Ver mais
-        </a>
-        <span className="w-4/5 lg:w-3/5 h-px bg-black block"></span>
-      </div>
-    </section>
+        </motion.a>
+
+        <motion.span
+          className="w-4/5 lg:w-3/5 h-px bg-black block"
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          transition={{ duration: 0.6 }}
+          style={{ transformOrigin: "left" }}
+        />
+      </motion.div>
+    </motion.section>
   );
 }

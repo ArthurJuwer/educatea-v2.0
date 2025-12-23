@@ -1,35 +1,68 @@
+"use client";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import WallpaperLogo from "../public/images/logos/WallpaperLogo.png";
 
 export default function GameCard() {
   return (
-    <div
-      className="bg-[#313744] p-6 pt-5 text-white rounded-2xl 
-                 w-10/12 md:w-1/2 lg:w-4/12 
-                 flex flex-col gap-4 relative"
+    <motion.div
+      initial={{ opacity: 0, y: 60 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      viewport={{ once: true }}
+      className="
+        bg-[#313744] p-6 pt-5 text-white rounded-2xl 
+        w-10/12 md:w-1/2 lg:w-4/12 
+        flex flex-col gap-4 relative
+      "
     >
-      
-      <h1 className="text-lg md:text-xl font-semibold">
+      {/* TÍTULO */}
+      <motion.h1
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2, duration: 0.4 }}
+        viewport={{ once: true }}
+        className="text-lg md:text-xl font-semibold"
+      >
         Acesse o Educa Tea
-      </h1>
+      </motion.h1>
 
       {/* CONTEÚDO */}
       <div className="flex flex-col md:flex-row items-center gap-4">
-        <Image
-          src={WallpaperLogo}
-          alt="Educa Tea"
-          className="sm:w-full md:w-1/2 md:p-2 h-auto"
-        />
+        {/* IMAGEM */}
+        <motion.div
+          initial={{ scale: 0.9, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          transition={{ delay: 0.3, duration: 0.5 }}
+          viewport={{ once: true }}
+          className="sm:w-full md:w-1/2 md:p-2"
+        >
+          <Image
+            src={WallpaperLogo}
+            alt="Educa Tea"
+            className="w-full h-auto"
+          />
+        </motion.div>
 
-        <p className="text-sm md:text-base md:w-1/2 text-center md:text-left">
+        {/* TEXTO */}
+        <motion.p
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.4, duration: 0.5 }}
+          viewport={{ once: true }}
+          className="text-sm md:text-base md:w-1/2 text-center md:text-left"
+        >
           Jogo educativo interativo que ajuda profissionais a desenvolverem
           estratégias inclusivas e práticas eficazes no ensino de alunos com
           Transtorno do Espectro Autista (TEA).
-        </p>
+        </motion.p>
       </div>
 
       {/* BOTÃO */}
-      <button
+      <motion.button
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        transition={{ type: "spring", stiffness: 300 }}
         className="
           bg-[#0033FF] rounded-xl px-14 py-2 font-semibold cursor-pointer
           text-sm md:text-base
@@ -38,7 +71,7 @@ export default function GameCard() {
         "
       >
         Acessar
-      </button>
-    </div>
+      </motion.button>
+    </motion.div>
   );
 }

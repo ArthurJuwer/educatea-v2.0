@@ -1,6 +1,7 @@
-"use client"
+"use client";
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
 
 import Feira1 from "../public/images/feiras/Feira1.png";
 import Feira2 from "../public/images/feiras/Feira2.png";
@@ -28,16 +29,16 @@ export default function Fair() {
 
   const [index, setIndex] = useState(0);
 
-  // Carrossel automático
+  /* AUTOPLAY */
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % feiras.length);
     }, 4000);
-
     return () => clearInterval(interval);
   }, [feiras.length]);
 
-  // Sempre renderiza 3 (anterior, atual, próximo)
+  const feiraAtual = feiras[index];
+
   const visibleFeiras = [
     feiras[(index - 1 + feiras.length) % feiras.length],
     feiras[index],
@@ -45,52 +46,122 @@ export default function Fair() {
   ];
 
   return (
-    <section className="w-full py-8 overflow-hidden">
-      <h1 className="text-center text-white xl:text-3xl 2xl:mb-25 font-bold xl:mb-20">
-        NOSSAS PARTICIPAÇÕES EM FEIRAS
-      </h1>
+    <motion.section
+      initial={{ opacity: 0, y: 80 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      viewport={{ once: true, margin: "-100px" }}
+      className="w-full lg:py-12 overflow-hidden"
+    >
+      {/* ================= TÍTULO ================= */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        className="flex justify-center mb-10"
+      >
+        <h1 className="text-center text-white font-bold text-2xl xl:text-3xl w-4/5">
+          NOSSAS PARTICIPAÇÕES EM FEIRAS
+        </h1>
+      </motion.div>
 
-      <div className="flex items-center justify-center 2xl:gap-8 xl:gap-6 px-4">
+      {/* ================= MOBILE / TABLET ================= */}
+      <div className="xl:hidden">
+        {/* IMAGEM PRINCIPAL */}
+        <div className="flex justify-center px-4">
+          <div className="relative w-full max-w-4xl h-[280px] sm:h-[380px] rounded-2xl overflow-hidden">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={feiraAtual.id}
+                initial={{ opacity: 0, scale: 0.97 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 1.03 }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+                className="absolute inset-0"
+              >
+                <Image
+                  src={feiraAtual.image}
+                  alt={feiraAtual.title}
+                  fill
+                  className="object-cover"
+                  priority
+                />
+                <div className="absolute inset-0 bg-black/40" />
+
+                <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
+                  <Image src={feiraAtual.logo} alt="Logo" width={90} height={90} />
+                  <p className="text-white text-sm font-semibold text-right max-w-[200px]">
+                    {feiraAtual.title}
+                  </p>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+        </div>
+
+        {/* THUMBNAILS */}
+        <div className="mt-6 flex justify-center gap-3 px-4 overflow-x-auto">
+          {feiras.map((feira, i) => (
+            <motion.button
+              key={feira.id}
+              onClick={() => setIndex(i)}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className={`relative flex-shrink-0
+                w-[110px] h-[70px]
+                rounded-lg overflow-hidden
+                ${i === index ? "ring-2 ring-white" : ""}
+              `}
+            >
+              <Image src={feira.image} alt={feira.title} fill className="object-cover" />
+              <div className="absolute inset-0 bg-black/50" />
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <Image src={feira.logo} alt="Logo" width={45} height={45} />
+              </div>
+            </motion.button>
+          ))}
+        </div>
+      </div>
+
+      {/* ================= DESKTOP ================= */}
+      <div className="hidden xl:flex items-center justify-center gap-6 px-4">
         {visibleFeiras.map((feira, i) => {
           const isCenter = i === 1;
 
           return (
-            <div
+            <motion.div
               key={feira.id}
-              className={`
-                relative rounded-xl overflow-hidden 
+              layout
+              animate={{
+                scale: isCenter ? 1.1 : 0.95,
+                opacity: isCenter ? 1 : 0.7,
+              }}
+              transition={{
+                type: "spring",
+                stiffness: 180,
+                damping: 22,
+              }}
+              className={`relative rounded-xl overflow-hidden
                 ${isCenter
-                  ? "scale-110 z-20 2xl:w-[480px] 2xl:h-[460px] xl:w-[440px] xl:h-[420px]"
-                  : "scale-95 opacity-70 2xl:w-[440px] 2xl:h-[420px]  w-[400px] h-[380px]"}
+                  ? "z-20 w-[440px] h-[420px]"
+                  : "z-10 w-[400px] h-[380px]"
+                }
               `}
             >
-              <Image
-                src={feira.image}
-                alt={feira.title}
-                fill
-                className="object-cover"
-              />
-
+              <Image src={feira.image} alt={feira.title} fill className="object-cover" />
               <div className="absolute inset-0 bg-black/40" />
 
               <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
-                <span className="bg-transparent p-2 rounded-md">
-                  <Image
-                    src={feira.logo}
-                    alt="Logo"
-                    width={120}
-                    height={120}
-                  />
-                </span>
-
+                <Image src={feira.logo} alt="Logo" width={110} height={110} />
                 <p className="text-white text-sm font-semibold text-right max-w-[150px]">
                   {feira.title}
                 </p>
               </div>
-            </div>
+            </motion.div>
           );
         })}
       </div>
-    </section>
+    </motion.section>
   );
 }

@@ -1,3 +1,7 @@
+"use client";
+
+import { useEffect, useState } from "react";
+
 import avatar01 from "../public/images/avatars/avatar01.png";
 import avatar02 from "../public/images/avatars/avatar02.png";
 import avatar03 from "../public/images/avatars/avatar03.png";
@@ -8,6 +12,8 @@ import avatar06 from "../public/images/avatars/avatar06.png";
 import CommentCard from "./ForumComments";
 
 export default function Forum() {
+  const [isMobile, setIsMobile] = useState(false);
+
   const comments = [
     {
       text: "Projeto incrível! Vai ajudar muitos professores a trabalharem de forma mais inclusiva. 👏",
@@ -40,36 +46,32 @@ export default function Forum() {
       image: avatar06,
     },
     {
-      text: "Parabéns pela iniciativa! Educação inclusiva transforma vidas.",
-      author: "Ana Beatriz",
-      image: avatar04,
-    },
-    {
-      text: "Que orgulho ver estudantes criando algo tão impactante. 🚀",
-      author: "Lucas Andrade",
-      image: avatar05,
+      text: "Um projeto inovador e necessário! Vai fazer diferença nas salas de aula.",
+      author: "Arthur Juwer",
+      image: avatar01,
     },
     {
       text: "Um projeto inovador e necessário! Vai fazer diferença nas salas de aula.",
       author: "Arthur Juwer",
-      image: avatar06,
-    },
-    {
-      text: "Parabéns pela iniciativa! Educação inclusiva transforma vidas.",
-      author: "Ana Beatriz",
       image: avatar04,
-    },
-    {
-      text: "Que orgulho ver estudantes criando algo tão impactante. 🚀",
-      author: "Lucas Andrade",
-      image: avatar05,
-    },
-    {
-      text: "Um projeto inovador e necessário! Vai fazer diferença nas salas de aula.",
-      author: "Arthur Juwer",
-      image: avatar06,
     },
   ];
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 640px)");
+
+    const handleResize = () => {
+      setIsMobile(mediaQuery.matches);
+    };
+
+    handleResize();
+    mediaQuery.addEventListener("change", handleResize);
+
+    return () =>
+      mediaQuery.removeEventListener("change", handleResize);
+  }, []);
+
+  const visibleComments = isMobile ? comments.slice(0, 3) : comments;
 
   return (
     <section
@@ -91,7 +93,7 @@ export default function Forum() {
             place-items-center
           "
         >
-          {comments.map((comment, index) => (
+          {visibleComments.map((comment, index) => (
             <CommentCard
               key={index}
               text={comment.text}

@@ -19,17 +19,37 @@ export default function FairLogos() {
   ];
 
   return (
-    <div className="flex items-center justify-center w-full gap-20 px-10 flex-wrap">
+    <div
+      className="
+        w-full
+        flex
+        gap-6
+        px-4
+        overflow-x-auto
+        flex-nowrap
+        snap-x snap-mandatory
+        sm:justify-center
+        sm:flex-wrap
+        sm:overflow-visible
+        sm:gap-20
+      "
+    >
       {feiras.map((feira) => (
         <div
           key={feira.id}
-          className="group w-[160px] h-[100px] [perspective:1000px]"
+          className="
+            group
+            min-w-[160px]
+            h-[100px]
+            snap-center
+            [perspective:1000px]
+          "
         >
           {/* Card */}
           <div className="relative w-full h-full transition-transform duration-700 backface-hidden [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
 
             {/* Front */}
-            <div className="absolute flex items-center justify-center">
+            <div className="absolute inset-0 flex items-center justify-center">
               <Image
                 src={feira.logo}
                 alt={feira.title}

@@ -89,7 +89,7 @@ export default function Team() {
         </div>
 
         {/* ORIENTADORES */}
-        <div className="flex flex-col gap-12">
+        <div className="flex flex-col gap-12 lg:mb-0 mb-12">
           <h1 className="uppercase text-center font-bold text-3xl mt-6 lg:mt-0">
             Orientadores
           </h1>

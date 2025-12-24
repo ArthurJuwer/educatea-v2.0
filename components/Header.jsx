@@ -6,6 +6,7 @@ import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 
 import TextLogo from "../public/images/logos/TextLogo.png";
 import BrasilFlag from "../public/images/languages/Brasil.png";
+import { LanguageSelectHeader } from "./sub-components/LanguageSelectHeader";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -43,11 +44,41 @@ export default function Header() {
           <button className="bg-[#1A3879] text-white px-10 py-3 rounded-full">
             JOGAR
           </button>
-          <li><a href="#apresentacao">APRESENTAÇÃO</a></li>
-          <li><a href="#feiras">FEIRAS</a></li>
-          <li><a href="#trabalhos">TRABALHOS</a></li>
-          <li><a href="#comunidade">COMUNIDADE</a></li>
-          <li><a href="#equipe">EQUIPE</a></li>
+          <motion.li
+            whileHover={{ y: -2 }}
+            transition={{ duration: 0.2 }}
+            className="cursor-pointer hover:opacity-80"
+          >
+            <a href="#apresentacao">APRESENTAÇÃO</a>
+          </motion.li>
+          <motion.li
+            whileHover={{ y: -2 }}
+            transition={{ duration: 0.2 }}
+            className="cursor-pointer hover:opacity-80"
+          >
+            <a href="#feiras">FEIRAS</a>
+          </motion.li>
+          <motion.li
+            whileHover={{ y: -2 }}
+            transition={{ duration: 0.2 }}
+            className="cursor-pointer hover:opacity-80"
+          >
+            <a href="#trabalhos">TRABALHOS</a>
+          </motion.li>
+          <motion.li
+            whileHover={{ y: -2 }}
+            transition={{ duration: 0.2 }}
+            className="cursor-pointer hover:opacity-80"
+          >
+            <a href="#comunidade">COMUNIDADE</a>
+          </motion.li>
+          <motion.li
+            whileHover={{ y: -2 }}
+            transition={{ duration: 0.2 }}
+            className="cursor-pointer hover:opacity-80"
+          >
+            <a href="#equipe">EQUIPE</a>
+          </motion.li> 
         </nav>
 
         {/* AÇÕES DESKTOP */}
@@ -55,7 +86,10 @@ export default function Header() {
           <button className="bg-[#F9A318] text-white px-12 py-3 rounded-full">
             DISPONÍVEL AGORA
           </button>
-          <Image src={BrasilFlag} width={35} height={25} alt="Idioma" />
+          <li className="list-none">
+            <LanguageSelectHeader />
+          </li>
+         
         </div>
 
         {/* HAMBURGER MOBILE */}

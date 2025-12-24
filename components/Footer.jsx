@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { LanguageSelectFooter } from "./sub-components/LanguageSelectFooter";
 
 /* ================= VARIANTS ================= */
 
@@ -78,19 +79,10 @@ export default function Footer() {
           </motion.li>
 
           {/* Language */}
-          <motion.li
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.2 }}
-            className="flex items-center gap-2"
-          >
-            <Image
-              src="/images/languages/Brasil.png"
-              width={20}
-              height={20}
-              alt="Bandeira do Brasil"
-            />
-            <span>Português (Brasil)</span>
-          </motion.li>
+          <li>
+            <LanguageSelectFooter />
+          </li>
+
 
           {/* Instagram */}
           <motion.li

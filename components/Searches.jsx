@@ -10,7 +10,7 @@ import ResultadosImg from "../public/images/searches/Previsto_Realizado-1-1280x7
 const contentMap = {
   cientifico: {
     title: "TRABALHO CIENTÍFICO",
-    text: "Lorem Ipsum é simplesmente um texto fictício da indústria tipográfica...",
+    text: "Lorem Ipsum é simplesmente um texto fictício da indústria tipográfica...Lorem Ipsum é simplesmente um texto fictício da indústria tipográfica...Lorem Ipsum é simplesmente um texto fictício da indústria tipográfica...Lorem Ipsum é simplesmente um texto fictício da indústria tipográfica...Lorem Ipsum é simplesmente um texto fictício da indústria tipográfica...Lorem Ipsum é simplesmente um texto fictício da indústria tipográfica...Lorem Ipsum é simplesmente um texto fictício da indústria tipográfica...Lorem Ipsum é simplesmente um texto fictício da indústria tipográfica...Lorem Ipsum é simplesmente um texto fictício da indústria tipográfica... Lorem Ipsum é simplesmente um texto fictício da indústria tipográfica...Lorem Ipsum é simplesmente um texto fictício da indústria tipográfica...Lorem Ipsum é simplesmente um texto fictício da indústria tipográfica...Lorem Ipsum é simplesmente um texto fictício da indústria tipográfica...Lorem Ipsum é simplesmente um texto fictício da indústria tipográfica... Lorem Ipsum é simplesmente um texto fictício da indústria tipográfica...Lorem Ipsum é simplesmente um texto fictício da indústria tipográfica...",
     image: CientificoImg,
   },
   pitch: {
@@ -35,6 +35,7 @@ export default function Searches() {
       transition={{ duration: 0.8, ease: "easeOut" }}
       viewport={{ once: true }}
       className="w-full flex justify-center px-4 sm:px-6"
+      id="trabalhos"
     >
       <div className="w-full max-w-7xl flex flex-col items-center gap-12 sm:gap-16">
 

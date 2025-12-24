@@ -106,7 +106,7 @@ export default function Forum() {
 
   return (
     <motion.section
-      id="forum"
+      id="comunidade"
       className="py-10 lg:py-15 flex flex-col items-center w-full"
       variants={sectionVariants}
       initial="hidden"

@@ -4,7 +4,7 @@ import IconYoutube from "../public/images/icons/Youtube.png";
 
 export default function MainContent() {
   return (
-    <section className="2xl:min-h-[88dvh] flex flex-col items-center justify-between gap-8 px-6 py-10 bg-[#595959]">
+    <section id="apresentacao" className="2xl:min-h-[88dvh] flex flex-col items-center justify-between gap-8 px-6 py-10 bg-[#595959]">
       
       {/* LOGO */}
       <Image

@@ -52,6 +52,7 @@ export default function Fair() {
       transition={{ duration: 0.8, ease: "easeOut" }}
       viewport={{ once: true, margin: "-100px" }}
       className="w-full lg:py-12 overflow-hidden"
+      id="feiras"
     >
       {/* ================= TÍTULO ================= */}
       <motion.div
@@ -61,7 +62,7 @@ export default function Fair() {
         viewport={{ once: true }}
         className="flex justify-center mb-10"
       >
-        <h1 className="text-center text-white font-bold text-2xl xl:text-3xl w-4/5">
+        <h1 className="text-center text-white font-bold text-2xl xl:text-3xl w-4/5 lg:mb-16">
           NOSSAS PARTICIPAÇÕES EM FEIRAS
         </h1>
       </motion.div>

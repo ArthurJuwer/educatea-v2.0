@@ -4,6 +4,8 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import Linkedin from "../public/images/icons/Linkedin.png";
 
+/* ================= DADOS ================= */
+
 const desenvolvedores = [
   {
     nome: "Arthur Cidade Matjjie",
@@ -65,6 +67,8 @@ const cardVariant = {
   },
 };
 
+/* ================= COMPONENTE ================= */
+
 export default function Team() {
   return (
     <section
@@ -107,36 +111,63 @@ export default function Team() {
               <motion.article
                 key={index}
                 variants={cardVariant}
-                whileHover={{ y: -8 }}
-                className="flex flex-col items-center justify-center relative cursor-pointer"
+                className="relative w-[288px] h-[320px] cursor-pointer [perspective:1000px]"
               >
-                {/* IMAGEM */}
-                  <Image
-                    src={dev.imagem}
-                    alt={dev.nome}
-                    width={288}
-                    height={288}
-                    className="bg-[#D9D9D9] rounded-xl"
-                  />
-
-                {/* LINKEDIN */}
-                <motion.a
-                  href={dev.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  initial={{ opacity: 0, scale: 0.6 }}
-                  whileHover={{ scale: 1.15, rotate: 5 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.3 }}
-                  className="absolute top-4 right-4"
+                <motion.div
+                  whileHover={{ rotateY: 180 }}
+                  transition={{ duration: 0.6 }}
+                  className="relative w-full h-full [transform-style:preserve-3d]"
                 >
-                  <Image src={Linkedin} alt="LinkedIn" className="h-6 w-6" />
-                </motion.a>
+                  {/* ================= FRENTE ================= */}
+                  <div className="absolute inset-0 [backface-visibility:hidden]">
+                    <Image
+                      src={dev.imagem}
+                      alt={dev.nome}
+                      width={288}
+                      height={288}
+                      className="bg-[#D9D9D9] rounded-xl"
+                    />
 
-                {/* NOME */}
-                <label className="bg-[#242424] text-white p-3 text-center font-bold w-full -mt-3 rounded-bl-xl rounded-br-xl">
-                  {dev.nome}
-                </label>
+                    {/* LINKEDIN NA FRENTE */}
+                    <a
+                      href={dev.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="absolute top-4 right-4 rounded-full shadow hover:scale-110 transition"
+                    >
+                      <Image
+                        src={Linkedin}
+                        alt="LinkedIn"
+                        className="h-6 w-6"
+                      />
+                    </a>
+
+                    <label className="bg-[#242424] text-white p-3 text-center font-bold w-full absolute bottom-0 rounded-bl-xl rounded-br-xl">
+                      {dev.nome}
+                    </label>
+                  </div>
+
+                  {/* ================= VERSO ================= */}
+                  <div className="absolute inset-0 bg-[#0033FF] rounded-xl flex flex-col items-center justify-center gap-6 text-white [transform:rotateY(180deg)] [backface-visibility:hidden]">
+                    <p className="font-bold text-lg text-center px-4">
+                      {dev.nome}
+                    </p>
+
+                    <a
+                      href={dev.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 bg-white text-[#0033FF] px-5 py-2 rounded-lg font-bold hover:scale-105 transition"
+                    >
+                      <Image
+                        src={Linkedin}
+                        alt="LinkedIn"
+                        className="h-6 w-6"
+                      />
+                      LinkedIn
+                    </a>
+                  </div>
+                </motion.div>
               </motion.article>
             ))}
           </motion.div>
@@ -165,35 +196,63 @@ export default function Team() {
               <motion.article
                 key={index}
                 variants={cardVariant}
-                whileHover={{ y: -8 }}
-                className="flex flex-col items-center justify-center relative cursor-pointer"
+                className="relative w-[288px] h-[320px] cursor-pointer [perspective:1000px]"
               >
-                
-                  <Image
-                    src={ori.imagem}
-                    alt={ori.nome}
-                    width={288}
-                    height={288}
-                    className="bg-[#D9D9D9] rounded-xl"
-                  />
-                
-
-                <motion.a
-                  href={ori.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  initial={{ opacity: 0, scale: 0.6 }}
-                  whileHover={{ scale: 1.15, rotate: 5 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.3 }}
-                  className="absolute top-4 right-4"
+                <motion.div
+                  whileHover={{ rotateY: 180 }}
+                  transition={{ duration: 0.6 }}
+                  className="relative w-full h-full [transform-style:preserve-3d]"
                 >
-                  <Image src={Linkedin} alt="LinkedIn" className="h-6 w-6" />
-                </motion.a>
+                  {/* FRENTE */}
+                  <div className="absolute inset-0 [backface-visibility:hidden]">
+                    <Image
+                      src={ori.imagem}
+                      alt={ori.nome}
+                      width={288}
+                      height={288}
+                      className="bg-[#D9D9D9] rounded-xl"
+                    />
 
-                <label className="bg-[#242424] text-white p-3 text-center font-bold w-full -mt-3 rounded-bl-xl rounded-br-xl">
-                  {ori.nome}
-                </label>
+                    {/* LINKEDIN NA FRENTE */}
+                    <a
+                      href={ori.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="absolute top-4 right-4 rounded-full shadow hover:scale-110 transition"
+                    >
+                      <Image
+                        src={Linkedin}
+                        alt="LinkedIn"
+                        className="h-6 w-6"
+                      />
+                    </a>
+
+                    <label className="bg-[#242424] text-white p-3 text-center font-bold w-full absolute bottom-0 rounded-bl-xl rounded-br-xl">
+                      {ori.nome}
+                    </label>
+                  </div>
+
+                  {/* VERSO */}
+                  <div className="absolute inset-0 bg-[#0033FF] rounded-xl flex flex-col items-center justify-center gap-6 text-white [transform:rotateY(180deg)] [backface-visibility:hidden]">
+                    <p className="font-bold text-lg text-center px-4">
+                      {ori.nome}
+                    </p>
+
+                    <a
+                      href={ori.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 bg-white text-[#0033FF] px-5 py-2 rounded-lg font-bold hover:scale-105 transition"
+                    >
+                      <Image
+                        src={Linkedin}
+                        alt="LinkedIn"
+                        className="h-6 w-6"
+                      />
+                      LinkedIn
+                    </a>
+                  </div>
+                </motion.div>
               </motion.article>
             ))}
           </motion.div>

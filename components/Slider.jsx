@@ -8,6 +8,9 @@ import Slide01 from "../public/images/carrosel-jogo/slide-1.png";
 import Slide02 from "../public/images/carrosel-jogo/slide-2.png";
 import Slide03 from "../public/images/carrosel-jogo/slide-3.png";
 
+import LeftChevron from "../public/images/icons/leftChevron.png";
+import RightChevron from "../public/images/icons/rightChevron.png";
+
 const slides = [Slide01, Slide02, Slide03];
 const SLIDE_TIME = 4;
 
@@ -119,7 +122,7 @@ export default function Slider() {
             z-20
           "
         >
-          ‹
+          <Image src={LeftChevron} className="w-4" alt=""/>
         </motion.button>
 
         {/* RIGHT ARROW */}
@@ -141,7 +144,7 @@ export default function Slider() {
             z-20
           "
         >
-          ›
+          <Image src={RightChevron} className="w-4" alt=""/>
         </motion.button>
       </div>
 

@@ -84,7 +84,7 @@ export default function Header() {
         {/* AÇÕES DESKTOP */}
         <div className="hidden md:flex items-center gap-x-4">
           <button className="bg-[#F9A318] text-white px-12 py-3 rounded-full">
-            DISPONÍVEL AGORA
+            COMO UTILIZAR?
           </button>
           <li className="list-none">
             <LanguageSelectHeader />

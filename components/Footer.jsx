@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { LanguageSelectFooter } from "./sub-components/LanguageSelectFooter";
+import { Instagram } from "lucide-react";
 
 /* ================= VARIANTS ================= */
 
@@ -81,7 +82,7 @@ export default function Footer() {
           </motion.a>
 
           {/* Language */}
-          <li>
+          <li className="w-[175px] flex items-center justify-center">
             <LanguageSelectFooter />
           </li>
 
@@ -98,12 +99,7 @@ export default function Footer() {
               bg-[#0033FF]
             "
           >
-            <Image
-              src="/images/social-medias/Instagram.png"
-              width={20}
-              height={20}
-              alt="Instagram"
-            />
+            <Instagram />
           </motion.li>
         </ul>
       </motion.nav>

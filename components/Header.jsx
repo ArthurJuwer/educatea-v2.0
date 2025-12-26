@@ -41,6 +41,7 @@ export default function Header() {
 
         {/* MENU DESKTOP */}
         <nav className="hidden md:flex items-center gap-x-10 list-none">
+          {/* <a href="./"><Image src={TextLogo} width={170} height={60} alt="Logo" /></a> */}
           <button className="bg-[#1A3879] text-white px-10 py-3 rounded-full">
             JOGAR
           </button>

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import CommentCard from "@/components/ForumComments";
+import CommentOverlay from "@/components/comunidade/CommentOverlay";
 
 import avatar01 from "../../public/images/avatars/avatar01.png";
 import avatar02 from "../../public/images/avatars/avatar02.png";
@@ -9,9 +10,11 @@ import avatar03 from "../../public/images/avatars/avatar03.png";
 import avatar04 from "../../public/images/avatars/avatar04.png";
 import avatar05 from "../../public/images/avatars/avatar05.png";
 import avatar06 from "../../public/images/avatars/avatar06.png";
+import avatar07 from "../../public/images/avatars/avatar07.png";
+import avatar08 from "../../public/images/avatars/avatar08.png";
+import avatar09 from "../../public/images/avatars/avatar09.png";
 
 import Search from "../../public/images/icons/Search.png";
-
 import Image from "next/image";
 
 // 👉 Lucide icons
@@ -23,20 +26,104 @@ import {
   SlidersHorizontal,
 } from "lucide-react";
 
+import { useEffect, useState } from "react";
+
 export default function Comunidade() {
+  const [selectedComment, setSelectedComment] = useState(null);
+
+  // 🔹 Typing effect
+  const fullTitle = "Olá, Visitante!";
+  const fullSubtitle = "Gostaria de procurar um comentário específico?";
+
+  const [titleText, setTitleText] = useState("");
+  const [subtitleText, setSubtitleText] = useState("");
+
+  useEffect(() => {
+    let i = 0;
+    let j = 0;
+
+    const titleInterval = setInterval(() => {
+      setTitleText(fullTitle.slice(0, i + 1));
+      i++;
+
+      if (i === fullTitle.length) {
+        clearInterval(titleInterval);
+
+        const subtitleInterval = setInterval(() => {
+          setSubtitleText(fullSubtitle.slice(0, j + 1));
+          j++;
+
+          if (j === fullSubtitle.length) {
+            clearInterval(subtitleInterval);
+          }
+        }, 45);
+      }
+    }, 55);
+
+    return () => clearInterval(titleInterval);
+  }, []);
+
   const comments = [
-    { text: "Projeto incrível! Vai ajudar muitos professores a trabalharem de forma mais inclusiva. 👏", author: "João Guilherme", image: avatar01 },
-    { text: "Adorei a ideia! Muito importante trazer tecnologia para apoiar alunos com TEA.", author: "Maria Clara", image: avatar02 },
-    { text: "Sensacional! Esse jogo tem um propósito lindo e educativo. 💙", author: "Pedro Henrique", image: avatar03 },
-    { text: "Parabéns pela iniciativa! Educação inclusiva transforma vidas.", author: "Ana Beatriz", image: avatar04 },
-    { text: "Que orgulho ver estudantes criando algo tão impactante. 🚀", author: "Lucas Andrade", image: avatar05 },
-    { text: "Um projeto inovador e necessário! Vai fazer diferença nas salas de aula.", author: "Arthur Juwer", image: avatar06 },
-    { text: "Um projeto inovador e necessário! Vai fazer diferença nas salas de aula.", author: "Arthur Juwer", image: avatar01 },
-    { text: "Um projeto inovador e necessário! Vai fazer diferença nas salas de aula.", author: "Arthur Juwer", image: avatar04 },
-    { text: "Parabéns pela iniciativa! Educação inclusiva transforma vidas.", author: "Ana Beatriz", image: avatar04 },
-    { text: "Que orgulho ver estudantes criando algo tão impactante. 🚀", author: "Lucas Andrade", image: avatar05 },
-    { text: "Um projeto inovador e necessário! Vai fazer diferença nas salas de aula.", author: "Arthur Juwer", image: avatar06 },
-    { text: "Um projeto inovador e necessário! Vai fazer diferença nas salas de aula.", author: "Arthur Juwer", image: avatar01 },
+    {
+      text: "Projeto incrível! Vai ajudar muitos professores a trabalharem de forma mais inclusiva. 👏",
+      author: "João Guilherme",
+      image: avatar01,
+    },
+    {
+      text: "Adorei a ideia! Muito importante trazer tecnologia para apoiar alunos com TEA.",
+      author: "Maria Clara",
+      image: avatar02,
+    },
+    {
+      text: "Sensacional! Esse jogo tem um propósito lindo e educativo. 💙",
+      author: "Pedro Henrique",
+      image: avatar03,
+    },
+    {
+      text: "Parabéns pela iniciativa! Educação inclusiva transforma vidas.",
+      author: "Ana Beatriz",
+      image: avatar04,
+    },
+    {
+      text: "Que orgulho ver estudantes criando algo tão impactante. 🚀",
+      author: "Lucas Andrade",
+      image: avatar05,
+    },
+    {
+      text: "Um projeto inovador e necessário! Vai fazer diferença nas salas de aula.",
+      author: "Arthur Juwer",
+      image: avatar06,
+    },
+    {
+      text: "Um projeto inovador e necessário! Vai fazer diferença nas salas de aula.",
+      author: "Arthur Juwer",
+      image: avatar07,
+    },
+    {
+      text: "Um projeto inovador e necessário! Vai fazer diferença nas salas de aula.",
+      author: "Arthur Juwer",
+      image: avatar08,
+    },
+    {
+      text: "Parabéns pela iniciativa! Educação inclusiva transforma vidas.",
+      author: "Ana Beatriz",
+      image: avatar09,
+    },
+    {
+      text: "Que orgulho ver estudantes criando algo tão impactante. 🚀",
+      author: "Lucas Andrade",
+      image: avatar05,
+    },
+    {
+      text: "Um projeto inovador e necessário! Vai fazer diferença nas salas de aula.",
+      author: "Arthur Juwer",
+      image: avatar06,
+    },
+    {
+      text: "Um projeto inovador e necessário! Vai fazer diferença nas salas de aula.",
+      author: "Arthur Juwer",
+      image: avatar09,
+    },
   ];
 
   const filters = [
@@ -52,13 +139,26 @@ export default function Comunidade() {
       <hr />
 
       <section className="max-w-11/12 lg:max-w-10/12 mx-auto flex flex-col gap-6 px-6 py-12">
-        {/* Header */}
-        <h1 className="text-3xl font-medium lg:leading-11 w-full">
-          Olá, Visitante! <br />
-          <span className="text-lg lg:text-3xl">
-            Gostaria de procurar um comentário específico?
-          </span>
-        </h1>
+        {/* Header with reserved space */}
+        <div className="relative w-full">
+          {/* Invisible text to reserve height */}
+          <h1 className="text-3xl font-medium lg:leading-11 w-full opacity-0">
+            {fullTitle}
+            <br />
+            <span className="text-lg lg:text-3xl">
+              {fullSubtitle}
+            </span>
+          </h1>
+
+          {/* Typing text */}
+          <h1 className="absolute top-0 left-0 text-3xl font-medium lg:leading-11 w-full">
+            {titleText}
+            <br />
+            <span className="text-lg lg:text-3xl">
+              {subtitleText}
+            </span>
+          </h1>
+        </div>
 
         {/* Search */}
         <div className="relative flex items-center gap-3">
@@ -90,23 +190,21 @@ export default function Comunidade() {
           {comments.map((comment, index) => (
             <motion.div
               key={index}
-              whileHover={{
-                y: -6,
-                scale: 1.02,
-                transition: { duration: 0.2 },
-              }}
+              whileHover={{ y: -6, scale: 1.02 }}
+              transition={{ duration: 0.2 }}
             >
               <CommentCard
                 text={comment.text}
                 author={comment.author}
                 image={comment.image.src}
                 comunidade={true}
+                onClick={() => setSelectedComment(comment)}
               />
             </motion.div>
           ))}
         </div>
 
-        {/* Load More */}
+        {/* Load more */}
         <motion.div
           className="flex justify-center"
           initial={{ opacity: 0, y: 20 }}
@@ -123,6 +221,12 @@ export default function Comunidade() {
           </motion.button>
         </motion.div>
       </section>
+
+      {/* Overlay */}
+      <CommentOverlay
+        comment={selectedComment}
+        onClose={() => setSelectedComment(null)}
+      />
     </div>
   );
 }

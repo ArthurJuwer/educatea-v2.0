@@ -9,6 +9,9 @@ import avatar03 from "../public/images/avatars/avatar03.png";
 import avatar04 from "../public/images/avatars/avatar04.png";
 import avatar05 from "../public/images/avatars/avatar05.png";
 import avatar06 from "../public/images/avatars/avatar06.png";
+import avatar07 from "../public/images/avatars/avatar07.png";
+import avatar08 from "../public/images/avatars/avatar08.png";
+import avatar09 from "../public/images/avatars/avatar09.png";
 
 import CommentCard from "./ForumComments";
 
@@ -49,12 +52,12 @@ export default function Forum() {
     {
       text: "Um projeto inovador e necessário! Vai fazer diferença nas salas de aula.",
       author: "Arthur Juwer",
-      image: avatar01,
+      image: avatar07,
     },
     {
       text: "Um projeto inovador e necessário! Vai fazer diferença nas salas de aula.",
       author: "Arthur Juwer",
-      image: avatar04,
+      image: avatar09,
     },
   ];
 

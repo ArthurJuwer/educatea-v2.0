@@ -61,22 +61,24 @@ export default function Footer() {
           "
         >
           {/* Comunidade */}
-          <motion.li
+          <motion.a
+            href="/comunidade"
             whileHover={{ y: -2 }}
             transition={{ duration: 0.2 }}
             className="cursor-pointer hover:opacity-80"
           >
             Comunidade
-          </motion.li>
+          </motion.a>
 
           {/* Termos */}
-          <motion.li
+          <motion.a
+            href="/termos"
             whileHover={{ y: -2 }}
             transition={{ duration: 0.2 }}
             className="cursor-pointer hover:opacity-80"
           >
             Termos de uso
-          </motion.li>
+          </motion.a>
 
           {/* Language */}
           <li>

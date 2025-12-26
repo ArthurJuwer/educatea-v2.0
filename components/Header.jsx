@@ -37,7 +37,7 @@ export default function Header() {
         id=""
       >
         {/* LOGO */}
-        <Image src={TextLogo} width={170} height={60} alt="Logo" />
+        <a href="./"><Image src={TextLogo} width={170} height={60} alt="Logo" /></a>
 
         {/* MENU DESKTOP */}
         <nav className="hidden md:flex items-center gap-x-10 list-none">
@@ -83,9 +83,11 @@ export default function Header() {
 
         {/* AÇÕES DESKTOP */}
         <div className="hidden md:flex items-center gap-x-4">
-          <button className="bg-[#F9A318] text-white px-12 py-3 rounded-full">
-            COMO UTILIZAR?
-          </button>
+          <a href="/termos">
+            <button className="bg-[#F9A318] text-white px-12 py-3 rounded-full">
+              COMO UTILIZAR?
+            </button>
+          </a>
           <li className="list-none">
             <LanguageSelectHeader />
           </li>

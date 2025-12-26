@@ -169,7 +169,7 @@ export default function Forum() {
         viewport={{ once: true }}
       >
         <motion.a
-          href="/forum"
+          href="/comunidade"
           className="bg-[#0033FF] text-white px-8 py-2 rounded-full font-bold uppercase"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}

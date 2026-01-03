@@ -40,83 +40,86 @@ export default function Searches() {
       <div className="w-full max-w-7xl flex flex-col items-center gap-12 sm:gap-16">
 
         {/* ================= MAIN CONTENT ================= */}
-        <AnimatePresence mode="wait">
-          {active === "resultados" ? (
-            /* ===== RESULTADOS ===== */
-            <motion.div
-              key="resultados"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5 }}
-              className="w-full flex flex-col items-center gap-6 text-white"
-            >
-              <h1 className="text-2xl sm:text-3xl font-bold text-center">
-                {content.title}
-              </h1>
-
+        <div className="w-full h-[520px] sm:h-[600px] flex items-center">
+          <AnimatePresence mode="wait">
+            {active === "resultados" ? (
+              /* ===== RESULTADOS ===== */
               <motion.div
-                initial={{ scale: 0.96 }}
-                animate={{ scale: 1 }}
-                transition={{ duration: 0.4 }}
+                key="resultados"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.5 }}
+                className="w-full flex flex-col items-center gap-6 text-white"
               >
-                <Image
-                  src={content.image}
-                  alt={content.title}
-                  className="shadow-lg w-full max-w-3xl h-auto"
-                  priority
-                />
-              </motion.div>
-            </motion.div>
-          ) : (
-            /* ===== CIENTÍFICO + PITCH ===== */
-            <motion.div
-              key={active}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5 }}
-              className={`w-full flex flex-col lg:flex-row items-center gap-8 lg:gap-16 ${
-                active === "pitch" ? "lg:flex-row-reverse" : ""
-              }`}
-            >
-              {/* Image */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4 }}
-                className="w-full lg:w-1/2 flex justify-center"
-              >
-                <Image
-                  src={content.image}
-                  alt={content.title}
-                  className="shadow-lg w-full max-w-md h-auto"
-                  priority
-                />
-              </motion.div>
-
-              {/* Text */}
-              <div className="w-full lg:w-1/2 flex flex-col text-white">
-                <h1 className="text-2xl sm:text-3xl font-bold mb-4">
+                <h1 className="text-2xl sm:text-3xl mb-6 font-bold text-center">
                   {content.title}
                 </h1>
 
-                <p className="text-sm sm:text-base leading-relaxed text-gray-200 text-justify">
-                  {content.text}
-                </p>
-
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-[#F9A318] hover:bg-[#ffb338] transition text-white font-semibold
-                             px-10 py-2.5 rounded-xl mt-6 self-center lg:self-start"
+                <motion.div
+                  initial={{ scale: 0.96 }}
+                  animate={{ scale: 1 }}
+                  transition={{ duration: 0.4 }}
+                  className="w-full flex justify-center"
                 >
-                  VISUALIZAR
-                </motion.button>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+                  <Image
+                    src={content.image}
+                    alt={content.title}
+                    className="shadow-lg w-full max-w-3xl h-full object-contain"
+                    priority
+                  />
+                </motion.div>
+              </motion.div>
+            ) : (
+              /* ===== CIENTÍFICO + PITCH ===== */
+              <motion.div
+                key={active}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.5 }}
+                className={`w-full flex flex-col lg:flex-row items-center gap-8 lg:gap-16 ${
+                  active === "pitch" ? "lg:flex-row-reverse" : ""
+                }`}
+              >
+                {/* Image */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.4 }}
+                  className="w-full lg:w-1/2 flex justify-center"
+                >
+                  <Image
+                    src={content.image}
+                    alt={content.title}
+                    className="shadow-lg w-full max-w-md h-auto object-contain"
+                    priority
+                  />
+                </motion.div>
+
+                {/* Text */}
+                <div className="w-full lg:w-1/2 flex flex-col text-white">
+                  <h1 className="text-2xl sm:text-3xl font-bold mb-4">
+                    {content.title}
+                  </h1>
+
+                  <p className="text-sm sm:text-base leading-relaxed text-gray-200 text-justify">
+                    {content.text}
+                  </p>
+
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="bg-[#F9A318] hover:bg-[#ffb338] transition text-white font-semibold
+                               px-10 py-2.5 rounded-xl mt-6 self-center lg:self-start"
+                  >
+                    VISUALIZAR
+                  </motion.button>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
 
         {/* ================= SELECTOR ================= */}
         <div className="flex flex-wrap justify-center gap-2 border-2 border-[#0033FF] rounded-full overflow-hidden font-semibold">

@@ -90,11 +90,9 @@ export default function Fair() {
                 />
                 <div className="absolute inset-0 bg-black/40" />
 
-                <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
-                  <Image src={feiraAtual.logo} alt="Logo" width={90} height={90} />
-                  <p className="text-white text-sm font-semibold text-right max-w-[200px]">
-                    {feiraAtual.title}
-                  </p>
+                <div className="absolute bottom-4 left-4 right-4 flex items-center justify-center">
+                  <Image src={feiraAtual.logo} alt="Logo" width={120} height={120} />
+                  
                 </div>
               </motion.div>
             </AnimatePresence>
@@ -153,11 +151,9 @@ export default function Fair() {
               <Image src={feira.image} alt={feira.title} fill className="object-cover" />
               <div className="absolute inset-0 bg-black/40" />
 
-              <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
-                <Image src={feira.logo} alt="Logo" width={110} height={110} />
-                <p className="text-white text-sm font-semibold text-right max-w-[150px]">
-                  {feira.title}
-                </p>
+              <div className="absolute bottom-4 left-4 right-4 flex items-center justify-center">
+                <Image src={feira.logo} alt="Logo" width={150} height={150} />
+                
               </div>
             </motion.div>
           );

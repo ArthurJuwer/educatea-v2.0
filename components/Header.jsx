@@ -33,7 +33,7 @@ export default function Header() {
         }}
         animate={hidden ? "hidden" : "visible"}
         transition={{ duration: 0.35, ease: "easeInOut" }}
-        className="h-[13dvh] sticky top-0 z-40 flex items-center justify-between px-6 md:px-10 bg-white text-black font-bold"
+        className="h-[13dvh] sticky top-0 z-30 flex items-center justify-between px-6 md:px-10 bg-white text-black font-bold"
         id=""
       >
         {/* LOGO */}

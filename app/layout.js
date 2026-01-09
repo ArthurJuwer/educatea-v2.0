@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import "./globals.css";
 import { DM_Sans } from "next/font/google";
 import ChatbotWidget from "@/components/chatbot/ChatbotWidget";
+import AcessibilidadeWidget from "@/components/acessibilidade/AcessibilidadeWidget";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -18,14 +19,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="pt-BR">
-      <body className={`${dmSans.className} relative antialiased`}>
+      <body className={`${dmSans.className} z-0 relative antialiased`}>
         <Header />
         {children}
-        <div className="fixed right-5 bottom-10">
+        <div className="z-40 fixed right-5 bottom-10">
           <ChatbotWidget />
+           <AcessibilidadeWidget />
         </div>
-        
-
         <Footer />
       </body>
     </html>

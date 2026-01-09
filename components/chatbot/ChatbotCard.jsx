@@ -138,7 +138,7 @@ const [isTyping, setIsTyping] = useState(false);
     duration: 0.35,
     ease: "easeInOut",
   }}
-  className="w-[400px] max-h-[70dvh] overflow-hidden rounded-2xl border bg-white shadow-xl p-5 pb-6 flex flex-col"
+  className="z-50 w-[400px] max-h-[70dvh] overflow-hidden rounded-2xl border bg-white shadow-xl p-5 pb-6 flex flex-col"
 >
 
       {/* Header */}

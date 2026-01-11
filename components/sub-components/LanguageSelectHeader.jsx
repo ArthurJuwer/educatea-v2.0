@@ -62,7 +62,7 @@ export function LanguageSelectHeader() {
       >
         <Image
           src={selected.flag}
-          className="w-9 h-6 rounded"
+          className="w-12 h-8 rounded"
           alt={selected.label}
         />
         {/* <span>{selected.label}</span> */}

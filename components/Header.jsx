@@ -6,21 +6,23 @@ import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 
 import TextLogo from "../public/images/logos/TextLogo.png";
 import BrasilFlag from "../public/images/languages/Brasil.png";
+import User from "../public/images/icons/user.png";
 import { LanguageSelectHeader } from "./sub-components/LanguageSelectHeader";
+import UserModal from "./login/ModalUsuario";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const { scrollY } = useScroll();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious() ?? 0;
-
     if (latest > previous && latest > 100) {
-      setHidden(true); // descendo
+      setHidden(true);
     } else {
-      setHidden(false); // subindo
+      setHidden(false);
     }
   });
 
@@ -34,92 +36,60 @@ export default function Header() {
         animate={hidden ? "hidden" : "visible"}
         transition={{ duration: 0.35, ease: "easeInOut" }}
         className="h-[13dvh] sticky top-0 z-30 flex items-center justify-between px-6 md:px-10 bg-white text-black font-bold"
-        id=""
       >
         {/* LOGO */}
-        <a href="./"><Image src={TextLogo} width={170} height={60} alt="Logo" /></a>
+        <a href="./">
+          <Image src={TextLogo} width={170} height={60} alt="Logo" />
+        </a>
 
         {/* MENU DESKTOP */}
         <nav className="hidden md:flex items-center gap-x-10 list-none">
-          {/* <a href="./"><Image src={TextLogo} width={170} height={60} alt="Logo" /></a> */}
           <button className="bg-[#1A3879] text-white px-10 py-3 rounded-full">
             JOGAR
           </button>
-          <motion.li
-            whileHover={{ y: -2 }}
-            transition={{ duration: 0.2 }}
-            className="cursor-pointer hover:opacity-80"
-          >
-            <a href="#apresentacao">APRESENTAÇÃO</a>
-          </motion.li>
-          <motion.li
-            whileHover={{ y: -2 }}
-            transition={{ duration: 0.2 }}
-            className="cursor-pointer hover:opacity-80"
-          >
-            <a href="#feiras">FEIRAS</a>
-          </motion.li>
-          <motion.li
-            whileHover={{ y: -2 }}
-            transition={{ duration: 0.2 }}
-            className="cursor-pointer hover:opacity-80"
-          >
-            <a href="#trabalhos">TRABALHOS</a>
-          </motion.li>
-          <motion.li
-            whileHover={{ y: -2 }}
-            transition={{ duration: 0.2 }}
-            className="cursor-pointer hover:opacity-80"
-          >
-            <a href="#comunidade">COMUNIDADE</a>
-          </motion.li>
-          <motion.li
-            whileHover={{ y: -2 }}
-            transition={{ duration: 0.2 }}
-            className="cursor-pointer hover:opacity-80"
-          >
-            <a href="#equipe">EQUIPE</a>
-          </motion.li> 
+          {["APRESENTAÇÃO", "FEIRAS", "TRABALHOS", "COMUNIDADE", "EQUIPE"].map((item) => (
+            <motion.li
+              key={item}
+              whileHover={{ y: -2 }}
+              transition={{ duration: 0.2 }}
+              className="cursor-pointer hover:opacity-80 text-sm"
+            >
+              <a href={`#${item.toLowerCase()}`}>{item}</a>
+            </motion.li>
+          ))}
         </nav>
 
         {/* AÇÕES DESKTOP */}
         <div className="hidden md:flex items-center gap-x-4">
-          <a href="/termos">
-            <button className="bg-[#F9A318] text-white px-12 py-3 rounded-full">
-              COMO UTILIZAR?
-            </button>
-          </a>
+          <button 
+            onClick={() => setIsModalOpen(true)} 
+            className="transition-opacity cursor-pointer hover:opacity-70"
+          >
+            <Image src={User} width={45} height={30} alt="Abrir menu" />
+          </button>
           <li className="list-none">
             <LanguageSelectHeader />
           </li>
-         
         </div>
 
         {/* HAMBURGER MOBILE */}
-        <button
-          className="md:hidden flex flex-col gap-1"
-          onClick={() => setOpen(true)}
-        >
+        <button className="md:hidden flex flex-col gap-1" onClick={() => setOpen(true)}>
           <span className="w-6 h-0.5 bg-black"></span>
           <span className="w-6 h-0.5 bg-black"></span>
           <span className="w-6 h-0.5 bg-black"></span>
         </button>
       </motion.header>
 
-      {/* MENU MOBILE (SEM ANIMAÇÃO INTERNA) */}
+      {/* MENU MOBILE */}
       {open && (
         <div className="fixed inset-0 bg-white z-50 flex flex-col p-6">
           <div className="flex items-center justify-between mb-10">
             <Image src={TextLogo} width={150} height={50} alt="Logo" />
-            <button onClick={() => setOpen(false)} className="text-3xl">
-              ✕
-            </button>
+            <button onClick={() => setOpen(false)} className="text-3xl">✕</button>
           </div>
 
           <nav className="flex flex-col gap-6 text-lg list-none">
-            <button className="bg-[#1A3879] text-white py-3 rounded-full">
-              JOGAR
-            </button>
+            <button className="bg-[#1A3879] text-white py-3 rounded-full">JOGAR</button>
             <li><a href="#header">APRESENTAÇÃO</a></li>
             <li><a href="#feiras">FEIRAS</a></li>
             <li><a href="#trabalhos">TRABALHOS</a></li>
@@ -127,14 +97,20 @@ export default function Header() {
             <li><a href="#equipe">EQUIPE</a></li>
           </nav>
 
-          <div className="mt-auto flex flex-col gap-4">
-            <button className="bg-[#F9A318] text-white py-3 rounded-full">
-              DISPONÍVEL AGORA
+          <div className="mt-auto flex items-center gap-4">
+            <button onClick={() => { setOpen(false); setIsModalOpen(true); }}>
+              <Image src={User} width={35} height={25} alt="Perfil" />
             </button>
             <Image src={BrasilFlag} width={35} height={25} alt="Idioma" />
           </div>
         </div>
       )}
+
+      {/* COMPONENTE DO MODAL */}
+      <UserModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+      />
     </>
   );
 }

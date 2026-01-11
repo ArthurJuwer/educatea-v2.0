@@ -9,6 +9,7 @@ import BrasilFlag from "../public/images/languages/Brasil.png";
 import User from "../public/images/icons/user.png";
 import { LanguageSelectHeader } from "./sub-components/LanguageSelectHeader";
 import UserModal from "./login/ModalUsuario";
+import { User2 } from "lucide-react";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -65,7 +66,9 @@ export default function Header() {
             onClick={() => setIsModalOpen(true)} 
             className="transition-opacity cursor-pointer hover:opacity-70"
           >
-            <Image src={User} width={45} height={30} alt="Abrir menu" />
+
+
+            <User2 width={45} height={30} alt="Abrir menu" />
           </button>
           <li className="list-none">
             <LanguageSelectHeader />

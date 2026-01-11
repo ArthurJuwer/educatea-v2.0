@@ -1,3 +1,4 @@
+import CookieBanner from "@/components/CookieBanner";
 import Fair from "@/components/Fair";
 import FairLogos from "@/components/FairLogos";
 import Forum from "@/components/Forum";
@@ -11,6 +12,8 @@ import Image from "next/image";
 export default function Home() {
   return (
     <div className="z-0">
+      <CookieBanner />
+
       <MainContent />
       <section className="relative bg-gradient-to-br from-[#0B1623] to-[#050B14] flex flex-col gap-20 items-center justify-center py-15">
         <GameCard />

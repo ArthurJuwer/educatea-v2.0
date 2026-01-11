@@ -32,7 +32,7 @@ const orientadores = [
     linkedin: "https://www.linkedin.com/in/arthurjuwer/",
   },
   {
-    nome: "Gabriele de Oliveira",
+    nome: "Elisangela",
     imagem: "/images/team/Gabriele.jpg",
     linkedin: "https://www.linkedin.com/in/arthurjuwer/",
   },

@@ -12,10 +12,10 @@ export default function Sidebar() {
 
   const menuItems = [
     { name: 'Geral', icon: Home, href: '/account' }, // Exemplo de rota
-    { name: 'Cursos', icon: MonitorPlay, href: '/cursos' },
-    { name: 'Certificados', icon: Award, href: '/certificados' },
-    { name: 'Downloads', icon: Download, href: '/downloads' },
-    { name: 'Comunidade', icon: MessageSquare, href: '/comunidade' },
+    { name: 'Cursos', icon: MonitorPlay, href: '/account/cursos' },
+    { name: 'Certificados', icon: Award, href: '/account/certificados' },
+    { name: 'Downloads', icon: Download, href: '/account/downloads' },
+    { name: 'Comunidade', icon: MessageSquare, href: '/account/comunidade' },
   ];
 
   return (

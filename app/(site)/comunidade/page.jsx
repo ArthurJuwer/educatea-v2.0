@@ -4,17 +4,17 @@ import { motion } from "framer-motion";
 import CommentCard from "@/components/ForumComments";
 import CommentOverlay from "@/components/comunidade/CommentOverlay";
 
-import avatar01 from "../../public/images/avatars/avatar01.png";
-import avatar02 from "../../public/images/avatars/avatar02.png";
-import avatar03 from "../../public/images/avatars/avatar03.png";
-import avatar04 from "../../public/images/avatars/avatar04.png";
-import avatar05 from "../../public/images/avatars/avatar05.png";
-import avatar06 from "../../public/images/avatars/avatar06.png";
-import avatar07 from "../../public/images/avatars/avatar07.png";
-import avatar08 from "../../public/images/avatars/avatar08.png";
-import avatar09 from "../../public/images/avatars/avatar09.png";
+import avatar01 from "../../../public/images/avatars/avatar01.png";
+import avatar02 from "../../../public/images/avatars/avatar02.png";
+import avatar03 from "../../../public/images/avatars/avatar03.png";
+import avatar04 from "../../../public/images/avatars/avatar04.png";
+import avatar05 from "../../../public/images/avatars/avatar05.png";
+import avatar06 from "../../../public/images/avatars/avatar06.png";
+import avatar07 from "../../../public/images/avatars/avatar07.png";
+import avatar08 from "../../../public/images/avatars/avatar08.png";
+import avatar09 from "../../../public/images/avatars/avatar09.png";
 
-import Search from "../../public/images/icons/Search.png";
+import Search from "../../../public/images/icons/Search.png";
 import Image from "next/image";
 
 // 👉 Lucide icons

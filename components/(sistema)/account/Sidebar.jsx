@@ -5,7 +5,7 @@ import Image from "next/image";
 
 import { usePathname } from 'next/navigation';
 import { Home, MonitorPlay, Award, Download, MessageSquare, LogOut } from 'lucide-react';
-import TextLogo from "../../public/images/logos/TextLogo.png";
+import TextLogo from "../../../public/images/logos/TextLogo.png";
 
 export default function Sidebar() {
   const pathname = usePathname(); // Pega a rota atual

@@ -1,7 +1,7 @@
 import { DM_Sans } from "next/font/google";
 import ChatbotWidget from "@/components/chatbot/ChatbotWidget"; // Ajuste o caminho ../ se necessário
 import AcessibilidadeWidget from "@/components/acessibilidade/AcessibilidadeWidget";
-import Sidebar from '@/components/account/Sidebar'; // Ajuste o caminho
+import Sidebar from '@/components/(sistema)/account/Sidebar'; // Ajuste o caminho
 import "../globals.css";
 import BrasilFlag from "../../../public/images/languages/Brasil.png";
 

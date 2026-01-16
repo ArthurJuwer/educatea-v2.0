@@ -5,10 +5,12 @@ import {
   Clock, 
   Star, 
 } from 'lucide-react';
+import Link from 'next/link';
 
 export default function CursosSection({courses}) {
   return (
     courses.map((course, idx) => (
+        <Link href={`/account/cursos/${idx}`}>
         <div key={idx} className="cursor-pointer relative border-2 border-[#D6E1ED] rounded-xl p-5 pt-10 flex flex-col gap-4 hover:shadow-md transition bg-white">
 
         <div className="flex gap-6">
@@ -36,6 +38,7 @@ export default function CursosSection({courses}) {
             </div>
         </div>
         </div>
+        </Link>
     ))  
   )
 }

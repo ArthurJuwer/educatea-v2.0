@@ -166,14 +166,13 @@ export default function AccountPage() {
             </div>
           </div>
             
-            <div className="relative grid grid-cols-1 md:grid-cols-3 gap-6">
-                <CursosSection courses={courses} />
-              </div>
+          <div className="relative grid grid-cols-1 md:grid-cols-3 gap-6">
+              <CursosSection courses={courses} />
+          </div>
    
         </section>
 
         <span className="bg-[#D9D9D9] block w-full h-0.5 rounded-2xl" />
-
 
         {/* Seção 3: Comentários */}
         <section>

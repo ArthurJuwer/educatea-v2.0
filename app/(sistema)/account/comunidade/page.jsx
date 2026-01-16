@@ -46,50 +46,14 @@ export default function CommunityPage() {
 
   return (
     <main className="flex h-screen w-full bg-[#FAFCFF] font-sans overflow-hidden">
-      
-      {/* --- SIDEBAR DE NAVEGAÇÃO PESSOAL --- */}
-      {/* Mantém o usuário situado, mas focado nele mesmo */}
-      <aside className="hidden lg:flex w-[280px] flex-col p-6 border-r-2 border-[#D6E1ED] bg-white h-full z-20">
-        
-        {/* Logo / Brand */}
-        <div className="mb-10 flex items-center gap-2 text-[#292F65]">
-           <div className="w-8 h-8 bg-[#292F65] rounded-lg"></div>
-           <span className="font-bold text-xl tracking-tight">Comunidade</span>
-        </div>
-
-        {/* Perfil Mini */}
-        <div className="flex flex-col items-center text-center p-6 border-2 border-[#D6E1ED] rounded-2xl bg-[#F8FAFC] mb-8">
-            <div className="w-20 h-20 rounded-full border-4 border-white shadow-sm mb-3">
-                <Image src={avatar06} alt="Arthur" className="w-full h-full rounded-full" />
-            </div>
-            <h3 className="font-bold text-[#092B53] text-lg">Arthur Juwer</h3>
-            <p className="text-[#BBC9DA] text-sm font-medium">Aluno • Nível 5</p>
-        </div>
-
-        {/* Menu Simples */}
-        <nav className="space-y-2 flex-1">
-            <p className="text-xs font-bold text-[#BBC9DA] uppercase tracking-wider px-2 mb-2">Navegar</p>
-            <button className="w-full flex items-center gap-3 px-4 py-3 bg-[#EBF3FF] text-[#292F65] font-bold rounded-xl border border-[#D6E1ED]">
-                <MessageCircle size={20} />
-                Feed Geral
-            </button>
-            <button className="w-full flex items-center gap-3 px-4 py-3 text-[#BBC9DA] hover:text-[#292F65] hover:bg-gray-50 font-bold rounded-xl transition-colors">
-                <Heart size={20} />
-                Favoritos
-            </button>
-        </nav>
-      </aside>
-
-      {/* --- ÁREA PRINCIPAL --- */}
       <section className="flex-1 flex flex-col h-full relative">
 
         {/* CONTEÚDO COM SCROLL */}
-        <div className="flex-1 overflow-y-auto p-6 lg:p-10 scrollbar-thin scrollbar-thumb-[#D6E1ED] scrollbar-track-transparent">
+        <div className="flex-1 overflow-y-auto p-6 lg:p-16 scrollbar-thin scrollbar-thumb-[#D6E1ED] scrollbar-track-transparent">
            
            <div className="mx-auto space-y-8">
-              
-              {/* 1. CAIXA DE CRIAÇÃO (O CONVITE PARA PARTICIPAR) */}
-              {/* Destaque visual para incentivar o usuário a "incrementar" */}
+
+              <h2 className="text-3xl font-bold text-black mb-8">Comunidade</h2>
               <div 
                 className={`
                     relative bg-white border-2 rounded-2xl p-4 transition-all duration-300

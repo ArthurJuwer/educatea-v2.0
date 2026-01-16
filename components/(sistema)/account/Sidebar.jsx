@@ -12,7 +12,7 @@ export default function Sidebar() {
 
   const menuItems = [
     { name: 'Geral', icon: Home, href: '/account' }, // Exemplo de rota
-    { name: 'Cursos', icon: MonitorPlay, href: '/account/cursos' },
+    { name: 'Cursos' || 'Cursos/1', icon: MonitorPlay, href: '/account/cursos' },
     { name: 'Certificados', icon: Award, href: '/account/certificados' },
     { name: 'Downloads', icon: Download, href: '/account/downloads' },
     { name: 'Comunidade', icon: MessageSquare, href: '/account/comunidade' },
@@ -22,13 +22,17 @@ export default function Sidebar() {
     <aside className="w-64 border-r-2 border-[#D9D9D9] flex-shrink-0 flex flex-col text-[#BBC9DA] h-screen sticky top-0">
       {/* Logo Area */}
       <div className="p-6 pt-8">
-          <Image src={TextLogo} width={150} height={50} alt="Logo" />
+          <Link href={"/account"}>
+            <Image src={TextLogo} width={150} height={50} alt="Logo" />
+          </Link>
       </div>
 
       {/* Navigation */}
       <nav className="flex-1 space-y-2 mt-4 overflow-y-auto">
         {menuItems.map((item, index) => {
-          const isActive = pathname === item.href;
+          const isActive = item.href === '/account' 
+            ? pathname === item.href
+            : pathname.startsWith(item.href);
           
           return (
             <Link

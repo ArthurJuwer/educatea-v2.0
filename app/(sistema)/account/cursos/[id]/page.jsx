@@ -9,6 +9,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import youtubeIcon from "@/public/images/icons/Youtube.png"
 import avatar07 from "@/public/images/avatars/avatar07.png"
+import Link from 'next/link';
 
 export default function AulaPage({ params }) {
   // Mock de dados
@@ -37,20 +38,20 @@ export default function AulaPage({ params }) {
             1. h-[calc(100vh-4rem)]: Define altura total menos padding
             2. overflow-y-auto: Ativa o scroll vertical
             3. pr-4: Dá um espaço para o scroll não colar no conteúdo
-            4. scrollbar-custom: Classe para estilizar (definida lá embaixo)
+            4. scrollbar-hidden: Classe para estilizar (definida lá embaixo)
         */}
-        <div className="xl:col-span-8 flex flex-col gap-6 h-[calc(100vh-6rem)] overflow-y-auto pr-4 scrollbar-custom pb-20">
+        <div className="xl:col-span-8 flex flex-col gap-6 h-[calc(100vh-6rem)] overflow-y-auto pr-4 scrollbar-hidden pb-20">
           
           {/* Título e Breadcrumbs */}
           <div>
             <h1 className="text-3xl font-bold text-gray-900 mb-2">Criando projeto react e firebase</h1>
             <nav className="text-sm text-gray-500 font-medium">
-              Curso EducaTea <span className="mx-2">›</span> Aulas <span className="mx-2">›</span> <span className="text-blue-900 font-bold">Aula#3</span>
+              <Link href={"/account/cursos"}> Cursos EducaTea </Link> <span className="mx-2">›</span> <span className="text-blue-900 font-bold">Aula#3</span>
             </nav>
           </div>
 
           {/* Player de Vídeo */}
-          <div className="w-full aspect-video bg-[#D9D9D9] rounded-lg relative flex items-center justify-center shadow-sm group cursor-pointer overflow-hidden shrink-0">
+          <div className="w-full aspect-video bg-[#D9D9D9] rounded-lg relative flex items-center justify-center group cursor-pointer overflow-hidden shrink-0">
              <Image src={youtubeIcon} alt="Play Video"/>
           </div>
 
@@ -121,20 +122,20 @@ export default function AulaPage({ params }) {
               
                {/* Botões de Navegação */}
                <div className="flex gap-3 h-12 shrink-0">
-                  <button className="w-12 h-full flex items-center justify-center border border-gray-300 rounded-lg text-blue-900 hover:bg-gray-50 transition">
+                  <button className="w-12 h-full flex items-center justify-center border-2 border-gray-300 rounded-lg text-[#092B53] hover:bg-gray-50 transition">
                     <ChevronLeft size={24} />
                   </button>
-                  <button className="w-12 h-full flex items-center justify-center border border-gray-300 rounded-lg text-blue-900 hover:bg-gray-50 transition">
+                  <button className="w-12 h-full flex items-center justify-center border-2 border-gray-300 rounded-lg text-[#092B53] hover:bg-gray-50 transition">
                     <ChevronRight size={24} />
                   </button>
-                  <button className="flex-1 h-full flex items-center justify-center gap-2 border border-blue-900/30 text-blue-900 font-semibold rounded-lg hover:bg-blue-50 transition">
+                  <button className="flex-1 h-full flex items-center justify-center gap-2 border-2 border-blue-900/30 text-[#092B53] font-semibold rounded-lg hover:bg-blue-50 transition">
                     <CheckCircle size={20} />
                     Aula concluída
                   </button>
                </div>
 
                {/* Card de Progresso */}
-               <div className="relative border border-[#D6E1ED] rounded-xl p-5 shadow-sm bg-white shrink-0">
+               <div className="relative border-2 border-[#D6E1ED] rounded-xl p-5 bg-white shrink-0">
                   <div className="flex items-center gap-4 mb-0">
                      <Image src={avatar07} alt='' className='w-20' />
                      <div>
@@ -164,25 +165,25 @@ export default function AulaPage({ params }) {
                </div>
 
                {/* Lista de Aulas - Adicionei scroll aqui também caso a lista seja grande */}
-               <div className="border border-[#D6E1ED] rounded-xl overflow-hidden bg-white overflow-y-auto flex-1 custom-scrollbar">
+               <div className="border-2 border-[#D6E1ED] rounded-xl overflow-hidden bg-white overflow-y-auto flex-1 custom-scrollbar">
                   {lessons.map((lesson) => (
                     <div 
                       key={lesson.id} 
-                      className={`flex items-center justify-between p-4 border-b last:border-0 border-gray-100 hover:bg-gray-50 transition cursor-pointer
+                      className={`flex items-center justify-between p-4 border-b-2 last:border-0 border-gray-100 hover:bg-gray-50 transition cursor-pointer
                         ${lesson.status === 'current' ? 'bg-blue-50/50' : 'bg-white'}
                       `}
                     >
                       <div className="flex items-center gap-3">
                         <div className="text-[#BBC9DA]">
                           {lesson.status === 'completed' && <CheckCircle2 className="text-[#0B7E13]" size={20} />}
-                          {lesson.status === 'current' && <Eye className="text-[#1e293b]" size={20} />}
-                          {lesson.status === 'pending' && <Circle className="text-[#D6E1ED]" size={20} />}
+                          {lesson.status === 'current' && <Eye className="text-[#092B53]" size={20} />}
+                          {lesson.status === 'pending' && <Circle className="text-[#BBC9DA]" size={20} />}
                         </div>
-                        <span className={`text-sm ${lesson.status === 'current' ? 'font-bold text-[#1e293b]' : 'text-[#D6E1ED] font-semibold'}`}>
+                        <span className={`text-sm ${lesson.status === 'current' ? 'font-bold text-[#092B53]' : 'text-[#BBC9DA] font-semibold'}`}>
                           {lesson.title}
                         </span>
                       </div>
-                      <span className={`text-sm ${lesson.status === 'current' ? 'font-bold text-[#1e293b]' : 'text-[#BBC9DA]'}`}>
+                      <span className={`text-sm ${lesson.status === 'current' ? 'font-bold text-[#092B53]' : 'text-[#BBC9DA]'}`}>
                         {lesson.time}
                       </span>
                     </div>
@@ -193,18 +194,18 @@ export default function AulaPage({ params }) {
 
       {/* Estilos CSS para a barra de rolagem (opcional, pode por no global.css) */}
       <style jsx global>{`
-        .scrollbar-custom::-webkit-scrollbar {
+        .scrollbar-hidden::-webkit-scrollbar {
           width: 6px;
         }
-        .scrollbar-custom::-webkit-scrollbar-track {
+        .scrollbar-hidden::-webkit-scrollbar-track {
           background: transparent;
         }
-        .scrollbar-custom::-webkit-scrollbar-thumb {
-          background-color: #cbd5e1;
+        .scrollbar-hidden::-webkit-scrollbar-thumb {
+          background-color: transparent;
           border-radius: 20px;
         }
-        .scrollbar-custom::-webkit-scrollbar-thumb:hover {
-          background-color: #94a3b8;
+        .scrollbar-hidden::-webkit-scrollbar-thumb:hover {
+          background-color: transparent;
         }
       `}</style>
     </div>
@@ -214,42 +215,40 @@ export default function AulaPage({ params }) {
 // --- Componentes Auxiliares ---
 function ActionButton({ icon: Icon, label, active = false }) {
   return (
-    <motion.button 
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
+    <button 
       className={`
-        flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold transition-colors
+        flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold transition-colors cursor-pointer
         ${active 
-          ? 'bg-[#1e293b] text-white' 
-          : 'bg-[#1e293b] text-white hover:bg-gray-800'
+          ? 'bg-[#092B53] text-white' 
+          : 'bg-[#092B53] text-white'
         }
       `}
     >
       <Icon size={16} className={active ? "fill-white" : ""} />
       {label && <span>{label}</span>}
-    </motion.button>
+    </button>
   );
 }
 
 function CommentItem({ name, date, text, avatarColor }) {
   return (
     <div className="flex gap-4">
-       <div className={`w-12 h-12 rounded-full ${avatarColor} flex-shrink-0 border-2 border-white shadow-sm overflow-hidden`}>
+       <div className={`w-12 h-12 rounded-full ${avatarColor} flex-shrink-0 border-2 border-white overflow-hidden`}>
          <img src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${name}`} alt={name} />
        </div>
        <div className="flex-1">
           <div className="flex items-center gap-2 mb-1">
-             <h4 className="text-sm font-bold text-[#1e293b]">{name}</h4>
+             <h4 className="text-sm font-bold text-[#092B53]">{name}</h4>
              <span className="text-xs text-[#BBC9DA]">{date}</span>
           </div>
           <p className="text-sm text-gray-600 leading-relaxed mb-3">
             {text}
           </p>
           <div className="flex items-center gap-3">
-             <button className="bg-[#1e293b] text-white text-[10px] font-bold px-3 py-1 rounded-full">
+             <button className="bg-[#092B53] text-white text-[10px] font-bold px-3 py-1 rounded-full">
                Ver Respostas
              </button>
-             <button className="text-blue-900 text-[10px] font-bold hover:underline">
+             <button className="text-[#092B53] text-[10px] font-bold hover:underline">
                Responder
              </button>
           </div>

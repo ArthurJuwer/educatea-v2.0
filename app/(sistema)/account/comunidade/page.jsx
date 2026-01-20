@@ -41,11 +41,11 @@ export default function CommunityPage() {
     { label: "Destaques", icon: Sparkles },
     { label: "Recentes", icon: MessageCircle },
     { label: "Meus Posts", icon: Heart },
-    { label: "Dúvidas", icon: Bookmark },
+    { label: "Favoritados", icon: Bookmark },
   ];
 
   return (
-    <main className="flex h-screen w-full bg-[#FAFCFF] font-sans overflow-hidden">
+    <main className="flex h-screen w-full font-sans overflow-hidden">
       <section className="flex-1 flex flex-col h-full relative">
 
         {/* CONTEÚDO COM SCROLL */}
@@ -61,7 +61,7 @@ export default function CommunityPage() {
                 `}
               >
                  <div className="flex gap-4">
-                    <div className="w-14 h-14 p-1 rounded-full border border-[#D6E1ED]">
+                    <div className="w-14 h-14 p-1 bg-[#3E489C] rounded-full border border-[#D6E1ED]">
                         <Image src={avatar06} alt="Arthur" className=" w-full h-full " />
                     </div>
                     <div className="flex-1">
@@ -76,8 +76,9 @@ export default function CommunityPage() {
                         <div className="flex justify-between items-center mt-2 pt-2 border-t border-gray-100">
                             <div className="flex gap-2">
                                 {/* Botões de anexo falsos para dar feeling de software rico */}
-                                <button className="p-2 hover:bg-gray-100 rounded-lg text-[#BBC9DA] transition"><span className="text-xs font-bold">📷 Foto</span></button>
-                                <button className="p-2 hover:bg-gray-100 rounded-lg text-[#BBC9DA] transition"><span className="text-xs font-bold">📎 Anexo</span></button>
+                                <button className="p-2 px-4 hover:bg-gray-100 rounded-lg text-[#BBC9DA] transition"><span className="text-xs font-bold">😃 Emoji</span></button>
+                                <button className="p-2 px-4 hover:bg-gray-100 rounded-lg text-[#BBC9DA] transition"><span className="text-xs font-bold"># Hastags</span></button>
+
                             </div>
                             <button className="bg-[#292F65] hover:bg-[#1e233b] text-white px-6 py-2 rounded-xl font-bold flex items-center gap-2 transition-transform active:scale-95 shadow-md shadow-[#292F65]/20">
                                 <span>Publicar</span>

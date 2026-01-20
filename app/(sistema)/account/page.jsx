@@ -19,6 +19,7 @@ import {
 } from 'lucide-react';
 import CommentCard from "@/components/ForumComments";
 import CursosSection from "@/components/(sistema)/account/CursosSection";
+import AccountCommentCard from "@/components/(sistema)/account/AccountCommentCard";
 
 export default function AccountPage() {
   
@@ -174,6 +175,50 @@ export default function AccountPage() {
 
         <span className="bg-[#D9D9D9] block w-full h-0.5 rounded-2xl" />
 
+        {/* Seção 5: Certificados */}
+        <section>
+          <div className="space-y-4">
+            <h2 className="text-3xl font-bold text-black mb-8">Certificados</h2>
+
+             {certificates.map((cert, idx) => (
+                <div key={idx} className="border-2 border-[#D6E1ED] w-10/12 rounded-xl p-5 flex flex-col md:flex-row items-center justify-between gap-6 bg-white">
+                    <div className="flex items-center gap-6 w-full md:w-auto">
+                        {/* Avatar */}
+                        <Image src={cert.image} alt="Avatar do Curso" className="w-20 h-20 rounded-full bg-yellow-100" />
+                        
+                        {/* Texto */}
+                        <div className="flex flex-col gap-1">
+                            <div>
+                                <h3 className="font-bold text-[#092B53] text-lg leading-tight">{cert.title}</h3>
+                                <p className="font-bold text-[#092B53] text-lg leading-tight">{cert.subtitle}</p>
+                            </div>
+                            
+                            {/* Metadata (Tempo e Avaliação) */}
+                            <div className="flex items-center gap-4 text-[#BBC9DA] mt-1">
+                                <div className="flex items-center gap-1.5">
+                                    <Clock size={20} className="text-[#BBC9DA]" />
+                                    <span className="font-bold text-lg">{cert.time}</span>
+                                </div>
+                                <div className="flex items-center gap-1.5">
+                                    <Star size={20} className="fill-[#BBC9DA] text-[#BBC9DA]" />
+                                    <span className="font-bold text-lg">{cert.rating}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Botão Baixar */}
+                    <button className="w-full cursor-pointer md:w-auto border-2 border-[#0B7E13] text-[#0B7E13] font-bold py-3 px-10 rounded-2xl hover:bg-green-50 transition whitespace-nowrap">
+                        Baixar Certificado
+                    </button>
+                </div>
+             ))}
+          </div>
+        </section>
+
+        <span className="bg-[#D9D9D9] block w-full h-0.5 rounded-2xl" />
+
+
         {/* Seção 3: Comentários */}
         <section>
           <h2 className="text-3xl font-bold text-black mb-8">Comentários Favoritados</h2>
@@ -182,7 +227,7 @@ export default function AccountPage() {
             <div
               key={index}
             >
-              <CommentCard
+              <AccountCommentCard
                 text={comment.text}
                 author={comment.author}
                 image={comment.image.src}
@@ -225,51 +270,7 @@ export default function AccountPage() {
             );
           })}
         </div>
-        </section>
-
-        <span className="bg-[#D9D9D9] block w-full h-0.5 rounded-2xl" />
-
-
-        {/* Seção 5: Certificados */}
-        <section>
-          <div className="space-y-4">
-            <h2 className="text-3xl font-bold text-black mb-8">Certificados</h2>
-
-             {certificates.map((cert, idx) => (
-                <div key={idx} className="border-2 border-[#D6E1ED] w-10/12 rounded-xl p-5 flex flex-col md:flex-row items-center justify-between gap-6 bg-white">
-                    <div className="flex items-center gap-6 w-full md:w-auto">
-                        {/* Avatar */}
-                        <Image src={cert.image} alt="Avatar do Curso" className="w-20 h-20 rounded-full bg-yellow-100" />
-                        
-                        {/* Texto */}
-                        <div className="flex flex-col gap-1">
-                            <div>
-                                <h3 className="font-bold text-[#092B53] text-lg leading-tight">{cert.title}</h3>
-                                <p className="font-bold text-[#092B53] text-lg leading-tight">{cert.subtitle}</p>
-                            </div>
-                            
-                            {/* Metadata (Tempo e Avaliação) */}
-                            <div className="flex items-center gap-4 text-[#BBC9DA] mt-1">
-                                <div className="flex items-center gap-1.5">
-                                    <Clock size={20} className="text-[#BBC9DA]" />
-                                    <span className="font-bold text-lg">{cert.time}</span>
-                                </div>
-                                <div className="flex items-center gap-1.5">
-                                    <Star size={20} className="fill-[#BBC9DA] text-[#BBC9DA]" />
-                                    <span className="font-bold text-lg">{cert.rating}</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Botão Baixar */}
-                    <button className="w-full cursor-pointer md:w-auto border-2 border-[#0B7E13] text-[#0B7E13] font-bold py-3 px-10 rounded-2xl hover:bg-green-50 transition whitespace-nowrap">
-                        Baixar Certificado
-                    </button>
-                </div>
-             ))}
-          </div>
-        </section>
+        </section>        
 
       </div>
     </main>

@@ -5,10 +5,19 @@ import {
   ChevronLeft, ChevronRight, CheckCircle, Eye, Circle, Clock, Star, Play,
   CheckCircle2
 } from 'lucide-react';
+
+import avatar01 from "@/public/images/avatars/avatar01.png";
+import avatar02 from "@/public/images/avatars/avatar02.png";
+import avatar03 from "@/public/images/avatars/avatar03.png";
+import avatar04 from "@/public/images/avatars/avatar04.png";
+import avatar05 from "@/public/images/avatars/avatar05.png";
+import Avatar06 from "@/public/images/avatars/avatar06.png";
+import avatar07 from "@/public/images/avatars/avatar07.png"
+
+
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import youtubeIcon from "@/public/images/icons/Youtube.png"
-import avatar07 from "@/public/images/avatars/avatar07.png"
 import Link from 'next/link';
 
 export default function AulaPage({ params }) {
@@ -25,24 +34,12 @@ export default function AulaPage({ params }) {
   ];
 
   return (
-    // Adicionei 'overflow-hidden' ao container principal para evitar dois scrolls (janela + div)
     <div className="w-full max-w-[1600px] max-h-[90dvh] mx-auto p-4 lg:pt-8 lg:p-8 bg-white h-screen overflow-hidden flex flex-col">
       
-      {/* Container do Grid */}
       <div className="grid grid-cols-1 xl:grid-cols-12 gap-8 h-full">
         
-        {/* =======================================================
-            COLUNA ESQUERDA (Vídeo e Comentários) - SCROLLABLE
-           ======================================================= */}
-        {/* MUDANÇAS AQUI: 
-            1. h-[calc(100vh-4rem)]: Define altura total menos padding
-            2. overflow-y-auto: Ativa o scroll vertical
-            3. pr-4: Dá um espaço para o scroll não colar no conteúdo
-            4. scrollbar-hidden: Classe para estilizar (definida lá embaixo)
-        */}
         <div className="xl:col-span-8 flex flex-col gap-6 h-[calc(100vh-6rem)] overflow-y-auto pr-4 scrollbar-hidden pb-20">
           
-          {/* Título e Breadcrumbs */}
           <div>
             <h1 className="text-3xl font-bold text-gray-900 mb-2">Criando projeto react e firebase</h1>
             <nav className="text-sm text-gray-500 font-medium">
@@ -86,27 +83,31 @@ export default function AulaPage({ params }) {
 
              <div className="space-y-8">
                 <CommentItem 
+                  avatarImage={Avatar06.src}
                   name="Arthur Juwer" 
                   date="Há 3 meses" 
-                  avatarColor="bg-blue-600"
+                  avatarColor="bg-[#3E489C]"
                   text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
                 />
                 <CommentItem 
+                  avatarImage={avatar07.src}
                   name="Arthur Cidade" 
                   date="Há 1 mês" 
-                  avatarColor="bg-yellow-500"
+                  avatarColor="bg-[#D38A3E]"
                   text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
                 />
                  <CommentItem 
+                  avatarImage={avatar01.src}
                   name="Maria Silva" 
                   date="Há 2 dias" 
-                  avatarColor="bg-green-500"
+                  avatarColor="bg-green-700"
                   text="Excelente aula! Muito didático."
                 />
                  <CommentItem 
+                  avatarImage={avatar05.src}
                   name="João Pedro" 
                   date="Há 1 semana" 
-                  avatarColor="bg-red-500"
+                  avatarColor="bg-red-900"
                   text="Poderia explicar melhor a parte do Firebase hooks?"
                 />
              </div>
@@ -230,11 +231,11 @@ function ActionButton({ icon: Icon, label, active = false }) {
   );
 }
 
-function CommentItem({ name, date, text, avatarColor }) {
+function CommentItem({ name, date, text, avatarColor, avatarImage }) {
   return (
     <div className="flex gap-4">
-       <div className={`w-12 h-12 rounded-full ${avatarColor} flex-shrink-0 border-2 border-white overflow-hidden`}>
-         <img src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${name}`} alt={name} />
+       <div className={`size-14 p-1.5 flex items-center justify-center rounded-full ${avatarColor} border-2 border-white overflow-hidden`}>
+         <img src={avatarImage} alt={name} />
        </div>
        <div className="flex-1">
           <div className="flex items-center gap-2 mb-1">

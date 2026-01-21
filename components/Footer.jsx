@@ -7,35 +7,10 @@ import { Instagram } from "lucide-react";
 
 /* ================= VARIANTS ================= */
 
-const footerVariant = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: "easeOut",
-      staggerChildren: 0.12,
-    },
-  },
-};
-
-const itemVariant = {
-  hidden: { opacity: 0, y: 15 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.4, ease: "easeOut" },
-  },
-};
 
 export default function Footer() {
   return (
-    <motion.footer
-      variants={footerVariant}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
+    <footer
       className="
         bg-[#242424] text-white text-sm font-semibold
         py-8 px-4
@@ -46,15 +21,14 @@ export default function Footer() {
         text-center lg:text-left
       "
     >
-      {/* Copyright */}
-      <motion.p variants={itemVariant}>
+      <p>
         © EducaTEA - Todos os direitos reservados.
-      </motion.p>
+      </p>
 
       <span className="lg:hidden h-0.5 w-4/5 block bg-white"></span>
 
       {/* Navigation */}
-      <motion.nav variants={itemVariant}>
+      <nav >
         <ul
           className="
             lg:flex lg:gap-10 gap-4 items-center
@@ -62,24 +36,20 @@ export default function Footer() {
           "
         >
           {/* Comunidade */}
-          <motion.a
+          <a
             href="/comunidade"
-            whileHover={{ y: -2 }}
-            transition={{ duration: 0.2 }}
             className="cursor-pointer hover:opacity-80"
           >
             Comunidade
-          </motion.a>
+          </a>
 
           {/* Termos */}
-          <motion.a
+          <a
             href="/termos"
-            whileHover={{ y: -2 }}
-            transition={{ duration: 0.2 }}
             className="cursor-pointer hover:opacity-80"
           >
             Termos de uso
-          </motion.a>
+          </a>
 
           {/* Language */}
           <li className="w-[175px] flex items-center justify-center">
@@ -88,9 +58,7 @@ export default function Footer() {
 
 
           {/* Instagram */}
-          <motion.li
-            whileHover={{ scale: 1.1, rotate: 5 }}
-            transition={{ duration: 0.25 }}
+          <li
             className="
               cursor-pointer
               size-10
@@ -100,9 +68,9 @@ export default function Footer() {
             "
           >
             <Instagram />
-          </motion.li>
+          </li>
         </ul>
-      </motion.nav>
-    </motion.footer>
+      </nav>
+    </footer>
   );
 }

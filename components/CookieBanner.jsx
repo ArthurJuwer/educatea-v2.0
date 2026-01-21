@@ -1,4 +1,5 @@
 "use client"
+import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
 
 const CookieBanner = () => {
@@ -52,12 +53,12 @@ const CookieBanner = () => {
             Rejeitar todos
           </button>
 
-          <button
-            onClick={() => console.log('Abrir configurações')}
+          <Link
+            href={'/cookies'}
             className="text-[#1e3a8a] font-semibold cursor-pointer hover:underline text-sm text-center"
           >
-            Configurações de cookies
-          </button>
+            O que são cookies?
+          </Link>
         </div>
         
       </div>

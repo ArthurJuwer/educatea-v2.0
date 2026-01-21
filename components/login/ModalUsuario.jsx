@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { X } from "lucide-react";
 import IconsUsers from "../../public/images/icons/iconsUser.png"
+import Link from "next/link";
 
 export default function ModalUsuario({ isOpen, onClose }) {
   // Estados: 'selection' | 'login' | 'register' | 'register_step2'
@@ -75,7 +76,7 @@ export default function ModalUsuario({ isOpen, onClose }) {
             <button onClick={() => setView("login")} className="w-full border-2 border-[#1A3879] text-[#1A3879] font-bold py-3.5 rounded-xl cursor-pointer">Entrar</button>
             <p className="mt-3 text-center text-xs text-gray-500 px-4">
               Ao possuir uma conta você concorda com os <br />
-              <span className="font-bold underline">termos de uso</span> e <span className="font-bold underline">politica de privacidade</span>
+              <Link href={'/termos'} className="font-bold underline">termos de uso</Link> e <Link href={'/privacidade'} className="font-bold underline">politica de privacidade</Link>
             </p>
             </div>
           </div>

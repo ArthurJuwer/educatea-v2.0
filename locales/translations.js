@@ -204,7 +204,60 @@ accessibility_button: {
 chatbot_button: {
   text: "Fale com Chatbot",
   alt: "Avatar do Chatbot"
-}
+},
+user_modal: {
+  selection: {
+    title: "Escolha uma opção",
+    create_account: "Criar nova conta",
+    or: "ou",
+    login: "Entrar",
+    disclaimer: "Ao possuir uma conta você concorda com os",
+    terms: "termos de uso",
+    privacy: "política de privacidade"
+  },
+  login: {
+    title: "Entrar",
+    email_label: "Email:",
+    email_placeholder: "ex: joaopedro@gmail.com",
+    password_label: "Senha:",
+    password_placeholder: "ex: Aa12345#",
+    forgot_btn: "Esqueceu?",
+    submit_btn: "Acessar sua conta",
+    back_btn: "Voltar"
+  },
+  register_step1: {
+    title: "Cadastro Rápido",
+    name_label: "Como podemos te chamar?",
+    name_placeholder: "ex: João Pedro",
+    email_label: "Email:",
+    password_label: "Senha:",
+    repeat_password_label: "Repita a Senha:",
+    password_info: "**Precisa ter no mínimo 8 caracteres; 1 número e um caractere especial.",
+    next_btn: "Próximo"
+  },
+  register_step2: {
+    title: "Personalize sua conta",
+    icon_label: "Selecione seu ícone:",
+    icon_placeholder: "Ícone aqui",
+    tags_label: "Selecione suas tags:",
+    finish_btn: "Finalizar",
+    back_btn: "Voltar"
+  },
+  tags: {
+    admin: "Admin",
+    developer: "Desenvolvedor",
+    student: "Aluno",
+    aee: "AEE",
+    psychologist: "Psicóloga",
+    senac_rs: "Senac RS",
+    teacher: "Professor",
+    tutor: "Tutor",
+    person_tea: "Pessoa com TEA",
+    tea_1: "TEA 1",
+    tea_2: "TEA 2",
+    tea_3: "TEA 3"
+  }
+},
 
 
 
@@ -418,6 +471,59 @@ accessibility_button: {
 chatbot_button: {
   text: "Chat with Chatbot",
   alt: "Chatbot Avatar"
+},
+user_modal: {
+  selection: {
+    title: "Choose an option",
+    create_account: "Create new account",
+    or: "or",
+    login: "Login",
+    disclaimer: "By having an account you agree to the",
+    terms: "terms of use",
+    privacy: "privacy policy"
+  },
+  login: {
+    title: "Login",
+    email_label: "Email:",
+    email_placeholder: "ex: johnpeter@gmail.com",
+    password_label: "Password:",
+    password_placeholder: "ex: Aa12345#",
+    forgot_btn: "Forgot?",
+    submit_btn: "Access your account",
+    back_btn: "Back"
+  },
+  register_step1: {
+    title: "Quick Registration",
+    name_label: "What should we call you?",
+    name_placeholder: "ex: John Peter",
+    email_label: "Email:",
+    password_label: "Password:",
+    repeat_password_label: "Repeat Password:",
+    password_info: "**Must have at least 8 characters; 1 number and 1 special character.",
+    next_btn: "Next"
+  },
+  register_step2: {
+    title: "Customize your account",
+    icon_label: "Select your icon:",
+    icon_placeholder: "Icon here",
+    tags_label: "Select your tags:",
+    finish_btn: "Finish",
+    back_btn: "Back"
+  },
+  tags: {
+    admin: "Admin",
+    developer: "Developer",
+    student: "Student",
+    aee: "ESA", // Educational Specialist Support
+    psychologist: "Psychologist",
+    senac_rs: "Senac RS",
+    teacher: "Teacher",
+    tutor: "Tutor",
+    person_tea: "Person with ASD",
+    tea_1: "ASD 1",
+    tea_2: "ASD 2",
+    tea_3: "ASD 3"
+  }
 }
 
 
@@ -630,7 +736,60 @@ chatbot_button: {
   text: "Habla con el Chatbot",
   alt: "Avatar del Chatbot"
 },
-
+// Dentro de "es-es" > components:
+user_modal: {
+  selection: {
+    title: "Elige una opción",
+    create_account: "Crear nueva cuenta",
+    or: "o",
+    login: "Entrar",
+    disclaimer: "Al tener una cuenta aceptas los",
+    terms: "términos de uso",
+    privacy: "política de privacidad"
+  },
+  login: {
+    title: "Entrar",
+    email_label: "Correo:",
+    email_placeholder: "ej: juanpedro@gmail.com",
+    password_label: "Contraseña:",
+    password_placeholder: "ej: Aa12345#",
+    forgot_btn: "¿Olvidaste?",
+    submit_btn: "Acceder a tu cuenta",
+    back_btn: "Volver"
+  },
+  register_step1: {
+    title: "Registro Rápido",
+    name_label: "¿Cómo podemos llamarte?",
+    name_placeholder: "ej: Juan Pedro",
+    email_label: "Correo:",
+    password_label: "Contraseña:",
+    repeat_password_label: "Repetir Contraseña:",
+    password_info: "**Debe tener al menos 8 caracteres; 1 número y 1 carácter especial.",
+    next_btn: "Siguiente"
+  },
+  register_step2: {
+    title: "Personaliza tu cuenta",
+    icon_label: "Selecciona tu ícono:",
+    icon_placeholder: "Ícono aquí",
+    tags_label: "Selecciona tus etiquetas:",
+    finish_btn: "Finalizar",
+    back_btn: "Volver"
+  },
+  tags: {
+    admin: "Admin",
+    developer: "Desarrollador",
+    student: "Estudiante",
+    aee: "AEE",
+    psychologist: "Psicólogo",
+    senac_rs: "Senac RS",
+    teacher: "Profesor",
+    tutor: "Tutor",
+    person_tea: "Persona con TEA",
+    tea_1: "TEA 1",
+    tea_2: "TEA 2",
+    tea_3: "TEA 3"
+  }
+}
 
 
 

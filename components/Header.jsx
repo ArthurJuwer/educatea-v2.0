@@ -4,17 +4,26 @@ import { useState } from "react";
 import Image from "next/image";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 
+// Importações de imagens
 import TextLogo from "../public/images/logos/TextLogo.png";
-import BrasilFlag from "../public/images/languages/Brasil.png";
+import BrasilFlag from "../public/images/languages/Brasil.png"; // Usado apenas no mobile como fallback visual
 import User from "../public/images/icons/user.png";
+import { User2 } from "lucide-react";
+
+// Componentes
 import { LanguageSelectHeader } from "./sub-components/LanguageSelectHeader";
 import UserModal from "./login/ModalUsuario";
-import { User2 } from "lucide-react";
+
+// Import do Hook de Tradução
+import { useLanguage } from "@/context/LanguageContext"; // <--- AJUSTE O CAMINHO SE NECESSÁRIO
 
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // Hook de tradução
+  const { t } = useLanguage();
 
   const { scrollY } = useScroll();
 
@@ -26,6 +35,15 @@ export default function Header() {
       setHidden(false);
     }
   });
+
+  // Array de configuração do menu para facilitar a tradução no map
+  const navItems = [
+    { id: "presentation", href: "#apresentacao" },
+    { id: "fairs", href: "#feiras" },
+    { id: "works", href: "#trabalhos" },
+    { id: "community", href: "#comunidade" },
+    { id: "team", href: "#equipe" },
+  ];
 
   return (
     <>
@@ -46,16 +64,19 @@ export default function Header() {
         {/* MENU DESKTOP */}
         <nav className="hidden md:flex items-center gap-x-10 list-none">
           <button className="bg-[#1A3879] text-white px-10 py-3 rounded-full">
-            JOGAR
+            {t('components.header.play')}
           </button>
-          {["APRESENTAÇÃO", "FEIRAS", "TRABALHOS", "COMUNIDADE", "EQUIPE"].map((item) => (
+          
+          {navItems.map((item) => (
             <motion.li
-              key={item}
+              key={item.id}
               whileHover={{ y: -2 }}
               transition={{ duration: 0.2 }}
-              className="cursor-pointer hover:opacity-80 text-sm"
+              className="cursor-pointer hover:opacity-80 text-sm uppercase"
             >
-              <a href={`#${item.toLowerCase()}`}>{item}</a>
+              <a href={item.href}>
+                {t(`components.header.menu.${item.id}`)}
+              </a>
             </motion.li>
           ))}
         </nav>
@@ -65,12 +86,12 @@ export default function Header() {
           <button 
             onClick={() => setIsModalOpen(true)} 
             className="transition-opacity cursor-pointer hover:opacity-70"
+            title={t('components.header.actions.open_profile')}
           >
-
-
-            <User2 width={45} height={30} alt="Abrir menu" />
+            <User2 width={45} height={30} alt="User Icon" />
           </button>
           <li className="list-none">
+            {/* O seletor de linguagem já cuida da troca */}
             <LanguageSelectHeader />
           </li>
         </div>
@@ -92,19 +113,25 @@ export default function Header() {
           </div>
 
           <nav className="flex flex-col gap-6 text-lg list-none">
-            <button className="bg-[#1A3879] text-white py-3 rounded-full">JOGAR</button>
-            <li><a href="#header">APRESENTAÇÃO</a></li>
-            <li><a href="#feiras">FEIRAS</a></li>
-            <li><a href="#trabalhos">TRABALHOS</a></li>
-            <li><a href="#comunidade">COMUNIDADE</a></li>
-            <li><a href="#equipe">EQUIPE</a></li>
+            <button className="bg-[#1A3879] text-white py-3 rounded-full">
+              {t('components.header.play')}
+            </button>
+            
+            {navItems.map((item) => (
+               <li key={item.id}>
+                 <a href={item.href} onClick={() => setOpen(false)}>
+                    {t(`components.header.menu.${item.id}`)}
+                 </a>
+               </li>
+            ))}
           </nav>
 
           <div className="mt-auto flex items-center gap-4">
             <button onClick={() => { setOpen(false); setIsModalOpen(true); }}>
               <Image src={User} width={35} height={25} alt="Perfil" />
             </button>
-            <Image src={BrasilFlag} width={35} height={25} alt="Idioma" />
+            {/* No mobile você pode optar por colocar o componente LanguageSelectHeader aqui também se quiser o dropdown */}
+             <LanguageSelectHeader /> 
           </div>
         </div>
       )}

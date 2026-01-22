@@ -1,14 +1,12 @@
 "use client";
 
-import Image from "next/image";
-import { motion } from "framer-motion";
 import { LanguageSelectFooter } from "./sub-components/LanguageSelectFooter";
 import { Instagram } from "lucide-react";
-
-/* ================= VARIANTS ================= */
-
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Footer() {
+  const { t } = useLanguage();
+
   return (
     <footer
       className="
@@ -22,13 +20,13 @@ export default function Footer() {
       "
     >
       <p>
-        © EducaTEA - Todos os direitos reservados.
+        {t('components.footer.copyright')}
       </p>
 
       <span className="lg:hidden h-0.5 w-4/5 block bg-white"></span>
 
       {/* Navigation */}
-      <nav >
+      <nav>
         <ul
           className="
             lg:flex lg:gap-10 gap-4 items-center
@@ -40,7 +38,7 @@ export default function Footer() {
             href="/comunidade"
             className="cursor-pointer hover:opacity-80"
           >
-            Comunidade
+            {t('components.footer.community')}
           </a>
 
           {/* Termos */}
@@ -48,14 +46,13 @@ export default function Footer() {
             href="/termos"
             className="cursor-pointer hover:opacity-80"
           >
-            Termos de uso
+            {t('components.footer.terms')}
           </a>
 
           {/* Language */}
           <li className="w-[175px] flex items-center justify-center">
             <LanguageSelectFooter />
           </li>
-
 
           {/* Instagram */}
           <li

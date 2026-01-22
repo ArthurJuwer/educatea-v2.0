@@ -4,6 +4,8 @@ import "./globals.css";
 import { DM_Sans } from "next/font/google";
 import ChatbotWidget from "@/components/chatbot/ChatbotWidget";
 import AcessibilidadeWidget from "@/components/acessibilidade/AcessibilidadeWidget";
+import { LanguageProvider } from "@/context/LanguageContext";
+
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -19,15 +21,17 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="pt-BR">
-      <body className={`${dmSans.className} z-0 relative antialiased`}>
-        <Header />
-        {children}
-        <div className="z-40 fixed right-5 bottom-10">
-          <ChatbotWidget />
-           <AcessibilidadeWidget />
-        </div>
-        <Footer />
-      </body>
+      <LanguageProvider>
+        <body className={`${dmSans.className} z-0 relative antialiased`}>
+          <Header />
+          {children}
+          <div className="z-40 fixed right-5 bottom-10">
+            <ChatbotWidget />
+            <AcessibilidadeWidget />
+          </div>
+          <Footer />
+        </body>
+      </LanguageProvider>
     </html>
   );
 }

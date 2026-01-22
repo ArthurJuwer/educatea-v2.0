@@ -1,10 +1,14 @@
 "use client"
 import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
+import { useLanguage } from "@/context/LanguageContext"; // Ajuste o caminho se necessário
 
 const CookieBanner = () => {
   // Inicializamos como false para ele começar escondido
   const [isVisible, setIsVisible] = useState(false);
+  
+  // Hook de tradução
+  const { t } = useLanguage();
 
   useEffect(() => {
     // Define o timer para mudar o estado após 5000ms (5 segundos)
@@ -25,14 +29,12 @@ const CookieBanner = () => {
         {/* Texto Informativo */}
         <div className="space-y-3">
           <h2 className="text-xl font-bold text-gray-800">
-            A sua privacidade é muito importante para nós
+            {t('components.cookie_banner.title')}
           </h2>
           <p className="text-sm text-gray-600 leading-relaxed">
-            Nós usamos cookies para garantir a melhor experiência e para coletar dados sobre como os 
-            visitantes interagem com o nosso site. Ao clicar em "Aceitar", você concorda em usarmos 
-            todos os cookies para anúncios, personalizações e análises, como descrito na nossa{' '}
+            {t('components.cookie_banner.text')}{' '}
             <a href="#" className="text-blue-800 font-semibold hover:underline">
-              Política de cookies.
+              {t('components.cookie_banner.policy_link')}
             </a>
           </p>
         </div>
@@ -43,21 +45,21 @@ const CookieBanner = () => {
             onClick={() => setIsVisible(false)}
             className="bg-[#1e3a8a] text-sm cursor-pointer hover:bg-blue-900 text-white font-semibold py-2 px-4 rounded-md transition-colors duration-200"
           >
-            Aceitar todos
+            {t('components.cookie_banner.accept_btn')}
           </button>
           
           <button
             onClick={() => setIsVisible(false)}
             className="border border-gray-300 text-sm cursor-pointer hover:bg-gray-50 text-[#1e3a8a] font-semibold py-2 px-4 rounded-md transition-colors duration-200"
           >
-            Rejeitar todos
+            {t('components.cookie_banner.reject_btn')}
           </button>
 
           <Link
             href={'/cookies'}
             className="text-[#1e3a8a] font-semibold cursor-pointer hover:underline text-sm text-center"
           >
-            O que são cookies?
+            {t('components.cookie_banner.what_are_cookies')}
           </Link>
         </div>
         

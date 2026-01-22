@@ -1,9 +1,13 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState } from "react"; // Removemos useRef se não for usado
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
+// 1. Importe o hook do contexto que criamos
+import { useLanguage } from "@/context/LanguageContext"; // Ajuste o caminho conforme sua pasta
+
+// Importação das Imagens (Mantida igual)
 import FlagBrasil from "../../public/images/languages/Brasil.png"
 import FlagPortugal from "../../public/images/languages/Portugal.png"
 import FlagAngola from "../../public/images/languages/Angola.png"
@@ -12,60 +16,41 @@ import FlagEspanha from "../../public/images/languages/Espanha.png"
 import FlagLatAm from "../../public/images/languages/LatAm.png"
 
 const languages = [
-  {
-    id: "pt-br",
-    label: "Português (Brasil)",
-    flag: FlagBrasil,
-  },
-  {
-    id: "pt-pt",
-    label: "Português (Portugal)",
-    flag: FlagPortugal,
-  },
-  {
-    id: "pt-ag",
-    label: "Português (Angola)",
-    flag: FlagAngola,
-  },
-  {
-    id: "en-us",
-    label: "English (US)",
-    flag: FlagUS,
-  },
-  {
-    id: "es-es",
-    label: "Español",
-    flag: FlagEspanha,
-  },
-  {
-    id: "es-al",
-    label: "Español (LatAm)",
-    flag: FlagLatAm,
-  },
+  { id: "pt-br", label: "Português (Brasil)", flag: FlagBrasil },
+  { id: "pt-pt", label: "Português (Portugal)", flag: FlagPortugal },
+  { id: "pt-ag", label: "Português (Angola)", flag: FlagAngola },
+  { id: "en-us", label: "English (US)", flag: FlagUS },
+  { id: "es-es", label: "Español", flag: FlagEspanha },
+  { id: "es-al", label: "Español (LatAm)", flag: FlagLatAm },
 ];
 
 export function LanguageSelectHeader() {
   const [open, setOpen] = useState(false);
-  const [selected, setSelected] = useState(languages[0]);
+  
+  // 2. Usamos o Contexto em vez de estado local para a língua
+  const { lang, switchLanguage } = useLanguage();
+
+  // 3. Encontramos o objeto da língua atual baseado no ID salvo no contexto global
+  // Se não achar (primeira carga), usa o primeiro do array como fallback
+  const selected = languages.find((l) => l.id === lang) || languages[0];
+
+  const handleLanguageChange = (languageId) => {
+    switchLanguage(languageId); // Atualiza o contexto e o localStorage
+    setOpen(false); // Fecha o dropdown
+  };
 
   return (
     <div className="relative">
-      {/* Botão */}
+      {/* Botão Principal */}
       <button
         onClick={() => setOpen(!open)}
-        className="
-          flex items-center gap-2
-          cursor-pointer
-          hover:opacity-80
-          transition
-        "
+        className="flex items-center gap-2 cursor-pointer hover:opacity-80 transition"
       >
         <Image
           src={selected.flag}
-          className="w-12 h-8 rounded"
+          className="w-12 h-8 rounded object-cover" // Adicionei object-cover para garantir ajuste
           alt={selected.label}
         />
-        {/* <span>{selected.label}</span> */}
       </button>
 
       {/* Dropdown */}
@@ -86,28 +71,32 @@ export function LanguageSelectHeader() {
               z-50
             "
           >
-            {languages.map((lang) => (
+            {languages.map((item) => (
               <li
-                key={lang.id}
-                onClick={() => {
-                  setSelected(lang);
-                  setOpen(false);
-                }}
-                className="
+                key={item.id}
+                // 4. Ao clicar, chamamos a função que atualiza o global
+                onClick={() => handleLanguageChange(item.id)}
+                className={`
                   flex items-center gap-4
                   px-4 py-2
                   cursor-pointer
-                  hover:bg-white/10
                   transition
-                "
+                  ${lang === item.id ? 'bg-white/20' : 'hover:bg-white/10'} 
+                `}
               >
                 <Image
-                  src={lang.flag}
+                  src={item.flag}
                   width={20}
                   height={20}
-                  alt={lang.label}
+                  alt={item.label}
+                  className="rounded-sm"
                 />
-                <span className="text-white text-sm">{lang.label}</span>
+                <span className="text-white text-sm">{item.label}</span>
+                
+                {/* Opcional: Indicador visual da seleção atual */}
+                {lang === item.id && (
+                  <span className="ml-auto text-xs text-green-400">Ativo</span>
+                )}
               </li>
             ))}
           </motion.ul>

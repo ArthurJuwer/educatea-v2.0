@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLanguage } from "@/context/LanguageContext";
 
 import Feira1 from "../public/images/feiras/Feira1.png";
 import Feira2 from "../public/images/feiras/Feira2.png";
@@ -18,13 +19,15 @@ import FeiraLogo5 from "../public/images/feiras/logo/FeiraLogo5.png";
 import FeiraLogo6 from "../public/images/feiras/logo/FeiraLogo6.png";
 
 export default function Fair() {
+  const { t } = useLanguage();
+
   const feiras = [
-    { id: 1, image: Feira1, logo: FeiraLogo1, title: "Feira de Projetos SENAC RS" },
-    { id: 2, image: Feira2, logo: FeiraLogo2, title: "MostraPoa IFRS" },
-    { id: 3, image: Feira3, logo: FeiraLogo3, title: "Mostra Científica SENAC SL" },
-    { id: 4, image: Feira4, logo: FeiraLogo4, title: "Feevale Inovamundi" },
-    { id: 5, image: Feira5, logo: FeiraLogo5, title: "MOCITEC IFSUL Charqueadas" },
-    { id: 6, image: Feira6, logo: FeiraLogo6, title: "Desafio Liga Jovem" },
+    { id: 1, image: Feira1, logo: FeiraLogo1, },
+    { id: 2, image: Feira2, logo: FeiraLogo2, },
+    { id: 3, image: Feira3, logo: FeiraLogo3, },
+    { id: 4, image: Feira4, logo: FeiraLogo4, },
+    { id: 5, image: Feira5, logo: FeiraLogo5, },
+    { id: 6, image: Feira6, logo: FeiraLogo6, },
   ];
 
   const [index, setIndex] = useState(0);
@@ -63,7 +66,7 @@ export default function Fair() {
         className="flex justify-center mb-10"
       >
         <h1 className="text-center text-white font-bold text-2xl xl:text-3xl w-4/5 lg:mb-16">
-          NOSSAS PARTICIPAÇÕES EM FEIRAS
+          {t('components.fair.title')}
         </h1>
       </motion.div>
 
@@ -83,7 +86,7 @@ export default function Fair() {
               >
                 <Image
                   src={feiraAtual.image}
-                  alt={feiraAtual.title}
+                  alt="Imagem da feira"
                   fill
                   className="object-cover"
                   priority
@@ -92,7 +95,6 @@ export default function Fair() {
 
                 <div className="absolute bottom-4 left-4 right-4 flex items-center justify-center">
                   <Image src={feiraAtual.logo} alt="Logo" width={120} height={120} />
-                  
                 </div>
               </motion.div>
             </AnimatePresence>
@@ -113,7 +115,7 @@ export default function Fair() {
                 ${i === index ? "ring-2 ring-white" : ""}
               `}
             >
-              <Image src={feira.image} alt={feira.title} fill className="object-cover" />
+              <Image src={feira.image} alt="Thumbnail da feira" fill className="object-cover" />
               <div className="absolute inset-0 bg-black/50" />
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                 <Image src={feira.logo} alt="Logo" width={45} height={45} />
@@ -148,13 +150,12 @@ export default function Fair() {
                 }
               `}
             >
-              <Image src={feira.image} alt={feira.title} fill className="object-cover" />
+              <Image src={feira.image} alt="Imagem da feira" fill className="object-cover" />
               <div className="absolute inset-0 bg-black/40" />
               <div className="absolute bottom-0 bg-[#3E489C] w-full h-1/5 rounded-t-xl" />
 
               <div className="absolute bottom-12 left-4 right-4 flex items-center justify-center">
                 <Image src={feira.logo} alt="Logo" width={150} height={150} />
-                
               </div>
             </motion.div>
           );

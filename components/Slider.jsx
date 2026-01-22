@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLanguage } from "@/context/LanguageContext";
 
 import Slide01 from "../public/images/carrosel-jogo/slide-1.png";
 import Slide02 from "../public/images/carrosel-jogo/slide-2.png";
@@ -17,6 +18,7 @@ const SLIDE_TIME = 4;
 export default function Slider() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [countdown, setCountdown] = useState(SLIDE_TIME);
+  const { t } = useLanguage();
 
   /* AUTOPLAY */
   useEffect(() => {
@@ -50,7 +52,7 @@ export default function Slider() {
     >
       {/* TITLE */}
       <h1 className="text-white text-2xl sm:text-3xl font-bold mb-8 sm:mb-16">
-        EXPERIMENTE E APRENDA!
+        {t('components.slider.title')}
       </h1>
 
       {/* SLIDER */}
@@ -77,7 +79,7 @@ export default function Slider() {
           >
             <Image
               src={slides[currentSlide]}
-              alt={`Slide ${currentSlide + 1}`}
+              alt={`${t('components.slider.slide_alt')} ${currentSlide + 1}`}
               fill
               priority
               className="object-cover"
@@ -87,20 +89,20 @@ export default function Slider() {
 
         {/* COUNTDOWN */}
         <div
-  className="
-    absolute top-3 right-3
-    sm:top-4 sm:right-4
-    bg-[#0033FF] text-white
-    size-10 sm:size-12
-    flex items-center justify-center
-    rounded-full
-    z-20
-  "
->
-  <span className="font-bold text-sm sm:text-xl">
-    {countdown}s
-  </span>
-</div>
+          className="
+            absolute top-3 right-3
+            sm:top-4 sm:right-4
+            bg-[#0033FF] text-white
+            size-10 sm:size-12
+            flex items-center justify-center
+            rounded-full
+            z-20
+          "
+        >
+          <span className="font-bold text-sm sm:text-xl">
+            {countdown}s
+          </span>
+        </div>
 
 
         {/* LEFT ARROW */}
@@ -122,7 +124,7 @@ export default function Slider() {
             z-20
           "
         >
-          <Image src={LeftChevron} className="w-4" alt=""/>
+          <Image src={LeftChevron} className="w-4" alt="Previous" />
         </motion.button>
 
         {/* RIGHT ARROW */}
@@ -144,7 +146,7 @@ export default function Slider() {
             z-20
           "
         >
-          <Image src={RightChevron} className="w-4" alt=""/>
+          <Image src={RightChevron} className="w-4" alt="Next" />
         </motion.button>
       </div>
 

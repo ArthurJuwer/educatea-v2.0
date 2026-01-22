@@ -1,21 +1,24 @@
-'use client'; // Necessário para hooks de navegação
+'use client'; 
 
 import Link from 'next/link';
 import Image from "next/image";
-
 import { usePathname } from 'next/navigation';
 import { Home, MonitorPlay, Award, Download, MessageSquare, LogOut } from 'lucide-react';
+import { useLanguage } from "@/context/LanguageContext"; // Importação do Contexto
+
 import TextLogo from "../../../public/images/logos/TextLogo.png";
 
 export default function Sidebar() {
-  const pathname = usePathname(); // Pega a rota atual
+  const pathname = usePathname(); 
+  const { t } = useLanguage(); // Hook de tradução
 
+  // Array de menus com textos traduzidos
   const menuItems = [
-    { name: 'Geral', icon: Home, href: '/account' }, // Exemplo de rota
-    { name: 'Cursos' || 'Cursos/1', icon: MonitorPlay, href: '/account/cursos' },
-    { name: 'Certificados', icon: Award, href: '/account/certificados' },
-    { name: 'Downloads', icon: Download, href: '/account/downloads' },
-    { name: 'Comunidade', icon: MessageSquare, href: '/account/comunidade' },
+    { name: t('components.sidebar.menu.general'), icon: Home, href: '/account' },
+    { name: t('components.sidebar.menu.courses'), icon: MonitorPlay, href: '/account/cursos' },
+    { name: t('components.sidebar.menu.certificates'), icon: Award, href: '/account/certificados' },
+    { name: t('components.sidebar.menu.downloads'), icon: Download, href: '/account/downloads' },
+    { name: t('components.sidebar.menu.community'), icon: MessageSquare, href: '/account/comunidade' },
   ];
 
   return (
@@ -23,13 +26,19 @@ export default function Sidebar() {
       {/* Logo Area */}
       <div className="p-6 pt-8">
           <Link href={"/account"}>
-            <Image src={TextLogo} width={150} height={50} alt="Logo" />
+            <Image 
+              src={TextLogo} 
+              width={150} 
+              height={50} 
+              alt={t('components.sidebar.logo_alt')} 
+            />
           </Link>
       </div>
 
       {/* Navigation */}
       <nav className="flex-1 space-y-2 mt-4 overflow-y-auto">
         {menuItems.map((item, index) => {
+          // Lógica de rota ativa (mantida igual)
           const isActive = item.href === '/account' 
             ? pathname === item.href
             : pathname.startsWith(item.href);
@@ -55,7 +64,7 @@ export default function Sidebar() {
       <div className="p-6 border-t-2 border-[#D9D9D9]">
         <button className="flex items-center gap-4 text-[#BBC9DA] hover:text-[#292F64] cursor-pointer transition-colors w-full">
           <LogOut size={20} />
-          <span>Sair</span>
+          <span>{t('components.sidebar.logout')}</span>
         </button>
       </div>
     </aside>

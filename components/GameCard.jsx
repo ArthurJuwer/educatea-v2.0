@@ -2,8 +2,11 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import WallpaperLogo from "../public/images/logos/WallpaperLogo.png";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function GameCard() {
+  const { t } = useLanguage();
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 60 }}
@@ -24,7 +27,7 @@ export default function GameCard() {
         viewport={{ once: true }}
         className="text-lg md:text-xl font-semibold"
       >
-        Acesse o Educa Tea
+        {t('components.game_card.title')}
       </motion.h1>
 
       {/* CONTEÚDO */}
@@ -39,7 +42,7 @@ export default function GameCard() {
         >
           <Image
             src={WallpaperLogo}
-            alt="Educa Tea"
+            alt={t('components.game_card.image_alt')}
             className="w-full h-auto"
           />
         </motion.div>
@@ -52,9 +55,7 @@ export default function GameCard() {
           viewport={{ once: true }}
           className="text-sm md:text-base md:w-1/2 text-center md:text-left"
         >
-          Jogo educativo interativo que ajuda profissionais a desenvolverem
-          estratégias inclusivas e práticas eficazes no ensino de alunos com
-          Transtorno do Espectro Autista (TEA).
+          {t('components.game_card.description')}
         </motion.p>
       </div>
 
@@ -66,11 +67,10 @@ export default function GameCard() {
         className="
           bg-[#0033FF] rounded-xl px-14 py-2 font-semibold cursor-pointer
           text-sm md:text-base
-
           md:absolute md:left-1/2 md:-translate-x-1/2 md:-bottom-5
         "
       >
-        Acessar
+        {t('components.game_card.button')}
       </motion.button>
     </motion.div>
   );

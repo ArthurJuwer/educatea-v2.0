@@ -3,19 +3,17 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import Image from "next/image";
-import CommentCard from "@/components/ForumComments"; // Seu componente
+import { useLanguage } from "@/context/LanguageContext"; // Import Context
 
 // Imagens
-import avatar06 from "../../../../public/images/avatars/avatar06.png"; // Avatar do usuário logado
+import avatar06 from "../../../../public/images/avatars/avatar06.png";
 import avatar01 from "../../../../public/images/avatars/avatar01.png";
 import avatar02 from "../../../../public/images/avatars/avatar02.png";
 import avatar03 from "../../../../public/images/avatars/avatar03.png";
 import avatar04 from "../../../../public/images/avatars/avatar04.png";
 import avatar05 from "../../../../public/images/avatars/avatar05.png";
 
-// Ícones Amigáveis (Lucide)
 import { 
-  Search, 
   Send, 
   Sparkles, 
   MessageCircle, 
@@ -25,10 +23,13 @@ import {
 } from 'lucide-react';
 
 export default function CommunityPage() {
-  const [activeFilter, setActiveFilter] = useState("Destaques");
+  // Usamos IDs internos para os filtros funcionarem independente do idioma
+  const [activeFilter, setActiveFilter] = useState("highlights");
   const [isInputFocused, setIsInputFocused] = useState(false);
+  
+  const { t } = useLanguage();
 
-  // Simulação de dados
+  // Simulação de dados (Mantidos no original conforme solicitado)
   const comments = [
     { id: 1, text: "Gente, a fase 3 do jogo ajudou muito meu aluno com a questão das cores! 🎨", author: "João Guilherme", image: avatar01 },
     { id: 2, text: "Alguém sabe se vai ter versão mobile? Meus alunos adorariam usar nos tablets.", author: "Maria Clara", image: avatar02 },
@@ -37,11 +38,12 @@ export default function CommunityPage() {
     { id: 5, text: "Que orgulho ver esse projeto crescendo! 🚀", author: "Lucas Andrade", image: avatar05 },
   ];
 
+  // Array de filtros com IDs para tradução
   const filters = [
-    { label: "Destaques", icon: Sparkles },
-    { label: "Recentes", icon: MessageCircle },
-    { label: "Meus Posts", icon: Heart },
-    { label: "Favoritados", icon: Bookmark },
+    { id: "highlights", icon: Sparkles },
+    { id: "recent", icon: MessageCircle },
+    { id: "my_posts", icon: Heart },
+    { id: "favorites", icon: Bookmark },
   ];
 
   return (
@@ -53,7 +55,11 @@ export default function CommunityPage() {
            
            <div className="mx-auto space-y-8">
 
-              <h2 className="text-3xl font-bold text-black mb-8">Comunidade</h2>
+              <h2 className="text-3xl font-bold text-black mb-8">
+                {t('components.community_page.title')}
+              </h2>
+
+              {/* INPUT AREA */}
               <div 
                 className={`
                     relative bg-white border-2 rounded-2xl p-4 transition-all duration-300
@@ -68,20 +74,22 @@ export default function CommunityPage() {
                         <textarea 
                             onFocus={() => setIsInputFocused(true)}
                             onBlur={() => setIsInputFocused(false)}
-                            placeholder="Compartilhe sua ideia, dúvida ou feedback..."
+                            placeholder={t('components.community_page.placeholder')}
                             className="w-full resize-none h-20 outline-none text-[#092B53] placeholder-[#BBC9DA] text-lg font-medium bg-transparent pt-2"
                         />
                         
                         {/* Barra de Ações do Input */}
                         <div className="flex justify-between items-center mt-2 pt-2 border-t border-gray-100">
                             <div className="flex gap-2">
-                                {/* Botões de anexo falsos para dar feeling de software rico */}
-                                <button className="p-2 px-4 hover:bg-gray-100 rounded-lg text-[#BBC9DA] transition"><span className="text-xs font-bold">😃 Emoji</span></button>
-                                <button className="p-2 px-4 hover:bg-gray-100 rounded-lg text-[#BBC9DA] transition"><span className="text-xs font-bold"># Hastags</span></button>
-
+                                <button className="p-2 px-4 hover:bg-gray-100 rounded-lg text-[#BBC9DA] transition">
+                                    <span className="text-xs font-bold">😃 {t('components.community_page.actions.emoji')}</span>
+                                </button>
+                                <button className="p-2 px-4 hover:bg-gray-100 rounded-lg text-[#BBC9DA] transition">
+                                    <span className="text-xs font-bold"># {t('components.community_page.actions.hashtags')}</span>
+                                </button>
                             </div>
                             <button className="bg-[#292F65] hover:bg-[#1e233b] text-white px-6 py-2 rounded-xl font-bold flex items-center gap-2 transition-transform active:scale-95 shadow-md shadow-[#292F65]/20">
-                                <span>Publicar</span>
+                                <span>{t('components.community_page.actions.publish')}</span>
                                 <Send size={16} />
                             </button>
                         </div>
@@ -90,21 +98,21 @@ export default function CommunityPage() {
               </div>
 
 
-              {/* 2. FILTROS AMIGÁVEIS (TABS) */}
+              {/* 2. FILTROS (TABS) */}
               <div className="flex items-center gap-2 overflow-x-auto pb-2">
                  {filters.map((filter) => (
                     <button
-                        key={filter.label}
-                        onClick={() => setActiveFilter(filter.label)}
+                        key={filter.id}
+                        onClick={() => setActiveFilter(filter.id)}
                         className={`
                             flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm border-2 transition-all whitespace-nowrap
-                            ${activeFilter === filter.label 
+                            ${activeFilter === filter.id 
                                 ? 'bg-[#292F65] border-[#292F65] text-white shadow-md' 
                                 : 'bg-white border-[#D6E1ED] text-[#BBC9DA] hover:border-[#292F65] hover:text-[#292F65]'}
                         `}
                     >
                         <filter.icon size={16} />
-                        {filter.label}
+                        {t(`components.community_page.filters.${filter.id}`)}
                     </button>
                  ))}
                  <button className="ml-auto p-2 text-[#BBC9DA] hover:text-[#292F65]">
@@ -123,11 +131,8 @@ export default function CommunityPage() {
                         transition={{ delay: idx * 0.1 }}
                         className="h-full"
                     >
-                        {/* Wrapper para dar o estilo de card clicável */}
                         <div className="bg-white border-2 border-[#D6E1ED] rounded-2xl hover:border-[#292F65]/50 hover:shadow-lg transition-all duration-300 cursor-pointer h-full group p-1">
-                            <article
-                              className={"rounded-lg flex items-center gap-4 cursor-pointer transition-all p-4 lg:py-6 h-[115px] lg:w-[450px] text-sm"}
-                            >
+                            <article className={"rounded-lg flex items-center gap-4 cursor-pointer transition-all p-4 lg:py-6 h-[115px] lg:w-[450px] text-sm"}>
                               <img
                                 src={comment.image.src}
                                 alt={`Avatar de ${comment.author}`}
@@ -144,13 +149,14 @@ export default function CommunityPage() {
                               </div>
                             </article>
                             
-                            {/* Interações Sociais (Like/Reply) - Aparecem sutilmente */}
+                            {/* Interações Sociais */}
                             <div className="px-4 pb-3 flex gap-4 text-[#BBC9DA] text-xs font-bold">
                                 <button className="flex items-center gap-1 hover:text-red-500 transition-colors">
                                     <Heart size={14} /> <span>12</span>
                                 </button>
                                 <button className="flex items-center gap-1 hover:text-[#292F65] transition-colors">
-                                    <MessageCircle size={14} /> <span>Responder</span>
+                                    <MessageCircle size={14} /> 
+                                    <span>{t('components.community_page.interaction.reply')}</span>
                                 </button>
                             </div>
                         </div>
@@ -160,7 +166,9 @@ export default function CommunityPage() {
 
               {/* Loader Final */}
               <div className="text-center py-6">
-                 <p className="text-[#BBC9DA] font-medium text-sm animate-pulse">Carregando mais interações...</p>
+                 <p className="text-[#BBC9DA] font-medium text-sm animate-pulse">
+                    {t('components.community_page.loading')}
+                 </p>
               </div>
 
            </div>

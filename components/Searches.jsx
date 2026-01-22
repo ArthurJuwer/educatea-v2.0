@@ -3,30 +3,28 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLanguage } from "@/context/LanguageContext";
 
 import CientificoImg from "../public/images/searches/Projeto de Pesquisa - EducaTEA.docx.pdf 1.png";
 import ResultadosImg from "../public/images/searches/Previsto_Realizado-1-1280x720 1.png";
 
-const contentMap = {
-  cientifico: {
-    title: "TRABALHO CIENTÍFICO",
-    text: "Confira nosso texto científico fundamental, um documento norteador desenvolvido para consolidar as diretrizes do ecossistema EducaTEA. Este artigo, fruto de uma trajetória marcada pela inovação social e pelo rigor técnico, detalha como estamos utilizando a tecnologia como uma ponte — e não uma barreira — para a inclusão efetiva de estudantes com Transtorno do Espectro Autista (TEA) e outras aprendizagens atípicas. O texto explora nossa metodologia apresentar um jogo educacional, este documento fundamenta a criação de um ambiente onde a educação se une ao cuidado e à autonomia, permitindo que profissionais da educação adaptem seus conteúdos de forma ética, abandonando modelos tradicionais engessados em prol de um impacto social real e mensurável. Ao longo destas páginas, discutimos a importância de um posicionamento ético frente à neurodiversidade, propondo soluções digitais que respeitam a singularidade de cada trajetória de aprendizagem. Este é um convite para que professores, famílias e pesquisadores se aprofundem em uma visão de mundo onde a acessibilidade digital é o ponto de partida para a verdadeira emancipação intelectual. Conheça as bases teóricas que sustentam nossa missão de de transformar a educação inclusiva em uma realidade prática, garantindo que o ensinar e o aprender sejam processos repletos de dignidade, suporte e autonomia para todos os envolvidos no ecossistema educacional.",
-    image: CientificoImg,
-  },
-  pitch: {
-    title: "PITCH DO PROJETO",
-    text: "O cenário da educação brasileira enfrenta um desafio urgente: enquanto a OMS estima que 1 a cada 36 crianças seja diagnosticada com autismo, pesquisas do MEC apontam que 94% dos professores não possuem capacitação específica para a inclusão escolar. Foi para reduzir esse abismo que nasceu o EducaTEA, um projeto desenvolvido no Senac São Leopoldo por Arthur Cidade e Arthur Juwer. Nosso projeto é um Serious Game (jogo sério) narrativo, onde o conhecimento não é apenas transmitido, mas vivenciado. No jogo, o educador assume o papel de uma professora em uma nova escola, enfrentando situações reais que exigem decisões pedagógicas estratégicas para o suporte ao autismo nível 1. Diferente de métodos de formação tradicionais, o EducaTEA oferece feedback imediato baseado em evidências. Através de mecânicas inovadoras, como as barras de progresso de 'Inclusão' e 'Constrangimento', o jogador visualiza o impacto direto de suas escolhas no bem-estar do aluno e no ambiente escolar. Esse roteiro foi criado com rigor técnico de especialistas em Atendimento Educacional Especializado (AEE) e foi validado através da metodologia SUS, alcançando 100% de aprovação entre professores do Senac, que confirmam o potencial do jogo para a formação continuada. O EducaTEA é, acima de tudo, um ecossistema expansível. Além da experiência imersiva do jogo, nossa plataforma conta com um fórum dedicado ao compartilhamento de experiências entre docentes, fomentando uma rede de apoio profissional.",
-    image: CientificoImg,
-  },
-  resultados: {
-    title: "RESULTADOS ALCANÇADOS",
-    image: ResultadosImg,
-  },
+// Mapeamento apenas das imagens (estático)
+const imageMap = {
+  cientifico: CientificoImg,
+  pitch: CientificoImg,
+  resultados: ResultadosImg,
 };
 
 export default function Searches() {
   const [active, setActive] = useState("cientifico");
-  const content = contentMap[active];
+  const { t } = useLanguage();
+
+  // Construção dinâmica do conteúdo baseada na língua atual
+  const content = {
+    title: t(`components.searches.${active}.title`),
+    text: t(`components.searches.${active}.text`), // Retorna undefined se não houver texto (caso de resultados)
+    image: imageMap[active],
+  };
 
   return (
     <motion.section
@@ -113,7 +111,7 @@ export default function Searches() {
                     className="bg-[#F9A318] hover:bg-[#ffb338] transition text-white font-semibold
                                px-10 py-2.5 rounded-xl mt-6 self-center lg:self-start"
                   >
-                    VISUALIZAR
+                    {t('components.searches.button')}
                   </motion.button>
                 </div>
               </motion.div>
@@ -135,7 +133,7 @@ export default function Searches() {
                   : "text-white hover:bg-[#0033FF]/20"
               }`}
             >
-              {item.toUpperCase()}
+              {t(`components.searches.tabs.${item}`)}
             </motion.button>
           ))}
         </div>

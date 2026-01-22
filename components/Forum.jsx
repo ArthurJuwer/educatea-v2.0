@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/context/LanguageContext";
 
 import avatar01 from "../public/images/avatars/avatar01.png";
 import avatar02 from "../public/images/avatars/avatar02.png";
@@ -17,7 +18,9 @@ import CommentCard from "./ForumComments";
 
 export default function Forum() {
   const [isMobile, setIsMobile] = useState(false);
+  const { t } = useLanguage();
 
+  // Comentários mantidos fixos em Português conforme solicitado
   const comments = [
     {
       text: "Projeto incrível! Vai ajudar muitos professores a trabalharem de forma mais inclusiva. 👏",
@@ -124,7 +127,7 @@ export default function Forum() {
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
-        CONFIRA O FÓRUM
+        {t('components.forum.title')}
       </motion.h1>
 
       {/* Comments grid */}
@@ -177,7 +180,7 @@ export default function Forum() {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          Ver mais
+          {t('components.forum.view_more')}
         </motion.a>
 
         <motion.span

@@ -4,8 +4,9 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { useState, useRef } from "react";
 import Linkedin from "../public/images/icons/Linkedin.png";
+import { useLanguage } from "@/context/LanguageContext";
 
-/* ================= DADOS ================= */
+/* ================= DADOS (Nomes Próprios mantidos fixos) ================= */
 
 const desenvolvedores = [
   {
@@ -104,7 +105,7 @@ function FlipCard({ pessoa }) {
             alt={pessoa.nome}
             width={288}
             height={288}
-            className="bg-[#D9D9D9] rounded-xl"
+            className="bg-[#D9D9D9] rounded-xl object-cover" // Adicionei object-cover por segurança
           />
 
           <a
@@ -145,6 +146,8 @@ function FlipCard({ pessoa }) {
 /* ================= COMPONENTE ================= */
 
 export default function Team() {
+  const { t } = useLanguage();
+
   return (
     <section
       id="equipe"
@@ -158,7 +161,7 @@ export default function Team() {
         viewport={{ once: true }}
         className="bg-[#0033FF] text-center text-white uppercase font-bold p-3 px-6 w-full text-2xl lg:mb-10"
       >
-        Equipe
+        {t('components.team.title')}
       </motion.h1>
 
       <div className="lg:flex lg:flex-col lg:items-center lg:gap-14 w-full">
@@ -172,7 +175,7 @@ export default function Team() {
           className="flex flex-col gap-12"
         >
           <h2 className="uppercase text-center font-bold text-3xl">
-            Desenvolvedores
+            {t('components.team.developers')}
           </h2>
 
           <motion.div
@@ -197,7 +200,7 @@ export default function Team() {
           className="flex flex-col gap-12 mb-12"
         >
           <h2 className="uppercase text-center font-bold text-3xl mt-6 lg:mt-0">
-            Orientadores
+             {t('components.team.mentors')}
           </h2>
 
           <motion.div

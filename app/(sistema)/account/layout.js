@@ -4,6 +4,7 @@ import Topbar from "@/components/(sistema)/account/Topbar";
 import ChatbotWidget from "@/components/chatbot/ChatbotWidget"; 
 import AcessibilidadeWidget from "@/components/acessibilidade/AcessibilidadeWidget";
 import "../globals.css";
+import { LanguageProvider } from "@/context/LanguageContext";
 
 
 const dmSans = DM_Sans({
@@ -20,6 +21,7 @@ export const metadata = {
 export default function SistemaLayout({ children }) {
   return (
     <html lang="pt-BR">
+      <LanguageProvider>
       <body className={`${dmSans.className} antialiased flex h-screen overflow-hidden bg-white`}>
         <Sidebar />
         <div className="flex-1 overflow-y-auto relative z-0">
@@ -31,6 +33,7 @@ export default function SistemaLayout({ children }) {
           <AcessibilidadeWidget />
         </div>
       </body>
+      </LanguageProvider>
     </html>
   );
 }

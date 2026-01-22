@@ -14,23 +14,25 @@ import avatar05 from "@/public/images/avatars/avatar05.png";
 import Avatar06 from "@/public/images/avatars/avatar06.png";
 import avatar07 from "@/public/images/avatars/avatar07.png"
 
-
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import youtubeIcon from "@/public/images/icons/Youtube.png"
 import Link from 'next/link';
+import { useLanguage } from "@/context/LanguageContext"; // Import Context
 
 export default function AulaPage({ params }) {
-  // Mock de dados
+  const { t } = useLanguage();
+
+  // Mock de dados com tradução dinâmica no prefixo "Aula"
   const lessons = [
-    { id: 1, title: 'Aula#1', time: '4min', status: 'completed' },
-    { id: 2, title: 'Aula#2', time: '7min', status: 'completed' },
-    { id: 3, title: 'Aula#3', time: '10min', status: 'current' },
-    { id: 4, title: 'Aula#4', time: '2min', status: 'pending' },
-    { id: 5, title: 'Aula#5', time: '16min', status: 'pending' },
-    { id: 6, title: 'Aula#6', time: '18min', status: 'pending' },
-    { id: 7, title: 'Aula#7', time: '10min', status: 'pending' },
-    { id: 8, title: 'Aula#8', time: '12min', status: 'pending' }, // Adicionei mais aulas para testar o scroll se necessário
+    { id: 1, title: `${t('components.lesson_page.lesson_prefix')}#1`, time: '4min', status: 'completed' },
+    { id: 2, title: `${t('components.lesson_page.lesson_prefix')}#2`, time: '7min', status: 'completed' },
+    { id: 3, title: `${t('components.lesson_page.lesson_prefix')}#3`, time: '10min', status: 'current' },
+    { id: 4, title: `${t('components.lesson_page.lesson_prefix')}#4`, time: '2min', status: 'pending' },
+    { id: 5, title: `${t('components.lesson_page.lesson_prefix')}#5`, time: '16min', status: 'pending' },
+    { id: 6, title: `${t('components.lesson_page.lesson_prefix')}#6`, time: '18min', status: 'pending' },
+    { id: 7, title: `${t('components.lesson_page.lesson_prefix')}#7`, time: '10min', status: 'pending' },
+    { id: 8, title: `${t('components.lesson_page.lesson_prefix')}#8`, time: '12min', status: 'pending' }, 
   ];
 
   return (
@@ -41,9 +43,13 @@ export default function AulaPage({ params }) {
         <div className="xl:col-span-8 flex flex-col gap-6 h-[calc(100vh-6rem)] overflow-y-auto pr-4 scrollbar-hidden pb-20">
           
           <div>
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">Criando projeto react e firebase</h1>
+            <h1 className="text-3xl font-bold text-gray-900 mb-2">
+                {t('components.lesson_page.video_title')}
+            </h1>
             <nav className="text-sm text-gray-500 font-medium">
-              <Link href={"/account/cursos"}> Cursos EducaTea </Link> <span className="mx-2">›</span> <span className="text-blue-900 font-bold">Aula#3</span>
+              <Link href={"/account/cursos"}> {t('components.lesson_page.breadcrumb')} </Link> 
+              <span className="mx-2">›</span> 
+              <span className="text-blue-900 font-bold">{t('components.lesson_page.lesson_prefix')}#3</span>
             </nav>
           </div>
 
@@ -57,27 +63,33 @@ export default function AulaPage({ params }) {
              <div className="flex items-center gap-2 flex-wrap">
                 <ActionButton icon={ThumbsUp} label="6,3 mil" active />
                 <ActionButton icon={ThumbsDown} />
-                <ActionButton icon={Share2} label="Compartilhar" />
-                <ActionButton icon={Bookmark} label="Salvar" />
-                <ActionButton icon={Folder} label="Material" />
-                <ActionButton icon={Scissors} label="Recortar momento" />
+                <ActionButton icon={Share2} label={t('components.lesson_page.actions.share')} />
+                <ActionButton icon={Bookmark} label={t('components.lesson_page.actions.save')} />
+                <ActionButton icon={Folder} label={t('components.lesson_page.actions.material')} />
+                <ActionButton icon={Scissors} label={t('components.lesson_page.actions.clip')} />
                 <button className="p-2 rounded-full hover:bg-gray-100 text-gray-600">
                   <MoreHorizontal size={20} />
                 </button>
              </div>
 
              <div className="flex items-center gap-3 text-xs font-semibold text-gray-100">
-                <span className="bg-[#1e293b] px-3 py-1.5 rounded-md">Há 3 meses</span>
-                <span className="bg-[#1e293b] px-3 py-1.5 rounded-md">1k de visualizações</span>
+                <span className="bg-[#1e293b] px-3 py-1.5 rounded-md">
+                    {t('components.lesson_page.meta.time_ago_mock')}
+                </span>
+                <span className="bg-[#1e293b] px-3 py-1.5 rounded-md">
+                    1k {t('components.lesson_page.meta.views')}
+                </span>
              </div>
           </div>
 
           {/* Comentários */}
           <div className="pt-2">
              <div className="flex items-center gap-4 mb-8">
-                <h3 className="text-2xl font-bold text-[#1e293b]">30 comentários</h3>
+                <h3 className="text-2xl font-bold text-[#1e293b]">
+                    30 {t('components.lesson_page.comments.title')}
+                </h3>
                 <button className="flex items-center gap-1 text-sm text-[#BBC9DA] hover:text-gray-600">
-                   <span className="mb-2 text-lg">≡</span> Ordenar por
+                   <span className="mb-2 text-lg">≡</span> {t('components.lesson_page.comments.sort')}
                 </button>
              </div>
 
@@ -85,7 +97,7 @@ export default function AulaPage({ params }) {
                 <CommentItem 
                   avatarImage={Avatar06.src}
                   name="Arthur Juwer" 
-                  date="Há 3 meses" 
+                  date={t('components.lesson_page.meta.time_ago_mock')}
                   avatarColor="bg-[#3E489C]"
                   text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
                 />
@@ -119,81 +131,80 @@ export default function AulaPage({ params }) {
             COLUNA DIREITA (Fixa) - Ocupa 4/12
            ======================================================= */}
         <div className="xl:col-span-4 h-full pb-36 flex flex-col gap-6">
-           {/* Não precisa mais de sticky, pois o pai não rola. Apenas deixamos fluir. */}
-              
-               {/* Botões de Navegação */}
-               <div className="flex gap-3 h-12 shrink-0">
-                  <button className="w-12 h-full flex items-center justify-center border-2 border-gray-300 rounded-lg text-[#092B53] hover:bg-gray-50 transition">
-                    <ChevronLeft size={24} />
-                  </button>
-                  <button className="w-12 h-full flex items-center justify-center border-2 border-gray-300 rounded-lg text-[#092B53] hover:bg-gray-50 transition">
-                    <ChevronRight size={24} />
-                  </button>
-                  <button className="flex-1 h-full flex items-center justify-center gap-2 border-2 border-blue-900/30 text-[#092B53] font-semibold rounded-lg hover:bg-blue-50 transition">
-                    <CheckCircle size={20} />
-                    Aula concluída
-                  </button>
-               </div>
+           
+             {/* Botões de Navegação */}
+             <div className="flex gap-3 h-12 shrink-0">
+                <button className="w-12 h-full flex items-center justify-center border-2 border-gray-300 rounded-lg text-[#092B53] hover:bg-gray-50 transition">
+                  <ChevronLeft size={24} />
+                </button>
+                <button className="w-12 h-full flex items-center justify-center border-2 border-gray-300 rounded-lg text-[#092B53] hover:bg-gray-50 transition">
+                  <ChevronRight size={24} />
+                </button>
+                <button className="flex-1 h-full flex items-center justify-center gap-2 border-2 border-blue-900/30 text-[#092B53] font-semibold rounded-lg hover:bg-blue-50 transition">
+                  <CheckCircle size={20} />
+                  {t('components.lesson_page.actions.lesson_finished')}
+                </button>
+             </div>
 
-               {/* Card de Progresso */}
-               <div className="relative border-2 border-[#D6E1ED] rounded-xl p-5 bg-white shrink-0">
-                  <div className="flex items-center gap-4 mb-0">
-                     <Image src={avatar07} alt='' className='w-20' />
-                     <div>
-                        <h4 className="font-bold text-[#092B53] text-xl leading-tight">
-                           Curso entre Contínua: confiabilidade e qualidade...
-                        </h4>
-                     </div>
-                  </div>
+             {/* Card de Progresso */}
+             <div className="relative border-2 border-[#D6E1ED] rounded-xl p-5 bg-white shrink-0">
+                <div className="flex items-center gap-4 mb-0">
+                   <Image src={avatar07} alt='' className='w-20' />
+                   <div>
+                      <h4 className="font-bold text-[#092B53] text-xl leading-tight">
+                         {t('components.lesson_page.sidebar.card_title')}
+                      </h4>
+                   </div>
+                </div>
 
-                  <div className="pt-2 pb-1">
-                     <div className="flex items-center justify-between text-xs font-bold text-[#0B7E13] mb-1">
-                        <span className="w-full text-right">95%</span>
-                     </div>
-                     <div className="absolute left-0 w-full overflow-hidden h-1 mb-4 text-xs flex bg-gray-200">
-                        <div style={{ width: "95%" }} className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-[#0B7E13]"></div>
-                     </div>
-                  </div>
+                <div className="pt-2 pb-1">
+                   <div className="flex items-center justify-between text-xs font-bold text-[#0B7E13] mb-1">
+                      <span className="w-full text-right">95%</span>
+                   </div>
+                   <div className="absolute left-0 w-full overflow-hidden h-1 mb-4 text-xs flex bg-gray-200">
+                      <div style={{ width: "95%" }} className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-[#0B7E13]"></div>
+                   </div>
+                </div>
 
-                  <div className="flex items-center justify-between font-bold text-[#BBC9DA] border-t border-gray-100 pt-3">
-                     <div className="flex items-center gap-1">
-                       <Clock size={16} /> 03h
-                     </div>
-                     <div className="flex items-center gap-1 text-[#BBC9DA]">
-                       <Star size={16} fill="currentColor" /> 4.9
-                     </div>
-                  </div>
-               </div>
+                <div className="flex items-center justify-between font-bold text-[#BBC9DA] border-t border-gray-100 pt-3">
+                   <div className="flex items-center gap-1">
+                     <Clock size={16} /> 03h
+                   </div>
+                   <div className="flex items-center gap-1 text-[#BBC9DA]">
+                     <Star size={16} fill="currentColor" /> 4.9
+                   </div>
+                </div>
+             </div>
 
-               {/* Lista de Aulas - Adicionei scroll aqui também caso a lista seja grande */}
-               <div className="border-2 border-[#D6E1ED] rounded-xl overflow-hidden bg-white overflow-y-auto flex-1 custom-scrollbar">
-                  {lessons.map((lesson) => (
-                    <div 
-                      key={lesson.id} 
-                      className={`flex items-center justify-between p-4 border-b-2 last:border-0 border-gray-100 hover:bg-gray-50 transition cursor-pointer
-                        ${lesson.status === 'current' ? 'bg-blue-50/50' : 'bg-white'}
-                      `}
-                    >
-                      <div className="flex items-center gap-3">
-                        <div className="text-[#BBC9DA]">
-                          {lesson.status === 'completed' && <CheckCircle2 className="text-[#0B7E13]" size={20} />}
-                          {lesson.status === 'current' && <Eye className="text-[#092B53]" size={20} />}
-                          {lesson.status === 'pending' && <Circle className="text-[#BBC9DA]" size={20} />}
-                        </div>
-                        <span className={`text-sm ${lesson.status === 'current' ? 'font-bold text-[#092B53]' : 'text-[#BBC9DA] font-semibold'}`}>
-                          {lesson.title}
-                        </span>
+             {/* Lista de Aulas */}
+             <div className="border-2 border-[#D6E1ED] rounded-xl overflow-hidden bg-white overflow-y-auto flex-1 custom-scrollbar">
+                {lessons.map((lesson) => (
+                  <div 
+                    key={lesson.id} 
+                    className={`flex items-center justify-between p-4 border-b-2 last:border-0 border-gray-100 hover:bg-gray-50 transition cursor-pointer
+                      ${lesson.status === 'current' ? 'bg-blue-50/50' : 'bg-white'}
+                    `}
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="text-[#BBC9DA]">
+                        {lesson.status === 'completed' && <CheckCircle2 className="text-[#0B7E13]" size={20} />}
+                        {lesson.status === 'current' && <Eye className="text-[#092B53]" size={20} />}
+                        {lesson.status === 'pending' && <Circle className="text-[#BBC9DA]" size={20} />}
                       </div>
-                      <span className={`text-sm ${lesson.status === 'current' ? 'font-bold text-[#092B53]' : 'text-[#BBC9DA]'}`}>
-                        {lesson.time}
+                      <span className={`text-sm ${lesson.status === 'current' ? 'font-bold text-[#092B53]' : 'text-[#BBC9DA] font-semibold'}`}>
+                        {lesson.title}
                       </span>
                     </div>
-                  ))}
-               </div>
+                    <span className={`text-sm ${lesson.status === 'current' ? 'font-bold text-[#092B53]' : 'text-[#BBC9DA]'}`}>
+                      {lesson.time}
+                    </span>
+                  </div>
+                ))}
+             </div>
         </div>
       </div>
 
-      {/* Estilos CSS para a barra de rolagem (opcional, pode por no global.css) */}
+      {/* Estilos CSS para a barra de rolagem */}
       <style jsx global>{`
         .scrollbar-hidden::-webkit-scrollbar {
           width: 6px;
@@ -214,6 +225,7 @@ export default function AulaPage({ params }) {
 }
 
 // --- Componentes Auxiliares ---
+
 function ActionButton({ icon: Icon, label, active = false }) {
   return (
     <button 
@@ -232,6 +244,9 @@ function ActionButton({ icon: Icon, label, active = false }) {
 }
 
 function CommentItem({ name, date, text, avatarColor, avatarImage }) {
+  // Adicionei o hook aqui também para traduzir os botões de ação do comentário
+  const { t } = useLanguage();
+
   return (
     <div className="flex gap-4">
        <div className={`size-14 p-1.5 flex items-center justify-center rounded-full ${avatarColor} border-2 border-white overflow-hidden`}>
@@ -247,10 +262,10 @@ function CommentItem({ name, date, text, avatarColor, avatarImage }) {
           </p>
           <div className="flex items-center gap-3">
              <button className="bg-[#092B53] text-white text-[10px] font-bold px-3 py-1 rounded-full">
-               Ver Respostas
+               {t('components.lesson_page.comments.view_replies')}
              </button>
              <button className="text-[#092B53] text-[10px] font-bold hover:underline">
-               Responder
+               {t('components.lesson_page.comments.reply')}
              </button>
           </div>
        </div>

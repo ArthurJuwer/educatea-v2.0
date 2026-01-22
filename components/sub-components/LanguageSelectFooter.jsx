@@ -1,9 +1,13 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
+// 1. Importe o hook do contexto
+import { useLanguage } from "@/context/LanguageContext";
+
+// Importação das Imagens
 import FlagBrasil from "../../public/images/languages/Brasil.png"
 import FlagPortugal from "../../public/images/languages/Portugal.png"
 import FlagAngola from "../../public/images/languages/Angola.png"
@@ -12,45 +16,31 @@ import FlagEspanha from "../../public/images/languages/Espanha.png"
 import FlagLatAm from "../../public/images/languages/LatAm.png"
 
 const languages = [
-  {
-    id: "pt-br",
-    label: "Português (Brasil)",
-    flag: FlagBrasil,
-  },
-  {
-    id: "pt-pt",
-    label: "Português (Portugal)",
-    flag: FlagPortugal,
-  },
-  {
-    id: "pt-ag",
-    label: "Português (Angola)",
-    flag: FlagAngola,
-  },
-  {
-    id: "en-us",
-    label: "English (US)",
-    flag: FlagUS,
-  },
-  {
-    id: "es-es",
-    label: "Español",
-    flag: FlagEspanha,
-  },
-  {
-    id: "es-al",
-    label: "Español (LatAm)",
-    flag: FlagLatAm,
-  },
+  { id: "pt-br", label: "Português (Brasil)", flag: FlagBrasil },
+  // { id: "pt-pt", label: "Português (Portugal)", flag: FlagPortugal },
+  // { id: "pt-ag", label: "Português (Angola)", flag: FlagAngola },
+  { id: "en-us", label: "English (US)", flag: FlagUS },
+  { id: "es-es", label: "Español", flag: FlagEspanha },
+  // { id: "es-al", label: "Español (LatAm)", flag: FlagLatAm },
 ];
 
 export function LanguageSelectFooter() {
   const [open, setOpen] = useState(false);
-  const [selected, setSelected] = useState(languages[0]);
+  
+  // 2. Usamos o Contexto Global
+  const { lang, switchLanguage } = useLanguage();
+
+  // 3. Calcula qual língua mostrar baseado no Contexto
+  const selected = languages.find((l) => l.id === lang) || languages[0];
+
+  const handleLanguageChange = (languageId) => {
+    switchLanguage(languageId);
+    setOpen(false);
+  };
 
   return (
     <div className="relative">
-      {/* Botão */}
+      {/* Botão com Motion (Estilo do Footer) */}
       <motion.button
         whileHover={{ y: -2 }}
         transition={{ duration: 0.2 }}
@@ -67,11 +57,11 @@ export function LanguageSelectFooter() {
           width={20}
           height={20}
           alt={selected.label}
+          className="rounded-sm object-cover"
         />
         <span>{selected.label}</span>
       </motion.button>
 
-      {/* Dropdown */}
       <AnimatePresence>
         {open && (
           <motion.ul
@@ -81,6 +71,7 @@ export function LanguageSelectFooter() {
             transition={{ duration: 0.2 }}
             className="
               absolute bottom-full mb-2
+              left-1/2 -translate-x-1/2  /* Centraliza o menu em relação ao botão */
               bg-[#2f2f2f]
               rounded-lg
               shadow-lg
@@ -89,28 +80,30 @@ export function LanguageSelectFooter() {
               z-50
             "
           >
-            {languages.map((lang) => (
+            {languages.map((item) => (
               <li
-                key={lang.id}
-                onClick={() => {
-                  setSelected(lang);
-                  setOpen(false);
-                }}
-                className="
+                key={item.id}
+                onClick={() => handleLanguageChange(item.id)}
+                className={`
                   flex items-center gap-2
                   px-4 py-2
                   cursor-pointer
-                  hover:bg-white/10
                   transition
-                "
+                  ${lang === item.id ? 'bg-white/20' : 'hover:bg-white/10'} 
+                `}
               >
                 <Image
-                  src={lang.flag}
+                  src={item.flag}
                   width={20}
                   height={20}
-                  alt={lang.label}
+                  alt={item.label}
+                  className="rounded-sm"
                 />
-                <span>{lang.label}</span>
+                <span className="text-white text-sm">{item.label}</span>
+                
+                {lang === item.id && (
+                  <span className="ml-auto w-1.5 h-1.5 rounded-full bg-green-500"></span>
+                )}
               </li>
             ))}
           </motion.ul>

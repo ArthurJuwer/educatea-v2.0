@@ -17,11 +17,11 @@ import FlagLatAm from "../../public/images/languages/LatAm.png"
 
 const languages = [
   { id: "pt-br", label: "Português (Brasil)", flag: FlagBrasil },
-  { id: "pt-pt", label: "Português (Portugal)", flag: FlagPortugal },
-  { id: "pt-ag", label: "Português (Angola)", flag: FlagAngola },
+  // { id: "pt-pt", label: "Português (Portugal)", flag: FlagPortugal },
+  // { id: "pt-ag", label: "Português (Angola)", flag: FlagAngola },
   { id: "en-us", label: "English (US)", flag: FlagUS },
   { id: "es-es", label: "Español", flag: FlagEspanha },
-  { id: "es-al", label: "Español (LatAm)", flag: FlagLatAm },
+  // { id: "es-al", label: "Español (LatAm)", flag: FlagLatAm },
 ];
 
 export function LanguageSelectHeader() {

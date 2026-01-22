@@ -33,7 +33,186 @@ export const translations = {
         copyright: "© EducaTEA - Todos os direitos reservados.",
         community: "Comunidade",
         terms: "Termos de uso"
-      }
+      },
+      game_card: {
+        title: "Acesse o EducaTEA",
+        description: "Jogo educativo interativo que ajuda profissionais a desenvolverem estratégias inclusivas e práticas eficazes no ensino de alunos com Transtorno do Espectro Autista (TEA).",
+        button: "Acessar",
+        image_alt: "Logo EducaTEA"
+        },
+    fair: {
+        title: "NOSSAS PARTICIPAÇÕES EM FEIRAS"
+    },
+team: {
+  title: "Equipe",
+  developers: "Desenvolvedores",
+  mentors: "Orientadores"
+},
+searches: {
+  tabs: {
+    cientifico: "CIENTÍFICO",
+    pitch: "PITCH",
+    resultados: "RESULTADOS"
+  },
+  button: "VISUALIZAR",
+  cientifico: {
+    title: "TRABALHO CIENTÍFICO",
+    text: "Confira nosso texto científico fundamental, um documento norteador desenvolvido para consolidar as diretrizes do ecossistema EducaTEA. Este artigo, fruto de uma trajetória marcada pela inovação social e pelo rigor técnico, detalha como estamos utilizando a tecnologia como uma ponte — e não uma barreira — para a inclusão efetiva de estudantes com Transtorno do Espectro Autista (TEA) e outras aprendizagens atípicas. O texto explora nossa metodologia apresentar um jogo educacional, este documento fundamenta a criação de um ambiente onde a educação se une ao cuidado e à autonomia, permitindo que profissionais da educação adaptem seus conteúdos de forma ética, abandonando modelos tradicionais engessados em prol de um impacto social real e mensurável."
+  },
+  pitch: {
+    title: "PITCH DO PROJETO",
+    text: "O cenário da educação brasileira enfrenta um desafio urgente: enquanto a OMS estima que 1 a cada 36 crianças seja diagnosticada com autismo, pesquisas do MEC apontam que 94% dos professores não possuem capacitação específica para a inclusão escolar. Foi para reduzir esse abismo que nasceu o EducaTEA. Nosso projeto é um Serious Game (jogo sério) narrativo, onde o conhecimento não é apenas transmitido, mas vivenciado. No jogo, o educador assume o papel de uma professora em uma nova escola, enfrentando situações reais que exigem decisões pedagógicas estratégicas. Diferente de métodos tradicionais, o EducaTEA oferece feedback imediato baseado em evidências."
+  },
+  resultados: {
+    title: "RESULTADOS ALCANÇADOS"
+  }
+},
+slider: {
+  title: "EXPERIMENTE E APRENDA!",
+  slide_alt: "Slide"
+},
+forum: {
+  title: "CONFIRA O FÓRUM",
+  view_more: "Ver mais"
+},
+legal_layout: {
+  back_home: "Voltar para o início",
+  last_updated: "Última atualização:"
+},
+topbar: {
+  avatar_alt: "Avatar do usuário"
+},
+sidebar: {
+  menu: {
+    general: "Geral",
+    courses: "Cursos",
+    certificates: "Certificados",
+    downloads: "Downloads",
+    community: "Comunidade"
+  },
+  logout: "Sair",
+  logo_alt: "Logo EducaTEA"
+},
+downloads: {
+  title: "Materiais Baixados",
+  buttons: {
+    license: "Licença MIT",
+    forms: "Formulários",
+    drive: "Drive"
+  }
+},
+community_page: {
+  title: "Comunidade",
+  placeholder: "Compartilhe sua ideia, dúvida ou feedback...",
+  actions: {
+    emoji: "Emoji",
+    hashtags: "Hashtags",
+    publish: "Publicar"
+  },
+  filters: {
+    highlights: "Destaques",
+    recent: "Recentes",
+    my_posts: "Meus Posts",
+    favorites: "Favoritados"
+  },
+  interaction: {
+    reply: "Responder"
+  },
+  loading: "Carregando mais interações..."
+},
+certificates: {
+  title: "Certificados",
+  download_btn: "Baixar Certificado",
+  avatar_alt: "Avatar do Curso",
+  // Dados simulados do curso
+  card_1: {
+    title: "Curso Entrega Contínua:",
+    subtitle: "Confiabilidade e qualidade na implantação de software."
+  }
+},
+courses_page: {
+  title: "Cursos",
+  course_1: "Curso Entrega Contínua: confiabilidade e qualidade na implantação de software",
+  course_2: "Curso Entrega Contínua: confiabilidade e qualidade na implantação de software" // Texto repetido no original
+},
+lesson_page: {
+  breadcrumb: "Cursos EducaTea",
+  lesson_prefix: "Aula", // Para "Aula#3"
+  video_title: "Criando projeto react e firebase", // Título mockado
+  actions: {
+    share: "Compartilhar",
+    save: "Salvar",
+    material: "Material",
+    clip: "Recortar momento",
+    lesson_finished: "Aula concluída"
+  },
+  meta: {
+    views: "visualizações",
+    time_ago_mock: "Há 3 meses" // Mock de tempo
+  },
+  comments: {
+    title: "comentários",
+    sort: "Ordenar por",
+    reply: "Responder",
+    view_replies: "Ver Respostas"
+  },
+  sidebar: {
+    card_title: "Curso Entrega Contínua: confiabilidade e qualidade..."
+  }
+},
+account_page: {
+  profile: {
+    title: "Meu perfil",
+    edit_btn: "Editar perfil",
+    badges: {
+      admin: "Admin",
+      dev: "Desenvolvedor",
+      student: "Aluno",
+      senac: "Senac RS",
+      tutor: "Tutor",
+      tea: "TEA 1"
+    }
+  },
+  activity: {
+    title: "Minha Atividade",
+    btn_courses: "Cursos",
+    btn_comments: "Comentários"
+  },
+  certificates: {
+    title: "Certificados",
+    download_btn: "Baixar Certificado",
+    // Mock data
+    card_title: "Curso Entrega Contínua:",
+    card_subtitle: "Confiabilidade e qualidade na implantação de software."
+  },
+  fav_comments: {
+    title: "Comentários Favoritados"
+  },
+  downloads: {
+    title: "Materiais Baixados", // Corrigido o typo "Materias"
+    buttons: {
+      license: "Licença MIT",
+      forms: "Formulários",
+      drive: "Drive"
+    }
+  }
+},
+accessibility_button: {
+  text: "Acessibilidade",
+  alt: "Ícone de Acessibilidade"
+},
+chatbot_button: {
+  text: "Fale com Chatbot",
+  alt: "Avatar do Chatbot"
+}
+
+
+
+
+
+
+
+
     }
   },
 
@@ -70,7 +249,178 @@ export const translations = {
         copyright: "© EducaTEA - All rights reserved.",
         community: "Community",
         terms: "Terms of use"
-        }
+        },
+      game_card: {
+        title: "Access EducaTEA",
+        description: "Interactive educational game that helps professionals develop inclusive strategies and effective practices for teaching students with Autism Spectrum Disorder (ASD).",
+        button: "Access",
+        image_alt: "EducaTEA Logo"
+      },
+      fair: {
+  title: "OUR PARTICIPATION IN FAIRS"
+},
+team: {
+  title: "Team",
+  developers: "Developers",
+  mentors: "Mentors"
+},
+searches: {
+  tabs: {
+    cientifico: "SCIENTIFIC",
+    pitch: "PITCH",
+    resultados: "RESULTS"
+  },
+  button: "VIEW",
+  cientifico: {
+    title: "SCIENTIFIC PAPER",
+    text: "Check out our fundamental scientific text, a guiding document developed to consolidate the guidelines of the EducaTEA ecosystem. This article, the result of a trajectory marked by social innovation and technical rigor, details how we are using technology as a bridge — not a barrier — for the effective inclusion of students with Autism Spectrum Disorder (ASD). It grounds the creation of an environment where education meets care and autonomy, allowing education professionals to adapt their content ethically, abandoning traditional rigid models in favor of real and measurable social impact."
+  },
+  pitch: {
+    title: "PROJECT PITCH",
+    text: "The Brazilian education scenario faces an urgent challenge: while the WHO estimates that 1 in 36 children is diagnosed with autism, surveys indicate that 94% of teachers lack specific training for school inclusion. EducaTEA was born to bridge this gap. Our project is a narrative Serious Game where knowledge is not just transmitted, but experienced. In the game, the educator takes on the role of a teacher in a new school, facing real situations that require strategic pedagogical decisions. Unlike traditional methods, EducaTEA offers immediate evidence-based feedback."
+  },
+  resultados: {
+    title: "ACHIEVED RESULTS"
+  }
+},
+slider: {
+  title: "EXPERIMENT AND LEARN!",
+  slide_alt: "Slide"
+},
+forum: {
+  title: "CHECK OUT THE FORUM",
+  view_more: "View more"
+},
+legal_layout: {
+  back_home: "Back to home",
+  last_updated: "Last updated:"
+},
+topbar: {
+  avatar_alt: "User Avatar"
+},
+sidebar: {
+  menu: {
+    general: "General",
+    courses: "Courses",
+    certificates: "Certificates",
+    downloads: "Downloads",
+    community: "Community"
+  },
+  logout: "Logout",
+  logo_alt: "EducaTEA Logo"
+},
+downloads: {
+  title: "Downloaded Materials",
+  buttons: {
+    license: "MIT License",
+    forms: "Forms",
+    drive: "Drive"
+  }
+},
+community_page: {
+  title: "Community",
+  placeholder: "Share your idea, question, or feedback...",
+  actions: {
+    emoji: "Emoji",
+    hashtags: "Hashtags",
+    publish: "Post"
+  },
+  filters: {
+    highlights: "Highlights",
+    recent: "Recent",
+    my_posts: "My Posts",
+    favorites: "Favorites"
+  },
+  interaction: {
+    reply: "Reply"
+  },
+  loading: "Loading more interactions..."
+},
+certificates: {
+  title: "Certificates",
+  download_btn: "Download Certificate",
+  avatar_alt: "Course Avatar",
+  card_1: {
+    title: "Continuous Delivery Course:",
+    subtitle: "Reliability and quality in software deployment."
+  }
+},
+courses_page: {
+  title: "Courses",
+  course_1: "Continuous Delivery Course: Reliability and quality in software deployment",
+  course_2: "Continuous Delivery Course: Reliability and quality in software deployment"
+},
+lesson_page: {
+  breadcrumb: "EducaTea Courses",
+  lesson_prefix: "Lesson",
+  video_title: "Creating React and Firebase project",
+  actions: {
+    share: "Share",
+    save: "Save",
+    material: "Resources",
+    clip: "Clip moment",
+    lesson_finished: "Lesson completed"
+  },
+  meta: {
+    views: "views",
+    time_ago_mock: "3 months ago"
+  },
+  comments: {
+    title: "comments",
+    sort: "Sort by",
+    reply: "Reply",
+    view_replies: "View Replies"
+  },
+  sidebar: {
+    card_title: "Continuous Delivery Course: Reliability and quality..."
+  }
+},
+account_page: {
+  profile: {
+    title: "My Profile",
+    edit_btn: "Edit Profile",
+    badges: {
+      admin: "Admin",
+      dev: "Developer",
+      student: "Student",
+      senac: "Senac RS",
+      tutor: "Tutor",
+      tea: "ASD 1"
+    }
+  },
+  activity: {
+    title: "My Activity",
+    btn_courses: "Courses",
+    btn_comments: "Comments"
+  },
+  certificates: {
+    title: "Certificates",
+    download_btn: "Download Certificate",
+    card_title: "Continuous Delivery Course:",
+    card_subtitle: "Reliability and quality in software deployment."
+  },
+  fav_comments: {
+    title: "Favorited Comments"
+  },
+  downloads: {
+    title: "Downloaded Materials",
+    buttons: {
+      license: "MIT License",
+      forms: "Forms",
+      drive: "Drive"
+    }
+  }
+},
+accessibility_button: {
+  text: "Accessibility",
+  alt: "Accessibility Icon"
+},
+chatbot_button: {
+  text: "Chat with Chatbot",
+  alt: "Chatbot Avatar"
+}
+
+
 
     }
   },
@@ -108,7 +458,181 @@ export const translations = {
         copyright: "© EducaTEA - Todos los derechos reservados.",
         community: "Comunidad",
         terms: "Términos de uso"
-        }
+        },
+      game_card: {
+        title: "Accede a EducaTEA",
+        description: "Juego educativo interactivo que ayuda a los profesionales a desarrollar estrategias inclusivas y prácticas efectivas para la enseñanza de estudiantes con Trastorno del Espectro Autista (TEA).",
+        button: "Acceder",
+        image_alt: "Logo EducaTEA"
+      },
+      // Dentro de "es-es" > components:
+    fair: {
+    title: "NUESTRAS PARTICIPACIONES EN FERIAS"
+    },
+    team: {
+  title: "Equipo",
+  developers: "Desarrolladores",
+  mentors: "Mentores"
+},
+searches: {
+  tabs: {
+    cientifico: "CIENTÍFICO",
+    pitch: "PITCH",
+    resultados: "RESULTADOS"
+  },
+  button: "VER",
+  cientifico: {
+    title: "TRABAJO CIENTÍFICO",
+    text: "Consulte nuestro texto científico fundamental, un documento orientador desarrollado para consolidar las directrices del ecosistema EducaTEA. Este artículo, fruto de una trayectoria marcada por la innovación social y el rigor técnico, detalla cómo utilizamos la tecnología como un puente — y no una barrera — para la inclusión efectiva de estudiantes con Trastorno del Espectro Autista (TEA). Fundamenta la creación de un entorno donde la educación se une al cuidado y la autonomía, permitiendo a los profesionales adaptar sus contenidos de forma ética, abandonando modelos tradicionales rígidos en favor de un impacto social real."
+  },
+  pitch: {
+    title: "PITCH DEL PROYECTO",
+    text: "El escenario educativo brasileño enfrenta un desafío urgente: mientras la OMS estima que 1 de cada 36 niños es diagnosticado con autismo, las encuestas indican que el 94% de los maestros carecen de capacitación específica para la inclusión. EducaTEA nació para reducir esta brecha. Nuestro proyecto es un Juego Serio narrativo donde el conocimiento se vive. En el juego, el educador asume el papel de una maestra en una nueva escuela, enfrentando situaciones reales que requieren decisiones pedagógicas estratégicas. A diferencia de los métodos tradicionales, EducaTEA ofrece retroalimentación inmediata basada en evidencia."
+  },
+  resultados: {
+    title: "RESULTADOS ALCANZADOS"
+  }
+},
+slider: {
+  title: "¡EXPERIMENTA Y APRENDE!",
+  slide_alt: "Diapositiva"
+},
+// Dentro de "es-es" > components:
+forum: {
+  title: "VISITA EL FORO",
+  view_more: "Ver más"
+},
+legal_layout: {
+  back_home: "Volver al inicio",
+  last_updated: "Última actualización:"
+},
+topbar: {
+  avatar_alt: "Avatar de usuario"
+},
+sidebar: {
+  menu: {
+    general: "General",
+    courses: "Cursos",
+    certificates: "Certificados",
+    downloads: "Descargas",
+    community: "Comunidad"
+  },
+  logout: "Salir",
+  logo_alt: "Logo EducaTEA"
+},
+downloads: {
+  title: "Materiales Descargados",
+  buttons: {
+    license: "Licencia MIT",
+    forms: "Formularios",
+    drive: "Drive"
+  }
+},
+community_page: {
+  title: "Comunidad",
+  placeholder: "Comparte tu idea, pregunta o comentario...",
+  actions: {
+    emoji: "Emoji",
+    hashtags: "Hashtags",
+    publish: "Publicar"
+  },
+  filters: {
+    highlights: "Destacados",
+    recent: "Recientes",
+    my_posts: "Mis Publicaciones",
+    favorites: "Favoritos"
+  },
+  interaction: {
+    reply: "Responder"
+  },
+  loading: "Cargando más interacciones..."
+},
+certificates: {
+  title: "Certificados",
+  download_btn: "Descargar Certificado",
+  avatar_alt: "Avatar del Curso",
+  card_1: {
+    title: "Curso de Entrega Continua:",
+    subtitle: "Confiabilidad y calidad en la implementación de software."
+  }
+},
+courses_page: {
+  title: "Cursos",
+  course_1: "Curso de Entrega Continua: Confiabilidad y calidad en la implementación de software",
+  course_2: "Curso de Entrega Continua: Confiabilidad y calidad en la implementación de software"
+},
+lesson_page: {
+  breadcrumb: "Cursos EducaTea",
+  lesson_prefix: "Lección",
+  video_title: "Creando proyecto React y Firebase",
+  actions: {
+    share: "Compartir",
+    save: "Guardar",
+    material: "Material",
+    clip: "Recortar momento",
+    lesson_finished: "Lección completada"
+  },
+  meta: {
+    views: "vistas",
+    time_ago_mock: "Hace 3 meses"
+  },
+  comments: {
+    title: "comentarios",
+    sort: "Ordenar por",
+    reply: "Responder",
+    view_replies: "Ver Respuestas"
+  },
+  sidebar: {
+    card_title: "Curso de Entrega Continua: Confiabilidad y calidad..."
+  }
+},
+account_page: {
+  profile: {
+    title: "Mi Perfil",
+    edit_btn: "Editar Perfil",
+    badges: {
+      admin: "Admin",
+      dev: "Desarrollador",
+      student: "Estudiante",
+      senac: "Senac RS",
+      tutor: "Tutor",
+      tea: "TEA 1"
+    }
+  },
+  activity: {
+    title: "Mi Actividad",
+    btn_courses: "Cursos",
+    btn_comments: "Comentarios"
+  },
+  certificates: {
+    title: "Certificados",
+    download_btn: "Descargar Certificado",
+    card_title: "Curso de Entrega Continua:",
+    card_subtitle: "Confiabilidad y calidad en la implementación de software."
+  },
+  fav_comments: {
+    title: "Comentarios Favoritos"
+  },
+  downloads: {
+    title: "Materiales Descargados",
+    buttons: {
+      license: "Licencia MIT",
+      forms: "Formularios",
+      drive: "Drive"
+    }
+  }
+},
+accessibility_button: {
+  text: "Accesibilidad",
+  alt: "Ícono de Accesibilidad"
+},
+chatbot_button: {
+  text: "Habla con el Chatbot",
+  alt: "Avatar del Chatbot"
+},
+
+
+
 
     }
   }

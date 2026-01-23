@@ -151,8 +151,7 @@ export default function Fair() {
               `}
             >
               <Image src={feira.image} alt="Imagem da feira" fill className="object-cover" />
-              <div className="absolute inset-0 bg-black/40" />
-              <div className="absolute bottom-0 bg-[#3E489C] w-full h-1/5 rounded-t-xl" />
+              <div className="absolute inset-0 bg-black/30" />
 
               <div className="absolute bottom-12 left-4 right-4 flex items-center justify-center">
                 <Image src={feira.logo} alt="Logo" width={150} height={150} />

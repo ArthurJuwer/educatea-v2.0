@@ -9,19 +9,36 @@ export default function MainContent() {
   const { t } = useLanguage();
 
   return (
-    <section id="apresentacao" className="2xl:min-h-[88dvh] flex flex-col items-center justify-between gap-8 px-6 py-10 bg-[#595959]">
+    <section 
+      id="apresentacao" 
+      // Mantemos o caminho direto aqui para evitar erros de importação
+      style={{ backgroundImage: "url('/images/banners/Main.png')" }} 
+      className={`
+        relative flex flex-col items-center justify-between gap-8 px-6 py-10 
+        2xl:min-h-[88dvh]
+        
+        /* --- CORREÇÃO AQUI --- */
+        /* bg-cover: Faz a imagem cobrir todo o fundo sem deixar espaços brancos */
+        /* bg-center: Centraliza a imagem */
+        /* bg-no-repeat: Evita que a imagem se repita */
+        bg-cover bg-center bg-no-repeat
+        
+        /* Configuração da Opacidade/Filtro */
+        bg-black/65 bg-blend-overlay
+      `}
+    >
       
       {/* LOGO */}
       <Image
         src={MainLogo}
-        width={220}
-        height={220}
+        width={180}
+        height={180}
         alt={t('components.main_content.logo_alt')}
         className="w-[140px] sm:w-[180px] md:w-[220px] h-auto"
       />
 
       {/* VÍDEO / YOUTUBE */}
-      <div className="w-full max-w-[680px] aspect-video bg-white flex items-center justify-center rounded-lg">
+      <div className="w-full max-w-[740px] aspect-video bg-white flex items-center justify-center rounded-lg">
         <Image
           src={IconYoutube}
           width={90}

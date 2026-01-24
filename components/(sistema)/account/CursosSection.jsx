@@ -10,7 +10,7 @@ import Link from 'next/link';
 export default function CursosSection({courses}) {
   return (
     courses.map((course, idx) => (
-        <Link href={`/account/cursos/${idx}/aula/1`}>
+        <Link key={idx} href={`/account/cursos/${idx}/aula/1`}>
         <div key={idx} className="cursor-pointer relative border-2 border-[#D6E1ED] rounded-xl p-5 pt-10 flex flex-col gap-4 hover:shadow-md transition bg-white">
 
         <div className="flex gap-6">

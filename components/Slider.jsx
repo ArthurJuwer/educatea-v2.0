@@ -9,8 +9,8 @@ import Slide01 from "../public/images/carrosel-jogo/slide-1.png";
 import Slide02 from "../public/images/carrosel-jogo/slide-2.png";
 import Slide03 from "../public/images/carrosel-jogo/slide-3.png";
 
-import LeftChevron from "../public/images/icons/leftChevron.png";
-import RightChevron from "../public/images/icons/rightChevron.png";
+import LeftChevron from "../public/images/icons/leftChevron.webp";
+import RightChevron from "../public/images/icons/rightChevron.webp";
 
 const slides = [Slide01, Slide02, Slide03];
 const SLIDE_TIME = 4;

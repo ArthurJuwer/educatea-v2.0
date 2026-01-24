@@ -30,10 +30,21 @@ export const translations = {
         title_part2: "EDUCATEA!"
       },
       footer: {
-        copyright: "© EducaTEA - Todos os direitos reservados.",
-        community: "Comunidade",
-        terms: "Termos de uso"
-      },
+  copyright: "© 2026 EducaTEA. Todos os direitos reservados.",
+  description: "Transformando a educação inclusiva através da tecnologia e gamificação.",
+  titles: {
+    pages: "Páginas",
+    legal: "Legal",
+    social: "Social / Idioma"
+  },
+  links: {
+    community: "Comunidade",
+    terms: "Termos de Uso",
+    privacy: "Política de Privacidade",
+    cookies: "Cookies",
+    news: "Notícias"
+  }
+},
       game_card: {
         title: "Acesse o EducaTEA",
         description: "Jogo educativo interativo que ajuda profissionais a desenvolverem estratégias inclusivas e práticas eficazes no ensino de alunos com Transtorno do Espectro Autista (TEA).",
@@ -266,6 +277,21 @@ user_modal: {
 
 
 
+    },
+    pages:{
+      community: {
+  hero_title: "O que estão falando sobre o Projeto?",
+  hero_subtitle: "Explore feedbacks, ideias e depoimentos de alunos, professores e visitantes.",
+  search_placeholder: "Buscar comentário...",
+  load_more: "Carregar mais comentários",
+  filters: {
+    highlights: "Destaques",
+    recent: "Mais Recentes",
+    senac: "Senac São Leopoldo",
+    teachers: "Professores",
+    custom: "Filtro Personalizado"
+  }
+}
     }
   },
 
@@ -299,10 +325,21 @@ user_modal: {
         title_part2: "EDUCATEA PROJECT!"
       },
       footer: {
-        copyright: "© EducaTEA - All rights reserved.",
-        community: "Community",
-        terms: "Terms of use"
-        },
+  copyright: "© 2026 EducaTEA. All rights reserved.",
+  description: "Transforming inclusive education through technology and gamification.",
+  titles: {
+    pages: "Pages",
+    legal: "Legal",
+    social: "Social / Language"
+  },
+  links: {
+    community: "Community",
+    terms: "Terms of Use",
+    privacy: "Privacy Policy",
+    cookies: "Cookies",
+    news: "News"
+  }
+},
       game_card: {
         title: "Access EducaTEA",
         description: "Interactive educational game that helps professionals develop inclusive strategies and effective practices for teaching students with Autism Spectrum Disorder (ASD).",
@@ -528,6 +565,21 @@ user_modal: {
 
 
 
+    },
+    pages:{
+      community: {
+  hero_title: "What are people saying about the Project?",
+  hero_subtitle: "Explore feedback, ideas, and testimonials from students, teachers, and visitors.",
+  search_placeholder: "Search comment...",
+  load_more: "Load more comments",
+  filters: {
+    highlights: "Highlights",
+    recent: "Most Recent",
+    senac: "Senac São Leopoldo",
+    teachers: "Teachers",
+    custom: "Custom Filter"
+  }
+}
     }
   },
   "es-es": {
@@ -561,10 +613,21 @@ user_modal: {
         title_part2: "EDUCATEA!"
       },
       footer: {
-        copyright: "© EducaTEA - Todos los derechos reservados.",
-        community: "Comunidad",
-        terms: "Términos de uso"
-        },
+  copyright: "© 2026 EducaTEA. Todos los derechos reservados.",
+  description: "Transformando la educación inclusiva a través de la tecnología y la gamificación.",
+  titles: {
+    pages: "Páginas",
+    legal: "Legal",
+    social: "Social / Idioma"
+  },
+  links: {
+    community: "Comunidad",
+    terms: "Términos de Uso",
+    privacy: "Política de Privacidad",
+    cookies: "Cookies",
+    news: "Noticias"
+  }
+},
       game_card: {
         title: "Accede a EducaTEA",
         description: "Juego educativo interactivo que ayuda a los profesionales a desarrollar estrategias inclusivas y prácticas efectivas para la enseñanza de estudiantes con Trastorno del Espectro Autista (TEA).",
@@ -793,6 +856,21 @@ user_modal: {
 
 
 
+    },
+    pages:{
+      community: {
+  hero_title: "¿Qué dicen sobre el Proyecto?",
+  hero_subtitle: "Explora comentarios, ideas y testimonios de estudiantes, profesores y visitantes.",
+  search_placeholder: "Buscar comentario...",
+  load_more: "Cargar más comentarios",
+  filters: {
+    highlights: "Destacados",
+    recent: "Más Recientes",
+    senac: "Senac São Leopoldo",
+    teachers: "Profesores",
+    custom: "Filtro Personalizado"
+  }
+}
     }
   }
 };

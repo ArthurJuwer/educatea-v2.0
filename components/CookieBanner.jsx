@@ -33,7 +33,7 @@ const CookieBanner = () => {
           </h2>
           <p className="text-sm text-gray-600 leading-relaxed">
             {t('components.cookie_banner.text')}{' '}
-            <a href="#" className="text-blue-800 font-semibold hover:underline">
+            <a href="/cookies" className="text-blue-800 font-semibold hover:underline">
               {t('components.cookie_banner.policy_link')}
             </a>
           </p>

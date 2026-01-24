@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useState, useRef } from "react";
-import Linkedin from "../public/images/icons/Linkedin.png";
+import Linkedin from "../public/images/icons/Linkedin.webp";
 import { useLanguage } from "@/context/LanguageContext";
 
 /* ================= DADOS (Nomes Próprios mantidos fixos) ================= */

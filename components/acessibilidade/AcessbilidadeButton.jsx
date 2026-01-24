@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import IconAcessibilidade from "../../public/images/icons/Acessibilidade.png";
+import IconAcessibilidade from "../../public/images/icons/Acessibilidade.webp";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function AcessibilidadeButton({ onClick }) {

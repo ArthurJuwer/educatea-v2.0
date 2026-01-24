@@ -54,7 +54,7 @@ export default function Header() {
         }}
         animate={hidden ? "hidden" : "visible"}
         transition={{ duration: 0.35, ease: "easeInOut" }}
-        className="h-[13dvh] sticky top-0 z-30 flex items-center justify-between px-6 md:px-10 bg-white border-b-2 border-gray-200 text-black font-bold"
+        className="h-[13dvh] sticky top-0 z-30 flex items-center justify-between px-6 md:px-10 bg-white border-b border-gray-200 text-black font-bold"
       >
         {/* LOGO */}
         <a href="./">

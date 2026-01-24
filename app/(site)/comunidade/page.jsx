@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLanguage } from "@/context/LanguageContext"; // Importação do Contexto
 
 // Componentes
 import CommentCard from "@/components/ForumComments";
@@ -16,7 +16,6 @@ import {
   GraduationCap,
   SlidersHorizontal,
   Search,
-  MessageSquareHeart,
 } from "lucide-react";
 
 // Assets (Avatars)
@@ -30,7 +29,7 @@ import avatar07 from "../../../public/images/avatars/avatar07.png";
 import avatar08 from "../../../public/images/avatars/avatar08.png";
 import avatar09 from "../../../public/images/avatars/avatar09.png";
 
-// Dados Mockados
+// Dados Mockados (Mantidos fixos conforme solicitado)
 const comments = [
   { text: "Projeto incrível! Vai ajudar muitos professores a trabalharem de forma mais inclusiva. 👏", author: "João Guilherme", image: avatar01 },
   { text: "Adorei a ideia! Muito importante trazer tecnologia para apoiar alunos com TEA.", author: "Maria Clara", image: avatar02 },
@@ -46,47 +45,84 @@ const comments = [
   { text: "Um projeto inovador e necessário! Vai fazer diferença nas salas de aula.", author: "Arthur Juwer", image: avatar09 },
 ];
 
-const filters = [
-  { label: "Destaques", icon: TrendingUp },
-  { label: "Mais Recentes", icon: Clock },
-  { label: "Senac São Leopoldo", icon: MapPin },
-  { label: "Professores", icon: GraduationCap },
-  { label: "Filtro Personalizado", icon: SlidersHorizontal },
-];
-
 export default function Comunidade() {
   const [selectedComment, setSelectedComment] = useState(null);
-  const [activeFilter, setActiveFilter] = useState("Destaques");
+  // Usamos o ID do filtro 'highlights' como padrão
+  const [activeFilter, setActiveFilter] = useState("highlights");
+  
+  const { t } = useLanguage();
+
+  // Array de filtros reconstruído dentro do componente para ter acesso ao 't' ou apenas mapeado com IDs
+  const filters = [
+    { id: "highlights", icon: TrendingUp },
+    { id: "recent", icon: Clock },
+    { id: "senac", icon: MapPin },
+    { id: "teachers", icon: GraduationCap },
+    { id: "custom", icon: SlidersHorizontal },
+  ];
+
+  // Texto que será animado (Vindo da tradução)
+  const titleText = t('pages.community.hero_title');
+
+  // Variantes para a animação de digitação
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.05,
+        delayChildren: 0.2,
+      },
+    },
+  };
+
+  const letterVariants = {
+    hidden: { opacity: 0, display: "none" },
+    visible: { opacity: 1, display: "inline" },
+  };
 
   return (
     <div className="">
       {/* Hero Section */}
       <section className="relative bg-white pt-16 pb-12">
         <div className="max-w-7xl mx-auto px-6 flex flex-col items-center text-center">
-
-          <motion.h1 
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-4xl md:text-5xl font-bold text-gray-900 tracking-tight mb-4"
-          >
-            O que estão falando sobre o Projeto?
-          </motion.h1>
           
-          <motion.p 
+          {/* Efeito Typewriter */}
+          <motion.h1
+            key={titleText} // A chave muda quando a língua muda, reiniciando a animação corretamente
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="text-4xl md:text-5xl font-bold text-gray-900 tracking-tight mb-4 min-h-[3.5rem]"
+          >
+            {titleText.split("").map((char, index) => (
+              <motion.span key={index} variants={letterVariants}>
+                {char}
+              </motion.span>
+            ))}
+            {/* Cursor piscando */}
+            <motion.span
+              initial={{ opacity: 0 }}
+              animate={{ opacity: [0, 1, 0] }}
+              transition={{ repeat: Infinity, duration: 0.8 }}
+              className="inline-block w-[3px] h-[32px] md:h-[40px] bg-[#1A3879] ml-1 align-sub"
+            />
+          </motion.h1>
+
+          <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 0.5, delay: 2.5 }}
             className="text-lg text-gray-500 max-w-2xl mx-auto"
           >
-            Explore feedbacks, ideias e depoimentos de alunos, professores e visitantes.
+            {t('pages.community.hero_subtitle')}
           </motion.p>
         </div>
       </section>
 
       <section className="max-w-7xl mx-auto px-6 ">
         {/* Controls Bar (Search + Filters) */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
@@ -99,7 +135,7 @@ export default function Comunidade() {
             </div>
             <input
               type="text"
-              placeholder="Buscar comentário..."
+              placeholder={t('pages.community.search_placeholder')}
               className="block w-full pl-10 pr-4 py-3 bg-gray-50 border-transparent rounded-xl focus:bg-white focus:ring-2 focus:ring-blue-100 focus:border-blue-500 transition-all outline-none text-gray-700 placeholder:text-gray-400"
             />
           </div>
@@ -109,12 +145,14 @@ export default function Comunidade() {
 
           {/* Filters List */}
           <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 w-full">
-            {filters.map(({ label, icon: Icon }) => {
-              const isActive = activeFilter === label;
+            {filters.map(({ id, icon: Icon }) => {
+              const isActive = activeFilter === id;
+              const label = t(`pages.community.filters.${id}`); // Traduz o label baseado no ID
+
               return (
                 <button
-                  key={label}
-                  onClick={() => setActiveFilter(label)}
+                  key={id}
+                  onClick={() => setActiveFilter(id)}
                   className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 ${
                     isActive
                       ? "bg-[#1A3879] text-white shadow-md shadow-[#1A3879]/20"
@@ -141,10 +179,10 @@ export default function Comunidade() {
               whileHover={{ y: -8 }}
             >
               <div onClick={() => setSelectedComment(comment)} className="cursor-pointer h-full">
-                 <CommentCard
+                <CommentCard
                   text={comment.text}
                   author={comment.author}
-                  image={comment.image.src} // Garantindo que pegamos o src correto
+                  image={comment.image.src}
                   comunidade={true}
                 />
               </div>
@@ -157,14 +195,14 @@ export default function Comunidade() {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="group flex items-center gap-2 px-8 py-3 bg-white border border-gray-200 text-gray-700 font-semibold rounded-full shadow-sm hover:border-blue-500 hover:text-[#1A3879] transition-all"
+            className="bg-[#1A3879] text-white px-8 py-2 rounded-full font-bold uppercase cursor-pointer"
           >
-            <span>Carregar mais comentários</span>
+            <span>{t('pages.community.load_more')}</span>
           </motion.button>
         </div>
       </section>
 
-      {/* Overlay - Mantendo a lógica original */}
+      {/* Overlay */}
       <AnimatePresence>
         {selectedComment && (
           <CommentOverlay

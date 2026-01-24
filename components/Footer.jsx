@@ -1,73 +1,114 @@
 "use client";
 
+import Link from "next/link";
+import Image from "next/image";
 import { LanguageSelectFooter } from "./sub-components/LanguageSelectFooter";
-import { Instagram } from "lucide-react";
+import { Instagram, Linkedin, Mail } from "lucide-react"; // Adicionei mais ícones para compor
 import { useLanguage } from "@/context/LanguageContext";
+
+// Supondo que você tenha o logo em branco ou transparente
+import LogoWhite from "@/public/images/logos/TextLogo.png"; // Ajuste o caminho se necessário
 
 export default function Footer() {
   const { t } = useLanguage();
 
   return (
-    <footer
-      className="
-        bg-[#242424] text-white text-sm font-semibold
-        py-8 px-4
-        flex flex-col gap-6
-        items-center
-        lg:flex-row lg:justify-around lg:gap-0
-        lg:mt-12
-        text-center lg:text-left
-      "
-    >
-      <p>
-        {t('components.footer.copyright')}
-      </p>
+    <footer className="bg-[#1A1A1A] text-white mt-auto border-t border-gray-800">
+      
+      {/* Seção Principal */}
+      <div className="max-w-7xl mx-auto px-6 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+          
+          {/* Coluna 1: Marca e Descrição */}
+          <div className="space-y-4">
+                {/* Filtro css rápido para deixar o logo branco caso ele seja azul escuro */}
+                <Image src={LogoWhite} alt="EducaTEA" width={140} height={40} className="object-contain" />
+             
+             <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
+               {t('components.footer.description')}
+             </p>
+          </div>
 
-      <span className="lg:hidden h-0.5 w-4/5 block bg-white"></span>
+          {/* Coluna 2: Páginas */}
+          <div>
+            <h3 className="text-lg font-bold mb-4 text-white">
+                {t('components.footer.titles.pages')}
+            </h3>
+            <ul className="space-y-3 text-sm text-gray-400">
+              <li>
+                <Link href="/comunidade" className="hover:text-[#0033FF] transition-colors">
+                  {t('components.footer.links.community')}
+                </Link>
+              </li>
+              <li>
+                <Link href="/noticias" className="hover:text-[#0033FF] transition-colors">
+                  {t('components.footer.links.news')}
+                </Link>
+              </li>
+            </ul>
+          </div>
 
-      {/* Navigation */}
-      <nav>
-        <ul
-          className="
-            lg:flex lg:gap-10 gap-4 items-center
-            grid grid-cols-2 place-content-center place-items-center
-          "
-        >
-          {/* Comunidade */}
-          <a
-            href="/comunidade"
-            className="cursor-pointer hover:opacity-80"
-          >
-            {t('components.footer.community')}
-          </a>
+          {/* Coluna 3: Legal */}
+          <div>
+            <h3 className="text-lg font-bold mb-4 text-white">
+                {t('components.footer.titles.legal')}
+            </h3>
+            <ul className="space-y-3 text-sm text-gray-400">
+              <li>
+                <Link href="/termos" className="hover:text-[#0033FF] transition-colors">
+                  {t('components.footer.links.terms')}
+                </Link>
+              </li>
+              <li>
+                <Link href="/privacidade" className="hover:text-[#0033FF] transition-colors">
+                  {t('components.footer.links.privacy')}
+                </Link>
+              </li>
+              <li>
+                <Link href="/cookies" className="hover:text-[#0033FF] transition-colors">
+                  {t('components.footer.links.cookies')}
+                </Link>
+              </li>
+            </ul>
+          </div>
 
-          {/* Termos */}
-          <a
-            href="/termos"
-            className="cursor-pointer hover:opacity-80"
-          >
-            {t('components.footer.terms')}
-          </a>
+          {/* Coluna 4: Social & Idioma */}
+          <div className="space-y-6">
+            <div>
+                <h3 className="text-lg font-bold mb-4 text-white">
+                    {t('components.footer.titles.social')}
+                </h3>
+                <div className="flex gap-4">
+                    <a href="#" className="bg-gray-800 p-2 rounded-full hover:bg-[#0033FF] transition-all hover:-translate-y-1">
+                        <Instagram size={20} />
+                    </a>
+                    <a href="#" className="bg-gray-800 p-2 rounded-full hover:bg-red-600 transition-all hover:-translate-y-1">
+                        <Mail size={20} />
+                    </a>
+                </div>
+            </div>
+            
+            {/* Componente de Idioma */}
+            <div>
+                <LanguageSelectFooter />
+            </div>
+          </div>
 
-          {/* Language */}
-          <li className="w-[175px] flex items-center justify-center">
-            <LanguageSelectFooter />
-          </li>
+        </div>
+      </div>
 
-          {/* Instagram */}
-          <li
-            className="
-              cursor-pointer
-              size-10
-              rounded-full
-              flex items-center justify-center
-              bg-[#0033FF]
-            "
-          >
-            <Instagram />
-          </li>
-        </ul>
-      </nav>
+      {/* Barra Inferior */}
+      <div className="border-t border-gray-800 bg-[#111111]">
+        <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-gray-500 text-xs text-center md:text-left">
+            {t('components.footer.copyright')}
+          </p>
+          <div className="flex gap-4 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
+             {/* Espaço para logos de parceiros/Senac se quiser colocar pequeno no rodapé */}
+             {/* <Image src={LogoSenac} width={60} alt="Senac" /> */}
+          </div>
+        </div>
+      </div>
     </footer>
   );
 }

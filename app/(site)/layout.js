@@ -5,7 +5,8 @@ import { DM_Sans } from "next/font/google";
 import ChatbotWidget from "@/components/chatbot/ChatbotWidget";
 import AcessibilidadeWidget from "@/components/acessibilidade/AcessibilidadeWidget";
 import { LanguageProvider } from "@/context/LanguageContext";
-
+import favicon from "./favicon.ico"
+// Remova o import do favicon aqui. O Next.js busca arquivos estáticos pela string.
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -16,6 +17,7 @@ const dmSans = DM_Sans({
 export const metadata = {
   title: "EducaTEA",
   description: "Plataforma educacional EducaTEA",
+  icons: { icon: favicon.src }
 };
 
 export default function RootLayout({ children }) {

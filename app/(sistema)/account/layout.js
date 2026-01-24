@@ -5,7 +5,7 @@ import ChatbotWidget from "@/components/chatbot/ChatbotWidget";
 import AcessibilidadeWidget from "@/components/acessibilidade/AcessibilidadeWidget";
 import "../globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
-
+import favicon from "../favicon.ico"
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -16,6 +16,7 @@ const dmSans = DM_Sans({
 export const metadata = {
   title: "EducaTEA - Área do Aluno",
   description: "Plataforma educacional EducaTEA",
+  icons: { icon: favicon.src }
 };
 
 export default function SistemaLayout({ children }) {

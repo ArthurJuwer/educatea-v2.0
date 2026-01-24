@@ -1,20 +1,11 @@
 "use client";
-
-import Image from "next/image";
 import React, { useState } from "react";
-import Banner from "@/public/images/banners/Utilizar.png"; // Verifique se este caminho está correto no seu projeto
 import { Play, Share2, ImageIcon } from "lucide-react"; 
-
-export default function Termos() {
+export default function Noticias() {
   return (
     <div className="min-h-screen bg-gray-50">
       <div className=" bg-[#1A3879] flex items-center justify-center py-12">
 <div className="max-w-7xl flex items-center justify-center flex-col gap-10 text-white w-full">
-        <Image 
-            src={Banner} 
-            alt="Banner Principal" 
-        />
-
         {/* Container de Texto e Conteúdo */}
         <div className="flex flex-col gap-2 w-full">
           <p className="text-lg font-medium opacity-90">Entrevista - Por Laura e Alissa</p>
@@ -57,7 +48,7 @@ export default function Termos() {
         {/* Título da Seção */}
         <div className="mb-10 border-b pb-4 border-gray-200">
             <h1 className="text-3xl lg:text-4xl font-bold text-[#1A3879] uppercase tracking-wider">
-            Termos de Uso
+            Revista Competência
             </h1>
         </div>
 

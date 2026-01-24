@@ -38,11 +38,11 @@ export default function Header() {
 
   // Array de configuração do menu para facilitar a tradução no map
   const navItems = [
-    { id: "presentation", href: "#apresentacao" },
-    { id: "fairs", href: "#feiras" },
-    { id: "works", href: "#trabalhos" },
-    { id: "community", href: "#comunidade" },
-    { id: "team", href: "#equipe" },
+    { id: "presentation", href: "./#apresentacao" },
+    { id: "fairs", href: "./#feiras" },
+    { id: "works", href: "./#trabalhos" },
+    { id: "community", href: "./#comunidade" },
+    { id: "team", href: "./#equipe" },
   ];
 
   return (
@@ -54,7 +54,7 @@ export default function Header() {
         }}
         animate={hidden ? "hidden" : "visible"}
         transition={{ duration: 0.35, ease: "easeInOut" }}
-        className="h-[13dvh] sticky top-0 z-30 flex items-center justify-between px-6 md:px-10 bg-white text-black font-bold"
+        className="h-[13dvh] sticky top-0 z-30 flex items-center justify-between px-6 md:px-10 bg-white border-b-2 border-gray-200 text-black font-bold"
       >
         {/* LOGO */}
         <a href="./">
@@ -68,16 +68,14 @@ export default function Header() {
           </button>
           
           {navItems.map((item) => (
-            <motion.li
+            <li
               key={item.id}
-              whileHover={{ y: -2 }}
-              transition={{ duration: 0.2 }}
               className="cursor-pointer hover:opacity-80 text-sm uppercase"
             >
               <a href={item.href}>
                 {t(`components.header.menu.${item.id}`)}
               </a>
-            </motion.li>
+            </li>
           ))}
         </nav>
 

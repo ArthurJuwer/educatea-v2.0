@@ -23,8 +23,8 @@ const CookieBanner = () => {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed bottom-14 left-14 w-[600px] rounded-3xl bg-white border border-gray-200 pb-8 p-6 shadow-2xl z-50 animate-in fade-in slide-in-from-bottom-4 duration-700">
-      <div className="max-w-6xl mx-auto flex flex-col gap-6">
+    <div className="fixed bottom-0 left-0 w-full bg-white/95 border border-gray-200 pb-8 p-6 shadow-2xl z-50 animate-in fade-in slide-in-from-bottom-4 duration-700">
+      <div className="max-w-7xl mx-auto flex flex-col gap-6">
         
         {/* Texto Informativo */}
         <div className="space-y-3">

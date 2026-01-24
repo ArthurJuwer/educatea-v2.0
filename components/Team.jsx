@@ -7,12 +7,11 @@ import Linkedin from "../public/images/icons/Linkedin.png";
 import { useLanguage } from "@/context/LanguageContext";
 
 /* ================= DADOS (Nomes Próprios mantidos fixos) ================= */
-
 const desenvolvedores = [
   {
     nome: "Arthur Cidade Matjjie",
     imagem: "/images/team/ArthurCidade.jpg",
-    linkedin: "https://www.linkedin.com/in/arthurjuwer/",
+    linkedin: "https://www.linkedin.com/in/arthur-cidade-mattjie/",
   },
   {
     nome: "Arthur Juwer Rambo",
@@ -25,16 +24,16 @@ const orientadores = [
   {
     nome: "Gabriele de Oliveira",
     imagem: "/images/team/Gabriele.jpg",
-    linkedin: "https://www.linkedin.com/in/arthurjuwer/",
+    linkedin: "https://www.linkedin.com/in/gabriele-alves-8804b014a/",
   },
   {
     nome: "Gabriel Moraes",
     imagem: "/images/team/GabrielMoraes.jpg",
-    linkedin: "https://www.linkedin.com/in/arthurjuwer/",
+    linkedin: "https://www.linkedin.com/in/gabrielmdo/",
   },
   {
-    nome: "Elisangela",
-    imagem: "/images/team/Gabriele.jpg",
+    nome: "Elisangela Gisele",
+    imagem: "/images/team/Elisangela.jpg",
     linkedin: "https://www.linkedin.com/in/arthurjuwer/",
   },
 ];
@@ -105,19 +104,19 @@ function FlipCard({ pessoa }) {
             alt={pessoa.nome}
             width={288}
             height={288}
-            className="bg-[#D9D9D9] rounded-xl object-cover" // Adicionei object-cover por segurança
+            className="bg-[#D9D9D9] rounded-xl object-cover size-[288px]" // Adicionei object-cover por segurança
           />
 
           <a
             href={pessoa.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="absolute top-4 right-4 rounded-full shadow hover:scale-110 transition"
+            className="absolute bottom-0 right-4 rounded-full shadow hover:scale-110 transition"
           >
             <Image src={Linkedin} alt="LinkedIn" className="h-6 w-6" />
           </a>
 
-          <label className="bg-[#242424] text-white p-3 text-center font-bold w-full absolute bottom-0 rounded-bl-xl rounded-br-xl">
+          <label className="bg-[#242424] text-white p-3 text-center font-bold w-full absolute bottom-0 mb-0 rounded-bl-xl rounded-br-xl">
             {pessoa.nome}
           </label>
         </div>

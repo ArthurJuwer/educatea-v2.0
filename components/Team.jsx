@@ -182,7 +182,7 @@ export default function Team() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="flex flex-col lg:flex-row gap-6 lg:gap-8"
+            className="flex flex-col items-center lg:flex-row gap-6 lg:gap-8"
           >
             {desenvolvedores.map((dev, index) => (
               <FlipCard key={index} pessoa={dev} />
@@ -207,7 +207,7 @@ export default function Team() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="flex flex-col lg:flex-row gap-6 lg:gap-8"
+            className="flex flex-col lg:flex-row items-center gap-6 lg:gap-8"
           >
             {orientadores.map((ori, index) => (
               <FlipCard key={index} pessoa={ori} />

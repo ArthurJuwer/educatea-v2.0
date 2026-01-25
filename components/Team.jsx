@@ -3,39 +3,46 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useState, useRef } from "react";
-import Linkedin from "../public/images/icons/Linkedin.webp";
+import Linkedin from "@/public/images/icons/Linkedin.webp";
 import { useLanguage } from "@/context/LanguageContext";
+
+import ArthurCidade from "@/public/images/team/ArthurCidade.webp"
+import ArthurJuwer from "@/public/images/team/ArthurJuwer.webp"
+import Elisangela from "@/public/images/team/Elisangela.webp"
+import Gabriele from "@/public/images/team/Gabriele.webp"
+import GabrielMoraes from "@/public/images/team/GabrielMoraes.webp"
 
 /* ================= DADOS (Nomes Próprios mantidos fixos) ================= */
 const desenvolvedores = [
   {
     nome: "Arthur Cidade Matjjie",
     imagem: "/images/team/ArthurCidade.jpg",
-    linkedin: "https://www.linkedin.com/in/arthur-cidade-mattjie/",
+    linkedin: ArthurCidade,
   },
   {
     nome: "Arthur Juwer Rambo",
     imagem: "/images/team/ArthurJuwer.png",
-    linkedin: "https://www.linkedin.com/in/arthurjuwer/",
+    linkedin: ArthurJuwer,
   },
 ];
 
 const orientadores = [
   {
-    nome: "Gabriele de Oliveira",
-    imagem: "/images/team/Gabriele.jpg",
-    linkedin: "https://www.linkedin.com/in/gabriele-alves-8804b014a/",
+    nome: "Elisangela Gisele",
+    imagem: "/images/team/Elisangela.jpg",
+    linkedin: Elisangela,
   },
   {
     nome: "Gabriel Moraes",
     imagem: "/images/team/GabrielMoraes.jpg",
-    linkedin: "https://www.linkedin.com/in/gabrielmdo/",
+    linkedin: GabrielMoraes,
   },
   {
-    nome: "Elisangela Gisele",
-    imagem: "/images/team/Elisangela.jpg",
-    linkedin: "https://www.linkedin.com/in/arthurjuwer/",
+    nome: "Gabriele de Oliveira",
+    imagem: "/images/team/Gabriele.jpg",
+    linkedin: Gabriele,
   },
+  
 ];
 
 /* ================= VARIANTS ================= */

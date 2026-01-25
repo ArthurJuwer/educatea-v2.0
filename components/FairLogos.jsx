@@ -3,12 +3,12 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-import FeiraLogo1 from "../public/images/feiras/logo/FeiraLogo1.png";
-import FeiraLogo2 from "../public/images/feiras/logo/FeiraLogo2.png";
-import FeiraLogo3 from "../public/images/feiras/logo/FeiraLogo3.png";
-import FeiraLogo4 from "../public/images/feiras/logo/FeiraLogo4.png";
-import FeiraLogo5 from "../public/images/feiras/logo/FeiraLogo5.png";
-import FeiraLogo6 from "../public/images/feiras/logo/FeiraLogo6.png";
+import FeiraLogo1 from "../public/images/feiras/logo/FeiraLogo1.webp";
+import FeiraLogo2 from "../public/images/feiras/logo/FeiraLogo2.webp";
+import FeiraLogo3 from "../public/images/feiras/logo/FeiraLogo3.webp";
+import FeiraLogo4 from "../public/images/feiras/logo/FeiraLogo4.webp";
+import FeiraLogo5 from "../public/images/feiras/logo/FeiraLogo5.webp";
+import FeiraLogo6 from "../public/images/feiras/logo/FeiraLogo6.webp";
 
 export default function FairLogos() {
   const feiras = [

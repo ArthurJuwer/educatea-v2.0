@@ -12,19 +12,10 @@ export default function MainContent() {
     <section 
       id="apresentacao" 
       // Mantemos o caminho direto aqui para evitar erros de importação
-      style={{ backgroundImage: "url('/images/banners/Main.png')" }} 
+      style={{ backgroundImage: "url('/images/banners/Main.webp')" }} 
       className={`
         relative flex flex-col items-center justify-between gap-8 px-6 py-10 
-        2xl:min-h-[88dvh]
-        
-        /* --- CORREÇÃO AQUI --- */
-        /* bg-cover: Faz a imagem cobrir todo o fundo sem deixar espaços brancos */
-        /* bg-center: Centraliza a imagem */
-        /* bg-no-repeat: Evita que a imagem se repita */
-        bg-cover bg-center bg-no-repeat
-        
-        /* Configuração da Opacidade/Filtro */
-        bg-black/65 bg-blend-overlay
+        2xl:min-h-[88dvh] bg-cover bg-center bg-no-repeat bg-black/65 bg-blend-overlay
       `}
     >
       

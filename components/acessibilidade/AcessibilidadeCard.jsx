@@ -34,14 +34,14 @@ import {
   Compass,
 } from "lucide-react";
 import Image from "next/image";
-import TextLogo from "../../public/images/logos/TextLogo.png"; 
+import TextLogo from "../../public/images/logos/TextLogo.webp"; 
 
-import FlagBrasil from "../../public/images/languages/Brasil.png"
-import FlagPortugal from "../../public/images/languages/Portugal.png"
-import FlagAngola from "../../public/images/languages/Angola.png"
-import FlagUS from "../../public/images/languages/US.png"
-import FlagEspanha from "../../public/images/languages/Espanha.png"
-import FlagLatAm from "../../public/images/languages/LatAm.png"
+import FlagBrasil from "../../public/images/languages/BR.webp"
+import FlagPortugal from "../../public/images/languages/Portugal.webp"
+import FlagAngola from "../../public/images/languages/Angola.webp"
+import FlagUS from "../../public/images/languages/US.webp"
+import FlagEspanha from "../../public/images/languages/ES.webp"
+import FlagLatAm from "../../public/images/languages/LatAm.webp"
 
 const languages = [
   {

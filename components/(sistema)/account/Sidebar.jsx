@@ -6,11 +6,14 @@ import { usePathname } from 'next/navigation';
 import { Home, MonitorPlay, Award, Download, MessageSquare, LogOut } from 'lucide-react';
 import { useLanguage } from "@/context/LanguageContext"; // Importação do Contexto
 
-import TextLogo from "../../../public/images/logos/TextLogo.png";
+import TextLogo from "../../../public/images/logos/TextLogo.webp";
+import { useUser } from '@/context/UserContext';
 
 export default function Sidebar() {
   const pathname = usePathname(); 
   const { t } = useLanguage(); // Hook de tradução
+  const { logout } = useUser();
+
 
   // Array de menus com textos traduzidos
   const menuItems = [
@@ -62,7 +65,7 @@ export default function Sidebar() {
 
       {/* Footer / Logout */}
       <div className="p-6 border-t-2 border-[#D9D9D9]">
-        <button className="flex items-center gap-4 text-[#BBC9DA] hover:text-[#292F64] cursor-pointer transition-colors w-full">
+        <button onClick={logout} className="flex items-center gap-4 text-[#BBC9DA] hover:text-[#292F64] cursor-pointer transition-colors w-full">
           <LogOut size={20} />
           <span>{t('components.sidebar.logout')}</span>
         </button>

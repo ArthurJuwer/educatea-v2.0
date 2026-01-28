@@ -5,7 +5,7 @@ import { useLanguage } from "@/context/LanguageContext"; // Import Context
 import CursosSection from "@/components/(sistema)/account/CursosSection";
 import AccountCommentCard from "@/components/(sistema)/account/AccountCommentCard";
 
-import BrasilFlag from "../../../public/images/languages/Brasil.png";
+import BrasilFlag from "../../../public/images/languages/BR.webp";
 import avatar01 from "../../../public/images/avatars/avatar01.png";
 import avatar02 from "../../../public/images/avatars/avatar02.png";
 import avatar03 from "../../../public/images/avatars/avatar03.png";
@@ -22,12 +22,16 @@ import {
   Clock, 
   Star, 
 } from 'lucide-react';
+import { useUser } from "@/context/UserContext";
 
 export default function AccountPage() {
   const { t } = useLanguage();
+  const { user } = useUser();
+  
   
   // Array de chaves para as badges
-  const badgeKeys = ['admin', 'dev', 'student', 'senac', 'tutor', 'tea'];
+  const badgeKeys = user?.tags;
+  // const badgeKeys = ['admin', 'dev', 'student', 'senac', 'tutor', 'tea'];
   
   // Comentários mantidos fixos (simulação de DB)
   const comments = [
@@ -141,16 +145,22 @@ export default function AccountPage() {
             {/* Informações do Usuário */}
             <div className="text-center md:text-left">
               <div className="flex items-center justify-center md:justify-start gap-2 mb-1">
-                <h3 className="text-2xl font-bold text-slate-900">Arthur Juwer Rambo</h3>
-                <Image src={BrasilFlag} className="w-8 rounded" alt="Brasil" />
-                
+                <h3 className="text-2xl font-bold text-slate-900">{user?.name}</h3>
+              <Image 
+                src={user?.country} 
+                width={32} 
+                height={32} 
+                className="rounded-sm" 
+                alt="País" 
+              />                
               </div>
-              <p className="text-slate-600 text-base font-medium mb-3">arthur.juwer99@gmail.com</p>
+              <p className="text-slate-600 text-base font-medium mb-3">{user?.email}</p>
               
               <div className="flex flex-wrap justify-center md:justify-start gap-2">
-                {badgeKeys.map((key, idx) => (
+                {badgeKeys?.map((key, idx) => (
                   <span key={idx} className="bg-black text-white text-[12px] px-5 py-1 rounded-full font-bold">
-                    {t(`components.account_page.profile.badges.${key}`)}
+                    {t(`${key}`)}
+                    {/* {t(`components.account_page.profile.badges.${key}`)} */}
                   </span>
                 ))}
               </div>

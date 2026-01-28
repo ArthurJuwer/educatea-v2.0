@@ -7,7 +7,7 @@ import { Instagram, Linkedin, Mail } from "lucide-react"; // Adicionei mais íco
 import { useLanguage } from "@/context/LanguageContext";
 
 // Supondo que você tenha o logo em branco ou transparente
-import LogoWhite from "@/public/images/logos/TextLogo.png"; // Ajuste o caminho se necessário
+import LogoWhite from "@/public/images/logos/TextLogo.webp"; // Ajuste o caminho se necessário
 
 export default function Footer() {
   const { t } = useLanguage();

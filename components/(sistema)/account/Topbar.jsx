@@ -7,8 +7,15 @@ import { LanguageSelectHeader } from '@/components/sub-components/LanguageSelect
 
 // Imagens
 import Avatar06 from "../../../public/images/avatars/avatar06.png";
+import { useUser } from '@/context/UserContext';
 
 export default function Topbar() {
+  const { user, loading } = useUser();
+
+  if (loading) return <p>Carregando perfil...</p>;
+
+  if (!user) return <p>Usuário não está logado.</p>;
+
   const { t } = useLanguage();
 
   return (

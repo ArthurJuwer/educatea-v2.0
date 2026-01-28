@@ -8,12 +8,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext"; // Ajuste o caminho conforme sua pasta
 
 // Importação das Imagens (Mantida igual)
-import FlagBrasil from "../../public/images/languages/Brasil.png"
-import FlagPortugal from "../../public/images/languages/Portugal.png"
-import FlagAngola from "../../public/images/languages/Angola.png"
-import FlagUS from "../../public/images/languages/US.png"
-import FlagEspanha from "../../public/images/languages/Espanha.png"
-import FlagLatAm from "../../public/images/languages/LatAm.png"
+import FlagBrasil from "../../public/images/languages/BR.webp"
+import FlagPortugal from "../../public/images/languages/Portugal.webp"
+import FlagAngola from "../../public/images/languages/Angola.webp"
+import FlagUS from "../../public/images/languages/US.webp"
+import FlagEspanha from "../../public/images/languages/ES.webp"
+import FlagLatAm from "../../public/images/languages/LatAm.webp"
 
 const languages = [
   { id: "pt-br", label: "Português (Brasil)", flag: FlagBrasil },

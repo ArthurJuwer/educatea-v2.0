@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image";
-import MainLogo from "../public/images/logos/MainLogo.png";
+import MainLogo from "../public/images/logos/MainLogo.webp";
 import IconYoutube from "../public/images/icons/Youtube.png";
 import { useLanguage } from "@/context/LanguageContext";
 

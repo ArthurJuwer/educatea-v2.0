@@ -6,6 +6,7 @@ import AcessibilidadeWidget from "@/components/acessibilidade/AcessibilidadeWidg
 import "../globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
 import favicon from "../favicon.ico"
+import { UserProvider } from '@/context/UserContext';
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -22,6 +23,7 @@ export const metadata = {
 export default function SistemaLayout({ children }) {
   return (
     <html lang="pt-BR">
+      <UserProvider>
       <LanguageProvider>
       <body className={`${dmSans.className} antialiased flex h-screen overflow-hidden bg-white`}>
         <Sidebar />
@@ -35,6 +37,7 @@ export default function SistemaLayout({ children }) {
         </div>
       </body>
       </LanguageProvider>
+      </UserProvider>  
     </html>
   );
 }

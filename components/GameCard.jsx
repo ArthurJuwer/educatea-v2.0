@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import WallpaperLogo from "../public/images/logos/WallpaperLogo.png";
+import WallpaperLogo from "../public/images/logos/WallpaperLogo.webp";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function GameCard() {

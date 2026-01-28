@@ -5,8 +5,8 @@ import Image from "next/image";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 
 // Importações de imagens
-import TextLogo from "../public/images/logos/TextLogo.png";
-import BrasilFlag from "../public/images/languages/Brasil.png"; // Usado apenas no mobile como fallback visual
+import TextLogo from "../public/images/logos/TextLogo.webp";
+import BrasilFlag from "../public/images/languages/BR.webp"; // Usado apenas no mobile como fallback visual
 import User from "../public/images/icons/user.png";
 import { User2 } from "lucide-react";
 

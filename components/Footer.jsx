@@ -79,10 +79,10 @@ export default function Footer() {
                     {t('components.footer.titles.social')}
                 </h3>
                 <div className="flex gap-4">
-                    <a href="#" className="bg-gray-800 p-2 rounded-full hover:bg-[#0033FF] transition-all hover:-translate-y-1">
+                    <a href="https://www.instagram.com/educatea_oficial/" target="_blank" className="bg-gray-800 p-2 rounded-full hover:bg-[#0033FF] transition-all hover:-translate-y-1">
                         <Instagram size={20} />
                     </a>
-                    <a href="#" className="bg-gray-800 p-2 rounded-full hover:bg-red-600 transition-all hover:-translate-y-1">
+                    <a href="#" target="_blank" className="bg-gray-800 p-2 rounded-full hover:bg-red-600 transition-all hover:-translate-y-1">
                         <Mail size={20} />
                     </a>
                 </div>

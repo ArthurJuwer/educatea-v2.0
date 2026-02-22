@@ -13,7 +13,8 @@ const MOCK_USER = {
   profilePicture: "avatar06.png",
   country: "/images/languages/BR.webp",
   tags: ["Admin", "Dev", "Estudante", "Senac RS", "Tutor", "Tea"],
-  isLoggedIn: true
+  isLoggedIn: true,
+  colorBackground: "#FFF"
 };
 
 export function UserProvider({ children }) {

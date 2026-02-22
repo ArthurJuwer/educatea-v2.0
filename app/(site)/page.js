@@ -14,11 +14,16 @@ import MainContent from "@/components/MainContent";
 import Searches from "@/components/Searches";
 import Slider from "@/components/Slider";
 import Team from "@/components/Team";
+import { useUser } from "@/context/UserContext";
 
 export default function Home() {
   // 3. Buscamos o estado de carregamento do contexto
   const { isLoading } = useLanguage(); 
 
+
+
+
+  
   // 4. Bloqueio de segurança: Se estiver lendo o localStorage, mostra o Loading
   if (isLoading) {
     return <LoadingScreen />;

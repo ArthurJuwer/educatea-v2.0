@@ -6,6 +6,7 @@ import ChatbotWidget from "@/components/chatbot/ChatbotWidget";
 import AcessibilidadeWidget from "@/components/acessibilidade/AcessibilidadeWidget";
 import { LanguageProvider } from "@/context/LanguageContext";
 import favicon from "./favicon.ico"
+import { UserProvider } from "@/context/UserContext";
 // Remova o import do favicon aqui. O Next.js busca arquivos estáticos pela string.
 
 const dmSans = DM_Sans({
@@ -23,6 +24,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="pt-BR">
+      <UserProvider>
       <LanguageProvider>
         <body className={`${dmSans.className} z-0 relative antialiased`}>
           <Header />
@@ -34,6 +36,7 @@ export default function RootLayout({ children }) {
           <Footer />
         </body>
       </LanguageProvider>
+      </UserProvider>
     </html>
   );
 }

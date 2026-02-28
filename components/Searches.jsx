@@ -304,14 +304,14 @@ export default function Searches() {
         </div>
 
         {/* ================= TABS SELECTOR ================= */}
-        <div className="flex flex-wrap justify-center gap-2 border-2 border-[#0033FF] rounded-full overflow-hidden font-semibold mt-4">
+        <div className="flex w-full lg:w-[600px] 2xl:w-[700px] text-sm lg:text-base flex-wrap justify-center border-2 border-[#0033FF] rounded-full overflow-hidden font-semibold mt-4">
           {["cientifico", "pitch", "resultados"].map((item) => (
             <motion.button
               key={item}
               onClick={() => setActive(item)}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className={`px-6 sm:px-10 py-2 transition ${
+              className={`w-1/3 lg:px-6 py-2 transition ${
                 active === item
                   ? "bg-[#0033FF] text-white font-bold"
                   : "text-white hover:bg-[#0033FF]/20"

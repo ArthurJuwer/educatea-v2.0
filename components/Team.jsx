@@ -16,31 +16,31 @@ import GabrielMoraes from "@/public/images/team/GabrielMoraes.webp"
 const desenvolvedores = [
   {
     nome: "Arthur Cidade Matjjie",
-    imagem: "/images/team/ArthurCidade.jpg",
-    linkedin: ArthurCidade,
+    imagem: ArthurCidade,
+    linkedin: "",
   },
   {
     nome: "Arthur Juwer Rambo",
-    imagem: "/images/team/ArthurJuwer.png",
-    linkedin: ArthurJuwer,
+    imagem: ArthurJuwer,
+    linkedin: "",
   },
 ];
 
 const orientadores = [
   {
     nome: "Elisangela Gisele",
-    imagem: "/images/team/Elisangela.jpg",
-    linkedin: Elisangela,
+    imagem: Elisangela,
+    linkedin: "",
   },
   {
     nome: "Gabriel Moraes",
-    imagem: "/images/team/GabrielMoraes.jpg",
-    linkedin: GabrielMoraes,
+    imagem: GabrielMoraes,
+    linkedin: "",
   },
   {
     nome: "Gabriele de Oliveira",
-    imagem: "/images/team/Gabriele.jpg",
-    linkedin: Gabriele,
+    imagem: Gabriele,
+    linkedin: "",
   },
   
 ];
@@ -95,7 +95,7 @@ function FlipCard({ pessoa }) {
   return (
     <motion.article
       variants={cardVariant}
-      className="relative w-[288px] h-[320px] cursor-pointer [perspective:1200px]"
+      className="relative 2xl:w-[288px] lg:w-[266px] lg:h-[300px] 2xl:h-[320px] cursor-pointer [perspective:1200px]"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >

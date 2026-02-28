@@ -15,7 +15,7 @@ export default function GameCard() {
       viewport={{ once: true }}
       className="
         bg-[#313744] p-6 pt-5 text-white rounded-2xl 
-        w-10/12 md:w-1/2 lg:w-4/12 
+        w-10/12 lg:w-5/12 md:w-1/2  
         flex flex-col gap-4 relative
       "
     >
@@ -53,7 +53,7 @@ export default function GameCard() {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.4, duration: 0.5 }}
           viewport={{ once: true }}
-          className="text-sm md:text-base md:w-1/2 text-center md:text-left"
+          className="text-[15px] 2xl:text-base md:w-1/2 text-center md:text-left"
         >
           {t('components.game_card.description')}
         </motion.p>
@@ -66,9 +66,7 @@ export default function GameCard() {
         transition={{ type: "spring", stiffness: 300 }}
         className="
           bg-[#0033FF] rounded-xl px-14 py-2 font-semibold cursor-pointer
-          text-sm md:text-base
-          md:absolute md:left-1/2 md:-translate-x-1/2 md:-bottom-5
-        "
+          lg:text-sm 2xl:text-base md:absolute md:left-1/2 md:-translate-x-1/2 md:-bottom-5"
       >
         {t('components.game_card.button')}
       </motion.button>

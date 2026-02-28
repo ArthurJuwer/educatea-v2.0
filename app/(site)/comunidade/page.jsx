@@ -82,9 +82,9 @@ export default function Comunidade() {
   };
 
   return (
-    <div className="">
+    <div className="py-16">
       {/* Hero Section */}
-      <section className="relative bg-white pt-16 pb-12">
+      <section className="relative bg-white  pb-12">
         <div className="max-w-7xl mx-auto px-6 flex flex-col items-center text-center">
           
           {/* Efeito Typewriter */}

@@ -59,7 +59,7 @@ export function LanguageSelectFooter() {
           alt={selected.label}
           className="rounded-sm object-cover"
         />
-        <span>{selected.label}</span>
+        <span className="lg:text-[15px]">{selected.label}</span>
       </motion.button>
 
       <AnimatePresence>

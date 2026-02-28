@@ -16,7 +16,7 @@ export default function Footer() {
     <footer className="bg-[#1A1A1A] text-white mt-auto border-t border-gray-800">
       
       {/* Seção Principal */}
-      <div className="max-w-7xl mx-auto px-6 py-12">
+      <div className="2xl:max-w-7xl lg:max-w-5xl mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           
           {/* Coluna 1: Marca e Descrição */}
@@ -24,7 +24,7 @@ export default function Footer() {
                 {/* Filtro css rápido para deixar o logo branco caso ele seja azul escuro */}
                 <Image src={LogoWhite} alt="EducaTEA" width={140} height={40} className="object-contain" />
              
-             <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
+             <p className="text-gray-400 lg:text-[13px] 2xl:text-sm leading-relaxed max-w-xs">
                {t('components.footer.description')}
              </p>
           </div>
@@ -99,7 +99,7 @@ export default function Footer() {
 
       {/* Barra Inferior */}
       <div className="border-t border-gray-800 bg-[#111111]">
-        <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="2xl:max-w-7xl lg:max-w-5xl mx-auto px-6 py-4 lg:py-6 flex flex-col md:flex-row justify-between items-center lg:gap-4">
           <p className="text-gray-500 text-xs text-center md:text-left">
             {t('components.footer.copyright')}
           </p>

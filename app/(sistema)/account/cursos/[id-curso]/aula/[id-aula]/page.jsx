@@ -16,7 +16,7 @@ import avatar07 from "@/public/images/avatars/avatar07.png"
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import youtubeIcon from "@/public/images/icons/Youtube.png"
+import youtubeIcon from "@/public/images/icons/Youtube.webp"
 import Link from 'next/link';
 import { useLanguage } from "@/context/LanguageContext"; // Import Context
 

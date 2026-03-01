@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import MainLogo from "../public/images/logos/MainLogo.webp";
-import IconYoutube from "../public/images/icons/Youtube.png";
+import IconYoutube from "../public/images/icons/Youtube.webp";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function MainContent() {

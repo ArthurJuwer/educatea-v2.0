@@ -187,6 +187,7 @@ export default function Forum() {
           className="w-4/5 lg:w-3/5 h-px bg-black block"
           initial={{ scaleX: 0 }}
           whileInView={{ scaleX: 1 }}
+          viewport={{ once: true }} // <-- Esta é a linha que você precisa adicionar
           transition={{ duration: 0.6 }}
           style={{ transformOrigin: "left" }}
         />

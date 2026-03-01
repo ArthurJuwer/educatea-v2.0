@@ -17,12 +17,12 @@ const desenvolvedores = [
   {
     nome: "Arthur Cidade Matjjie",
     imagem: ArthurCidade,
-    linkedin: "",
+    linkedin: "https://www.linkedin.com/in/arthur-cidade-mattjie/",
   },
   {
     nome: "Arthur Juwer Rambo",
     imagem: ArthurJuwer,
-    linkedin: "",
+    linkedin: "https://www.linkedin.com/in/arthurjuwer/",
   },
 ];
 
@@ -35,12 +35,12 @@ const orientadores = [
   {
     nome: "Gabriel Moraes",
     imagem: GabrielMoraes,
-    linkedin: "",
+    linkedin: "https://www.linkedin.com/in/gabrielmdo/",
   },
   {
     nome: "Gabriele de Oliveira",
     imagem: Gabriele,
-    linkedin: "",
+    linkedin: "https://www.linkedin.com/in/gabriele-alves-8804b014a/",
   },
   
 ];

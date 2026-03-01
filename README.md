@@ -1,5 +1,7 @@
 ![Banner do Projeto](/public/images/logos/TextLogo.webp)
 
+---
+
 > "Pequenas atitudes constroem grandes mudanças. O EducaTEA é um convite para pensar diferente."
 
 ## 📝 Sobre o Projeto

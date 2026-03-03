@@ -34,7 +34,7 @@ export default function Cursos() {
             <h2 className="text-3xl font-bold text-black mb-8">
               {t('components.courses_page.title')}
             </h2>
-            <div className="relative grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="relative grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-6">
                 {/* Passamos o array já traduzido para o sub-componente */}
                 <CursosSection courses={courses} />
             </div>

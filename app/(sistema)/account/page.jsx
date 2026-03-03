@@ -146,13 +146,14 @@ export default function AccountPage() {
             <div className="text-center md:text-left">
               <div className="flex items-center justify-center md:justify-start gap-2 mb-1">
                 <h3 className="text-2xl font-bold text-slate-900">{user?.name}</h3>
-              <Image 
-                src={user?.country} 
-                width={32} 
-                height={32} 
-                className="rounded-sm" 
-                alt="País" 
-              />                
+              {user?.country && (
+                  <Image 
+                    src={user.country} 
+                    width={32} 
+                    height={32} 
+                    alt={`Bandeira do país ${user?.name}`} 
+                  />
+                )}               
               </div>
               <p className="text-slate-600 text-base font-medium mb-3">{user?.email}</p>
               
@@ -186,7 +187,7 @@ export default function AccountPage() {
             </div>
           </div>
             
-          <div className="relative grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="relative grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-6">
               <CursosSection courses={courses} />
           </div>
    

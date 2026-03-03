@@ -7,7 +7,7 @@ export default function AccountCommentCard({ text, author, image, onClick }) {
       // Adicionado 'overflow-hidden' para que o canto azul respeite a borda arredondada
       className={`
         relative border-2 border-[#0033FF] rounded-lg flex items-center gap-4
-        cursor-pointer hover:bg-blue-50 transition-all p-4 lg:py-6 h-[115px] lg:w-[450px] text-sm
+        cursor-pointer hover:bg-blue-50 transition-all p-4 lg:py-6 h-[115px] md:w-auto 2xl:w-[450px] text-sm
         overflow-hidden
       `}
     >
